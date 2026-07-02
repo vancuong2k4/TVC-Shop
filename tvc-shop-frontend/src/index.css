@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white text-gray-900 font-sans antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Custom Selection Color */
+::selection {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Custom Utilities for Minimalist Theme */
+.glass-effect {
+  @apply bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm;
+}
+
+.btn-primary {
+  @apply inline-block bg-black text-white px-8 py-4 text-xs font-semibold tracking-[0.2em] uppercase hover:bg-gray-800 transition-colors duration-300;
+}
+
+.btn-outline {
+  @apply inline-block border border-black text-black px-8 py-4 text-xs font-semibold tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-colors duration-300;
+}

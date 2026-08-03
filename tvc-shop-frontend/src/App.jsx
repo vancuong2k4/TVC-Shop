@@ -15,6 +15,7 @@ import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
 import Wishlist from './pages/Wishlist';
 import Profile from './pages/Profile';
+import ChatbotWidget from './components/chatbot/ChatbotWidget';
 
 // Admin Imports
 import AdminRoute from './components/common/AdminRoute';
@@ -57,6 +58,7 @@ function App() {
           <Route path="/categories" element={<div className="p-20 text-center text-3xl font-bold mt-20 uppercase tracking-widest">Trang Bộ Sưu Tập <br/><span className="text-sm text-gray-500">(Coming soon...)</span></div>} />
           <Route path="/blog" element={<div className="p-20 text-center text-3xl font-bold mt-20 uppercase tracking-widest">Trang Tạp Chí <br/><span className="text-sm text-gray-500">(Coming soon...)</span></div>} />
         </Routes>
+        <ChatbotWidget />
         </Router>
         </WishlistProvider>
       </CartProvider>

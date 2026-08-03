@@ -18,11 +18,15 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ChatbotController;
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{slug}', [ProductController::class, 'show']);
 Route::get('/coupons/validate', [CouponController::class, 'validateCoupon']);
 Route::get('/reviews', [ReviewController::class, 'getReviews']);
+
+// Chatbot Route (Mở cho tất cả mọi người, không cần đăng nhập)
+Route::post('/chatbot/chat', [ChatbotController::class, 'chat']);
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 Route::post('/auth/register', [AuthController::class, 'register']);

@@ -25,7 +25,7 @@ const AdminOrders = () => {
   const handleStatusChange = async (orderId, newStatus) => {
     setUpdating(orderId);
     try {
-      await api.put('/admin/orders', { order_id: orderId, status: newStatus });
+      await api.put(`/admin/orders/${orderId}`, { status: newStatus });
       setOrders(orders.map(o => o.id === orderId ? { ...o, status: newStatus } : o));
     } catch (error) {
       console.error("Lỗi khi cập nhật trạng thái", error);

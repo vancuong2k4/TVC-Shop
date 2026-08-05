@@ -187,24 +187,46 @@ const Shop = () => {
         </div>
 
         {/* Product Grid */}
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col">
           {loading ? (
             <div className="flex justify-center items-center h-64">
               <div className="text-xl font-bold uppercase tracking-widest text-gray-400 animate-pulse">Đang tải...</div>
             </div>
           ) : products.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
-              {products.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12">
+                {products.map(product => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+              
+              {/* Fake Pagination for premium look */}
+              <div className="mt-16 pt-8 border-t border-gray-100 flex justify-center items-center space-x-2">
+                <button className="w-10 h-10 flex items-center justify-center border border-gray-200 text-gray-500 hover:border-black hover:text-black transition-colors">
+                  &lt;
+                </button>
+                <button className="w-10 h-10 flex items-center justify-center bg-black text-white font-medium">
+                  1
+                </button>
+                <button className="w-10 h-10 flex items-center justify-center border border-gray-200 text-gray-600 hover:border-black hover:text-black transition-colors font-medium">
+                  2
+                </button>
+                <button className="w-10 h-10 flex items-center justify-center border border-gray-200 text-gray-600 hover:border-black hover:text-black transition-colors font-medium">
+                  3
+                </button>
+                <span className="text-gray-400 px-2">...</span>
+                <button className="w-10 h-10 flex items-center justify-center border border-gray-200 text-gray-500 hover:border-black hover:text-black transition-colors">
+                  &gt;
+                </button>
+              </div>
+            </>
           ) : (
-            <div className="text-center py-20">
-              <h2 className="text-2xl font-bold uppercase tracking-widest mb-4">Không tìm thấy sản phẩm</h2>
-              <p className="text-gray-500">Thử thay đổi bộ lọc hoặc từ khóa tìm kiếm của bạn.</p>
+            <div className="text-center py-32 bg-gray-50/50 rounded-sm border border-gray-100">
+              <h2 className="text-2xl font-serif italic text-gray-900 mb-4">Không tìm thấy sản phẩm</h2>
+              <p className="text-gray-500 mb-8 font-medium">Rất tiếc, không có sản phẩm nào phù hợp với tìm kiếm của bạn.</p>
               <button 
                 onClick={clearFilters}
-                className="mt-6 bg-black text-white px-6 py-3 font-bold uppercase tracking-widest text-sm hover:bg-gray-800"
+                className="bg-black text-white px-8 py-4 font-bold uppercase tracking-[0.2em] text-xs hover:bg-gray-800 transition-colors"
               >
                 Xóa Bộ Lọc
               </button>

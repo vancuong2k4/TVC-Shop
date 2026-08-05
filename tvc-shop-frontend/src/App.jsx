@@ -11,6 +11,7 @@ import Blog from './pages/Blog';
 import BlogDetail from './pages/BlogDetail';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
+import GoogleCallback from './pages/Auth/GoogleCallback';
 import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
 import Wishlist from './pages/Wishlist';
@@ -25,6 +26,9 @@ import AdminOrders from './pages/admin/AdminOrders';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminCoupons from './pages/admin/AdminCoupons';
 import AdminBlogs from './pages/admin/AdminBlogs';
+import AdminBanners from './pages/admin/AdminBanners';
+
+import AdminUsers from './pages/admin/AdminUsers';
 
 function App() {
   return (
@@ -52,11 +56,10 @@ function App() {
           <Route path="/admin/products" element={<AdminRoute><AdminLayout><AdminProducts /></AdminLayout></AdminRoute>} />
           <Route path="/admin/coupons" element={<AdminRoute><AdminLayout><AdminCoupons /></AdminLayout></AdminRoute>} />
           <Route path="/admin/blogs" element={<AdminRoute><AdminLayout><AdminBlogs /></AdminLayout></AdminRoute>} />
-          <Route path="/admin/users" element={<AdminRoute><AdminLayout><div className="text-2xl font-bold uppercase tracking-widest text-gray-500">Khách Hàng (Coming Soon)</div></AdminLayout></AdminRoute>} />
+          <Route path="/admin/users" element={<AdminRoute><AdminLayout><AdminUsers /></AdminLayout></AdminRoute>} />
+          <Route path="/admin/banners" element={<AdminRoute><AdminLayout><AdminBanners /></AdminLayout></AdminRoute>} />
 
-          {/* Placeholder routes */}
-          <Route path="/categories" element={<div className="p-20 text-center text-3xl font-bold mt-20 uppercase tracking-widest">Trang Bộ Sưu Tập <br/><span className="text-sm text-gray-500">(Coming soon...)</span></div>} />
-          <Route path="/blog" element={<div className="p-20 text-center text-3xl font-bold mt-20 uppercase tracking-widest">Trang Tạp Chí <br/><span className="text-sm text-gray-500">(Coming soon...)</span></div>} />
+          <Route path="/auth/google/callback" element={<GoogleCallback />} />
         </Routes>
         <ChatbotWidget />
         </Router>

@@ -26,6 +26,10 @@ class AuthController extends Controller
             return response()->json(['message' => 'Email hoặc mật khẩu không chính xác.'], 401);
         }
 
+        if ($user->status === 'blocked') {
+            return response()->json(['message' => 'Tài khoản của bạn đã bị khóa. Vui lòng liên hệ quản trị viên.'], 403);
+        }
+
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([

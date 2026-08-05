@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingBag, User, Search, Menu, X, Heart } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
@@ -16,6 +16,8 @@ const Navbar = () => {
   const { totalItems, setIsCartOpen } = useCart();
   const { wishlistItems } = useWishlist();
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -34,16 +36,27 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Xác định CSS cho Navbar dựa trên trang hiện tại và trạng thái cuộn
+  const navBgClass = isHomePage 
+    ? (isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-8')
+    : 'bg-white shadow-sm py-4'; // Luôn nền trắng ở các trang con
+    
+  const textClass = (isHomePage && !isScrolled) 
+    ? 'text-white drop-shadow-sm' 
+    : 'text-black'; // Luôn chữ đen ở các trang con hoặc khi đã cuộn
+
   return (
     <>
-    <nav className={`fixed w-full z-50 transition-all duration-300 border-b border-gray-100/20 ${isScrolled ? 'bg-white shadow-md py-4' : 'bg-white/80 backdrop-blur-md py-6 shadow-sm'}`}>
-      <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${navBgClass}`}>
+      <div className="container mx-auto px-6 md:px-12 lg:px-16 flex justify-between items-center">
         
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold tracking-[0.2em] uppercase">TVC-Shop</Link>
+        <Link to="/" className={`text-2xl lg:text-3xl font-serif font-bold tracking-tighter uppercase transition-colors duration-300 ${textClass}`}>
+          TVC-SHOP
+        </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-10 text-sm font-semibold uppercase tracking-widest">
+        <div className={`hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 ${textClass}`}>
           <Link to="/" className="hover:text-gray-500 transition-colors">Trang chủ</Link>
           <Link to="/shop" className="hover:text-gray-500 transition-colors">Cửa hàng</Link>
           <Link to="/categories" className="hover:text-gray-500 transition-colors">Bộ sưu tập</Link>
@@ -51,18 +64,18 @@ const Navbar = () => {
         </div>
 
         {/* Icons */}
-        <div className="flex items-center space-x-6">
+        <div className={`flex items-center space-x-6 transition-colors duration-300 ${textClass}`}>
           {/* Search Toggle */}
           <div className="relative">
             <button 
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="hidden md:block text-black hover:text-gray-500 transition-colors"
+              className="hidden md:block hover:opacity-70 transition-opacity"
             >
               <Search size={20} />
             </button>
             
             {/* Search Dropdown */}
-            <div className={`absolute right-0 top-full mt-6 bg-white shadow-2xl p-4 transition-all duration-300 w-72 border border-gray-100 ${isSearchOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
+            <div className={`absolute right-0 top-full mt-6 bg-white text-black shadow-2xl p-4 transition-all duration-300 w-72 border border-gray-100 ${isSearchOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
               <form onSubmit={handleSearchSubmit} className="relative">
                 <input 
                   type="text" 
@@ -82,10 +95,10 @@ const Navbar = () => {
           {/* User Auth Handling */}
           {user ? (
             <div className="relative group hidden md:block">
-              <button className="flex items-center space-x-2 text-black hover:text-gray-500 transition-colors">
+              <button className="flex items-center space-x-2 hover:opacity-70 transition-opacity">
                 <User size={20} />
               </button>
-              <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-100 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+              <div className="absolute right-0 mt-2 w-48 bg-white text-black border border-gray-100 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                 <div className="px-5 py-4 border-b border-gray-100">
                   <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Xin chào,</p>
                   <p className="text-sm font-bold truncate">{user.full_name}</p>
@@ -98,12 +111,12 @@ const Navbar = () => {
               </div>
             </div>
           ) : (
-            <Link to="/login" className="hidden md:block text-black hover:text-gray-500 transition-colors">
+            <Link to="/login" className="hidden md:block hover:opacity-70 transition-opacity">
               <User size={20} />
             </Link>
           )}
 
-          <Link to="/wishlist" className="hidden md:block text-black hover:text-gray-500 transition-colors relative">
+          <Link to="/wishlist" className="hidden md:block hover:opacity-70 transition-opacity relative">
             <Heart size={20} />
             {wishlistItems.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
@@ -112,7 +125,7 @@ const Navbar = () => {
             )}
           </Link>
 
-          <button onClick={() => setIsCartOpen(true)} className="text-black hover:text-gray-500 transition-colors relative">
+          <button onClick={() => setIsCartOpen(true)} className="hover:opacity-70 transition-opacity relative">
             <ShoppingBag size={20} />
             {totalItems > 0 && (
               <span className="absolute -top-2 -right-2 bg-black text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
@@ -122,7 +135,7 @@ const Navbar = () => {
           </button>
           
           {/* Mobile Menu Toggle */}
-          <button className="md:hidden text-black" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button className="md:hidden hover:opacity-70 transition-opacity" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -130,7 +143,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 py-6 px-4 flex flex-col space-y-6 text-sm font-semibold uppercase tracking-widest text-center">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white text-black shadow-xl border-t border-gray-100 py-6 px-4 flex flex-col space-y-6 text-sm font-semibold uppercase tracking-widest text-center">
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Trang chủ</Link>
           <Link to="/shop" onClick={() => setIsMobileMenuOpen(false)}>Cửa hàng</Link>
           <Link to="/categories" onClick={() => setIsMobileMenuOpen(false)}>Bộ sưu tập</Link>

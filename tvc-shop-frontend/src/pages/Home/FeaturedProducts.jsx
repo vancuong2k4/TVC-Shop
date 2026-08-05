@@ -38,7 +38,7 @@ const FeaturedProducts = () => {
         {loading ? (
           <div className="text-center py-10 font-medium animate-pulse text-gray-500">Đang tải dữ liệu từ máy chủ...</div>
         ) : products.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
             {products.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}

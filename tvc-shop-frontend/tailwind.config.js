@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Jost', 'sans-serif'],
-        serif: ['"Playfair Display"', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        serif: ['Outfit', 'sans-serif'], // Overriding serif to use Outfit for headings to fix the legacy class usage
       }
     },
   },

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, ShoppingBag, Package, Users, LogOut, Tag, FileText } from 'lucide-react';
+import { LayoutDashboard, ShoppingBag, Package, Users, LogOut, Tag, FileText, Image as ImageIcon } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 const AdminLayout = ({ children }) => {
@@ -18,6 +18,7 @@ const AdminLayout = ({ children }) => {
     { name: 'Đơn Hàng', path: '/admin/orders', icon: <ShoppingBag size={20} /> },
     { name: 'Sản Phẩm', path: '/admin/products', icon: <Package size={20} /> },
     { name: 'Mã Giảm Giá', path: '/admin/coupons', icon: <Tag size={20} /> },
+    { name: 'Quản Lý Banner', path: '/admin/banners', icon: <ImageIcon size={20} /> },
     { name: 'Tạp Chí (Blog)', path: '/admin/blogs', icon: <FileText size={20} /> },
     { name: 'Khách Hàng', path: '/admin/users', icon: <Users size={20} /> },
   ];

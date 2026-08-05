@@ -14,7 +14,7 @@
 - **AI Integration**: Google Gemini API (Model: `gemini-flash-latest`) dùng cho Chatbot hỗ trợ khách hàng.
 
 ## 3. Cấu trúc Database (Core Models)
-- `users`: Quản lý người dùng và phân quyền (admin/customer).
+- `users`: Quản lý người dùng và phân quyền (admin/customer). Có hỗ trợ `google_id` và `avatar` cho đăng nhập Google OAuth.
 - `categories`: Danh mục sản phẩm.
 - `products`: Sản phẩm chính (gắn với categories).
 - `product_images`: Quản lý nhiều ảnh cho một sản phẩm.
@@ -36,7 +36,8 @@
   - `ChatbotWidget` tích hợp Gemini AI, hiển thị góc dưới màn hình.
 - **Phân hệ Admin (`/admin/*`)**:
   - Được bảo vệ bằng `AdminRoute` (chỉ user có `role === 'admin'` mới được vào).
-  - Quản lý Sản phẩm, Đơn hàng, Coupon, Blogs. (Quản lý User đang phát triển).
+  - Quản lý Sản phẩm, Đơn hàng, Coupon, Blogs.
+  - Quản lý Khách Hàng (User Management): Cho phép khóa tài khoản và thay đổi phân quyền.
 
 ## 5. Backend Architecture (`laravel-backend`)
 - APIs được định nghĩa trong `routes/api.php`.
@@ -44,6 +45,7 @@
 - Sử dụng **Sanctum** để xác thực Token.
 - **Controllers Chính**:
   - `AuthController`: Đăng nhập, đăng ký, đăng xuất.
+  - `GoogleAuthController`: Quản lý luồng đăng nhập qua Google OAuth (sử dụng thư viện `laravel/socialite`).
   - `ProductController` / `CategoryController`: Hiển thị danh sách và chi tiết.
   - `OrderController`: Đặt hàng, xem lịch sử.
   - `WishlistController`, `ReviewController`, `CouponController`.
@@ -54,6 +56,7 @@
 - Lỗi `cURL error 60 (SSL certificate problem)` trên XAMPP local: Đã fix bằng cấu hình `['verify' => false]` trong HTTP client của Laravel.
 - **Cập nhật Model Gemini**: API đã được nâng cấp lên dùng `gemini-flash-latest` vì Google khóa model cũ (`1.5-flash`) đối với các key tạo sau năm 2026. Code API gửi key thông qua Header.
 - **Z-Index UI**: Navbar và Cart Drawer được quy định z-index chính xác (Navbar 50, Cart 50+, Chatbot cao nhất).
+- **Infinite Loop ở AuthCallback**: Fix lỗi vòng lặp re-render ở `GoogleCallback.jsx` bằng cách ép tải lại trang bằng `window.location.href` thay vì `navigate` của React Router và bỏ dependency `login` trong `useEffect`.
 
 ## 7. Tính năng tiếp theo (Roadmap)
 - Hoàn thiện chức năng quản lý Users trong Admin.

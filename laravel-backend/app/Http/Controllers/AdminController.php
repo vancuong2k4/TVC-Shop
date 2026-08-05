@@ -21,11 +21,36 @@ class AdminController extends Controller
         $totalUsers = User::where('role', 'customer')->count();
         $totalProducts = Product::count();
 
+        // Thống kê 6 tháng gần nhất cho Doanh thu
+        $revenueData = [];
+        for ($i = 5; $i >= 0; $i--) {
+            $month = \Carbon\Carbon::now()->subMonths($i)->format('m/Y');
+            $revenueForMonth = Order::where('status', '!=', 'cancelled')
+                                    ->whereYear('created_at', \Carbon\Carbon::now()->subMonths($i)->year)
+                                    ->whereMonth('created_at', \Carbon\Carbon::now()->subMonths($i)->month)
+                                    ->sum('total_amount');
+            $revenueData[] = [
+                'name' => $month,
+                'revenue' => (float) $revenueForMonth
+            ];
+        }
+
+        // Thống kê Trạng thái Đơn hàng
+        $orderStatusData = [
+            ['name' => 'Chờ xử lý', 'value' => Order::where('status', 'pending')->count(), 'color' => '#9a3412'], // orange-800
+            ['name' => 'Đang xử lý', 'value' => Order::where('status', 'processing')->count(), 'color' => '#1e40af'], // blue-800
+            ['name' => 'Đang giao', 'value' => Order::where('status', 'shipped')->count(), 'color' => '#6b21a8'], // purple-800
+            ['name' => 'Đã giao', 'value' => Order::where('status', 'delivered')->count(), 'color' => '#166534'], // green-800
+            ['name' => 'Đã hủy', 'value' => Order::where('status', 'cancelled')->count(), 'color' => '#991b1b'], // red-800
+        ];
+
         return response()->json([
             'revenue' => $revenue,
             'total_orders' => $totalOrders,
             'total_users' => $totalUsers,
-            'total_products' => $totalProducts
+            'total_products' => $totalProducts,
+            'revenue_chart' => $revenueData,
+            'order_status_chart' => $orderStatusData
         ]);
     }
 
@@ -214,5 +239,61 @@ class AdminController extends Controller
         $blog = Blog::findOrFail($id);
         $blog->delete();
         return response()->json(['message' => 'Đã xóa bài viết']);
+    }
+
+    public function getUsers()
+    {
+        // Get all users, including their total orders and total spent amount
+        $users = User::withCount('orders')
+            ->orderBy('id', 'desc')
+            ->get();
+            
+        // Assuming we need total_spent, we can calculate it or simply leave it as withCount for now
+        return response()->json($users);
+    }
+
+    public function updateUserRole(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        
+        $request->validate([
+            'role' => 'required|in:admin,customer'
+        ]);
+
+        // Prevent admin from demoting themselves
+        if ($user->id === $request->user()->id && $request->role === 'customer') {
+            return response()->json(['message' => 'Bạn không thể tự giáng cấp chính mình!'], 403);
+        }
+
+        $user->update(['role' => $request->role]);
+        
+        return response()->json(['message' => 'Cập nhật vai trò thành công', 'user' => $user]);
+    }
+
+    public function updateUserStatus(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $request->validate([
+            'status' => 'required|in:active,blocked'
+        ]);
+
+        // Prevent admin from blocking themselves or other admins
+        if ($user->id === $request->user()->id) {
+            return response()->json(['message' => 'Bạn không thể tự khóa tài khoản của mình!'], 403);
+        }
+
+        if ($user->role === 'admin') {
+            return response()->json(['message' => 'Bạn không thể khóa tài khoản của Admin khác!'], 403);
+        }
+
+        $user->update(['status' => $request->status]);
+
+        // If blocked, delete all access tokens to force logout
+        if ($request->status === 'blocked') {
+            $user->tokens()->delete();
+        }
+
+        return response()->json(['message' => 'Cập nhật trạng thái thành công', 'user' => $user]);
     }
 }

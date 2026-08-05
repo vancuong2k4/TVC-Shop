@@ -24,12 +24,15 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{slug}', [ProductController::class, 'show']);
 Route::get('/coupons/validate', [CouponController::class, 'validateCoupon']);
 Route::get('/reviews', [ReviewController::class, 'getReviews']);
+Route::get('/banners', [\App\Http\Controllers\BannerController::class, 'index']);
 
 // Chatbot Route (Mở cho tất cả mọi người, không cần đăng nhập)
 Route::post('/chatbot/chat', [ChatbotController::class, 'chat']);
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 Route::post('/auth/register', [AuthController::class, 'register']);
+Route::get('/auth/google', [\App\Http\Controllers\GoogleAuthController::class, 'redirectToGoogle']);
+Route::get('/auth/google/callback', [\App\Http\Controllers\GoogleAuthController::class, 'handleGoogleCallback']);
 
 use App\Http\Controllers\AdminController;
 
@@ -51,6 +54,12 @@ Route::middleware('auth:sanctum')->group(function () {
     // Admin Routes
     Route::middleware('admin')->group(function () {
         Route::get('/admin/dashboard', [AdminController::class, 'getDashboard']);
+        
+        // User Routes
+        Route::get('/admin/users', [AdminController::class, 'getUsers']);
+        Route::put('/admin/users/{id}/role', [AdminController::class, 'updateUserRole']);
+        Route::put('/admin/users/{id}/status', [AdminController::class, 'updateUserStatus']);
+        
         Route::get('/admin/orders', [AdminController::class, 'getOrders']);
         Route::put('/admin/orders/{id}', [AdminController::class, 'updateOrderStatus']);
         Route::get('/admin/products', [AdminController::class, 'getAllProducts']);
@@ -63,5 +72,11 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/admin/blogs', [AdminController::class, 'getBlogs']);
         Route::post('/admin/blogs', [AdminController::class, 'createBlog']);
         Route::delete('/admin/blogs/{id}', [AdminController::class, 'deleteBlog']);
+
+        // Banner Routes
+        Route::get('/admin/banners', [\App\Http\Controllers\BannerController::class, 'adminIndex']);
+        Route::post('/admin/banners', [\App\Http\Controllers\BannerController::class, 'store']);
+        Route::put('/admin/banners/{id}', [\App\Http\Controllers\BannerController::class, 'update']);
+        Route::delete('/admin/banners/{id}', [\App\Http\Controllers\BannerController::class, 'destroy']);
     });
 });

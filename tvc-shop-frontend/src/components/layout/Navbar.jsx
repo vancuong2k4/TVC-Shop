@@ -6,6 +6,7 @@ import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
 import CartDrawer from '../cart/CartDrawer';
 import SearchModal from '../common/SearchModal';
+import NotificationDropdown from '../common/NotificationDropdown';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -103,6 +104,11 @@ const Navbar = () => {
               <User size={20} />
             </Link>
           )}
+
+          {/* Notification Dropdown for Logged In User */}
+          <div className="hidden md:block">
+            <NotificationDropdown />
+          </div>
 
           <Link to="/wishlist" className="hidden md:block hover:opacity-70 transition-opacity relative">
             <Heart size={20} />

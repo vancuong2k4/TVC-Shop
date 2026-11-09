@@ -18,6 +18,7 @@ import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
 import Wishlist from './pages/Wishlist';
 import Profile from './pages/Profile';
+import GiftCards from './pages/GiftCards';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 
 // Admin Imports
@@ -50,6 +51,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/gift-cards" element={<GiftCards />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

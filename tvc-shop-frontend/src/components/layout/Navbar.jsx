@@ -66,6 +66,7 @@ const Navbar = () => {
           <Link to="/" className="hover:text-gray-500 transition-colors">Trang chủ</Link>
           <Link to="/shop" className="hover:text-gray-500 transition-colors">Cửa hàng</Link>
           <Link to="/categories" className="hover:text-gray-500 transition-colors">Bộ sưu tập</Link>
+          <Link to="/gift-cards" className="hover:text-gray-500 transition-colors">E-Gift Cards</Link>
           <Link to="/blog" className="hover:text-gray-500 transition-colors">Tạp chí</Link>
         </div>
 
@@ -153,6 +154,7 @@ const Navbar = () => {
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Trang chủ</Link>
           <Link to="/shop" onClick={() => setIsMobileMenuOpen(false)}>Cửa hàng</Link>
           <Link to="/categories" onClick={() => setIsMobileMenuOpen(false)}>Bộ sưu tập</Link>
+          <Link to="/gift-cards" onClick={() => setIsMobileMenuOpen(false)}>E-Gift Cards</Link>
           <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)}>Tạp chí</Link>
           
           <div className="border-t border-gray-100 pt-6">

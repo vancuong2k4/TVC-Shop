@@ -16,15 +16,20 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ChatbotController;
 
+Route::get('/products/filter-options', [ProductController::class, 'filterOptions']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{slug}', [ProductController::class, 'show']);
+Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/coupons/validate', [CouponController::class, 'validateCoupon']);
 Route::get('/reviews', [ReviewController::class, 'getReviews']);
 Route::get('/banners', [\App\Http\Controllers\BannerController::class, 'index']);
+Route::get('/blogs', [\App\Http\Controllers\BlogController::class, 'index']);
+Route::get('/blogs/{id}', [\App\Http\Controllers\BlogController::class, 'show']);
 
 // Chatbot Route (Mở cho tất cả mọi người, không cần đăng nhập)
 Route::post('/chatbot/chat', [ChatbotController::class, 'chat']);

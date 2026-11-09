@@ -8,7 +8,7 @@ const AdminBlogs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
-    image_url: '',
+    image: null,
     content: ''
   });
 
@@ -30,9 +30,21 @@ const AdminBlogs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post('/admin/blogs', formData);
+      const data = new FormData();
+      data.append('title', formData.title);
+      data.append('content', formData.content);
+      if (formData.image) {
+        data.append('image', formData.image);
+      }
+
+      await api.post('/admin/blogs', data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      
       setIsModalOpen(false);
-      setFormData({ title: '', image_url: '', content: '' });
+      setFormData({ title: '', image: null, content: '' });
       fetchBlogs();
     } catch (error) {
       alert(error.response?.data?.message || 'Có lỗi xảy ra');
@@ -42,7 +54,7 @@ const AdminBlogs = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Bạn có chắc chắn muốn xóa bài viết này?')) {
       try {
-        await api.delete(`/admin/blogs?id=${id}`);
+        await api.delete(`/admin/blogs/${id}`);
         fetchBlogs();
       } catch (error) {
         alert('Có lỗi xảy ra khi xóa bài viết');
@@ -128,13 +140,12 @@ const AdminBlogs = () => {
               </div>
               
               <div>
-                <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Link Ảnh Bìa (Tùy chọn)</label>
+                <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Ảnh Bìa (Tùy chọn)</label>
                 <input 
-                  type="url" 
-                  value={formData.image_url}
-                  onChange={(e) => setFormData({...formData, image_url: e.target.value})}
+                  type="file" 
+                  accept="image/*"
+                  onChange={(e) => setFormData({...formData, image: e.target.files[0]})}
                   className="w-full border border-gray-300 p-3 outline-none focus:border-black"
-                  placeholder="https://images.unsplash.com/..."
                 />
               </div>
 

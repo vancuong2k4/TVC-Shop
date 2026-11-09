@@ -51,6 +51,7 @@
   - `ProductController`: API danh sách sản phẩm hỗ trợ tìm kiếm toàn văn (`search`), lọc theo danh mục (`category`/`category_id`), khoảng giá (`min_price`, `max_price`), kích cỡ (`size`), màu sắc (`color`), tồn kho (`in_stock`), sắp xếp (`sort`) và phân trang (`paginate`). Cung cấp endpoint `/products/filter-options` trả về danh mục, kích thước, màu sắc và mức giá động từ CSDL.
   - `CategoryController`: API `/categories` trả về danh sách danh mục kèm số lượng sản phẩm kích hoạt (`products_count`).
   - `OrderController`: Đặt hàng, xem lịch sử.
+  - `PaymentController`: Xử lý tích hợp cổng thanh toán trực tuyến: tạo URL thanh toán VNPay Sandbox với mã băm bảo mật SHA-512 (`createVnpayPayment`), tiếp nhận và xác thực callback từ VNPay (`vnpayCallback`), và hỗ trợ mô phỏng thanh toán trực tuyến tức thì (`simulateOnlinePayment`) cho thẻ quốc tế Visa/Mastercard và ví MoMo.
   - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
   - `WishlistController`, `ReviewController`, `CouponController`.
   - `ChatbotController`: Xử lý logic gọi sang Google Gemini qua Header `x-goog-api-key`.
@@ -62,7 +63,7 @@
 - **Z-Index UI**: Navbar và Cart Drawer được quy định z-index chính xác (Navbar 50, Cart 50+, Chatbot cao nhất).
 - **Infinite Loop ở AuthCallback**: Fix lỗi vòng lặp re-render ở `GoogleCallback.jsx` bằng cách ép tải lại trang bằng `window.location.href` thay vì `navigate` của React Router và bỏ dependency `login` trong `useEffect`.
 - **Tương thích ngược dữ liệu API Products**: Bổ sung cờ `paginate=1` để phân tách phản hồi mảng phẳng (cho FeaturedProducts, BlogDetail, ProductDetail) và phản hồi phân trang (cho Shop), tránh lỗi vỡ mảng JS.
+- **Xử lý luồng cổng thanh toán VNPay / MoMo**: Thiết lập cơ chế fallback linh hoạt và luồng điều hướng callback thông minh về trang Orders của Frontend kèm banner trạng thái trực quan.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Tích hợp cổng thanh toán trực tuyến (VNPay / MoMo / Stripe).
 - Đánh giá sản phẩm nâng cao kèm upload ảnh feedback từ khách hàng.

@@ -20,6 +20,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ChatbotController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/products/filter-options', [ProductController::class, 'filterOptions']);
 Route::get('/products', [ProductController::class, 'index']);
@@ -30,6 +31,9 @@ Route::get('/reviews', [ReviewController::class, 'getReviews']);
 Route::get('/banners', [\App\Http\Controllers\BannerController::class, 'index']);
 Route::get('/blogs', [\App\Http\Controllers\BlogController::class, 'index']);
 Route::get('/blogs/{id}', [\App\Http\Controllers\BlogController::class, 'show']);
+
+// Payment Callbacks
+Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 
 // Chatbot Route (Mở cho tất cả mọi người, không cần đăng nhập)
 Route::post('/chatbot/chat', [ChatbotController::class, 'chat']);
@@ -55,6 +59,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // Order Routes
     Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'getUserOrders']);
     Route::post('/orders', [\App\Http\Controllers\OrderController::class, 'create']);
+
+    // Payment Routes
+    Route::post('/payment/vnpay/create', [PaymentController::class, 'createVnpayPayment']);
+    Route::post('/payment/simulate', [PaymentController::class, 'simulateOnlinePayment']);
 
     // Admin Routes
     Route::middleware('admin')->group(function () {

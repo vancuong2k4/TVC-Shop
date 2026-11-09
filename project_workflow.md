@@ -60,6 +60,9 @@
   - `SeoController`: Cung cấp API thẻ Meta động (`/seo/meta`) và trình tạo Sitemap XML tự động (`/seo/sitemap.xml`) phục vụ Googlebot và các công cụ tìm kiếm.
   - `LoyaltyController`: Quản lý hệ thống điểm thưởng khách hàng thân thiết (`/loyalty/profile`), tính toán cấp bậc thành viên (Bronze, Silver, Gold, Diamond), tiến độ % nâng hạng, và lịch sử tích lũy điểm theo đơn hàng.
   - `ReferralController`: Quản lý chương trình đại sứ giới thiệu bạn bè (`/referral/stats`) và hệ thống phát hành / tra cứu phiếu quà tặng điện tử E-Gift Cards (`/gift-cards/purchase`, `/gift-cards/check`). Tự động sinh mã voucher độc quyền cho người giới thiệu và người nhận quà.
+  - `SocialProofController`: Cung cấp danh sách các giao dịch mua hàng thực tế gần đây (`/social-proof/recent-purchases`) với tên khách hàng ẩn danh, khu vực thành phố, tên sản phẩm và thời gian mua để hiển thị thông báo popup trực tiếp trên giao diện.
+  - `UserController`: Quản lý hồ sơ cá nhân của người dùng (`/users/profile`).
+  - `AddressController`: Quản lý Sổ địa chỉ giao hàng nhiều địa điểm (`/addresses`, `/addresses/{id}/default`), hỗ trợ nhãn địa chỉ (Nhà riêng, Văn phòng) và chọn địa chỉ nhận hàng mặc định.
   - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
   - `WishlistController`, `CouponController`.
   - `ReviewController`: Quản lý đánh giá sản phẩm nâng cao; hỗ trợ lọc theo số sao (1-5 sao), lọc bài có hình ảnh thực tế, sắp xếp đánh giá, tính toán phân bổ xếp hạng (Rating distribution), và hỗ trợ tải lên nhiều hình ảnh feedback thực tế từ khách hàng đã mua sản phẩm.
@@ -78,7 +81,9 @@
 - **Tối ưu hóa SEO & OpenGraph**: Sử dụng hook tùy chỉnh `useSEO` tự động tiêm các thẻ `og:image`, `og:title`, canonical link và dữ liệu có cấu trúc JSON-LD chuẩn Schema.org cho từng sản phẩm và bài viết tạp chí.
 - **Hệ thống Điểm Thưởng & Khách Hàng Thân Thiết (Loyalty & VIP Tiers)**: Phân hạng người dùng dựa trên tổng giá trị chi tiêu thực tế (Bronze, Silver, Gold, Diamond), cấp thẻ thành viên kỹ thuật số cao cấp và hiển thị chi tiết tiến trình thăng hạng tại trang Hồ sơ.
 - **Hệ thống Phiếu Quà Tặng Điện Tử (E-Gift Cards) & Đại Sứ Giới Thiệu (Referral Program)**: Người dùng có thể tùy biến tạo và gửi E-Gift Card kỹ thuật số với nhiều bao bì Cold Luxury, mệnh giá linh hoạt, và chia sẻ link / mã giới thiệu độc quyền để nhận 50.000đ tích lũy mua sắm cho mỗi bạn bè mua hàng thành công.
+- **Hệ thống Khách Hàng Gần Đây Đã Mua (Social Proof Real-time Sales Popup)**: Tự động hiển thị popup góc màn hình với hiệu ứng mượt mà thông báo các giao dịch mua hàng thành công gần nhất, tạo độ uy tín cao và kích thích hành vi mua sắm.
+- **Quản lý Sổ Địa Chỉ Giao Hàng Đa Điểm (Multi-Address Book)**: Cho phép khách hàng lưu nhiều địa chỉ nhận hàng (Nhà riêng, Văn phòng), thiết lập địa chỉ mặc định trong Profile và chọn nhanh 1-click tại trang Checkout mà không phải nhập lại.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Khách Hàng Gần Đây Đã Mua (Social Proof / Real-time Sales Popup) kích thích mua sắm.
-- Quản lý Sổ địa chỉ giao hàng nhiều địa điểm (Multi-Address Book) trong Profile.
+- Hệ thống Tra cứu Hành trình Đơn hàng & Live Order Tracking Timeline.
+- Hệ thống Khảo sát Gợi ý Size Thời trang (Smart Fit & Size Recommender).

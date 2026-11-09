@@ -5,9 +5,10 @@ import api from '../api/axios';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import Breadcrumb from '../components/common/Breadcrumb';
-import { User, ShoppingBag, LogOut, Award, Sparkles, Gift } from 'lucide-react';
+import { User, ShoppingBag, LogOut, Award, Sparkles, Gift, MapPin } from 'lucide-react';
 import LoyaltyDashboard from '../components/profile/LoyaltyDashboard';
 import ReferralCard from '../components/profile/ReferralCard';
+import AddressBook from '../components/profile/AddressBook';
 
 const Profile = () => {
   const { user, logout } = useAuth();
@@ -81,6 +82,7 @@ const Profile = () => {
 
   const navItems = [
     { id: 'profile', name: 'Hồ Sơ Của Tôi', icon: <User size={20} /> },
+    { id: 'addresses', name: 'Sổ Địa Chỉ Giao Hàng', icon: <MapPin size={20} /> },
     { id: 'loyalty', name: 'Điểm & Hạng Hội Viên', icon: <Award size={20} /> },
     { id: 'referral', name: 'Giới Thiệu Bạn Bè', icon: <Gift size={20} /> },
   ];
@@ -145,6 +147,8 @@ const Profile = () => {
               <LoyaltyDashboard />
             ) : activeTab === 'referral' ? (
               <ReferralCard />
+            ) : activeTab === 'addresses' ? (
+              <AddressBook />
             ) : (
               <>
                 <h2 className="text-xl font-bold uppercase tracking-widest mb-8 border-l-4 border-black pl-4">Hồ Sơ Của Tôi</h2>

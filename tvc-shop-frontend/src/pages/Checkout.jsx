@@ -9,7 +9,7 @@ import Breadcrumb from '../components/common/Breadcrumb';
 import { formatPrice } from '../utils/formatPrice';
 import { 
   ShieldCheck, CreditCard, Truck, QrCode, CheckCircle2, 
-  ExternalLink, ArrowRight, Lock, Check
+  ExternalLink, ArrowRight, Lock, Check, MapPin, Plus
 } from 'lucide-react';
 
 const PAYMENT_METHODS = [
@@ -68,31 +68,64 @@ const Checkout = () => {
   const discountAmount = appliedCoupon ? (cartTotal * (appliedCoupon.discount_percentage / 100)) : 0;
   const finalTotal = cartTotal - discountAmount;
 
+  const [savedAddresses, setSavedAddresses] = useState([]);
+  const [selectedAddressId, setSelectedAddressId] = useState(null);
+
   // Protected Route: Buộc đăng nhập
   useEffect(() => {
     if (!user) {
       alert("Vui lòng đăng nhập để tiến hành thanh toán!");
       navigate('/login');
     } else {
-      const fetchProfile = async () => {
+      const fetchProfileAndAddresses = async () => {
         try {
-          const response = await api.get('/users/profile');
-          const data = response.data;
-          setFormData(prev => ({
-            ...prev,
-            phone: data.phone || prev.phone,
-            address: data.address || prev.address
-          }));
+          const [profileRes, addrRes] = await Promise.all([
+            api.get('/users/profile'),
+            api.get('/addresses').catch(() => ({ data: { data: [] } }))
+          ]);
+
+          const data = profileRes.data;
+          const addrs = addrRes.data?.data || [];
+          setSavedAddresses(addrs);
+
+          if (addrs.length > 0) {
+            const def = addrs.find(a => a.is_default) || addrs[0];
+            setSelectedAddressId(def.id);
+            setFormData(prev => ({
+              ...prev,
+              fullName: def.recipient_name || prev.fullName,
+              phone: def.phone || prev.phone,
+              address: def.address || prev.address,
+              city: def.city || prev.city
+            }));
+          } else {
+            setFormData(prev => ({
+              ...prev,
+              phone: data.phone || prev.phone,
+              address: data.address || prev.address
+            }));
+          }
         } catch (error) {
           console.error("Lỗi khi tải thông tin người dùng", error);
         }
       };
-      fetchProfile();
+      fetchProfileAndAddresses();
     }
     if (cartItems.length === 0 && !success) {
       navigate('/shop');
     }
   }, [user, cartItems, navigate, success]);
+
+  const handleSelectSavedAddress = (addr) => {
+    setSelectedAddressId(addr.id);
+    setFormData(prev => ({
+      ...prev,
+      fullName: addr.recipient_name,
+      phone: addr.phone,
+      address: addr.address,
+      city: addr.city
+    }));
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -245,10 +278,49 @@ const Checkout = () => {
             
             {/* 1. Thông Tin Nhận Hàng */}
             <div className="bg-white">
-              <h2 className="text-lg font-bold uppercase tracking-widest mb-6 border-b border-gray-200 pb-3 flex items-center justify-between">
-                <span>1. Địa Chỉ Nhận Hàng</span>
-                <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest">Bắt buộc</span>
-              </h2>
+              <div className="flex items-center justify-between border-b border-gray-200 pb-3 mb-6">
+                <h2 className="text-lg font-bold uppercase tracking-widest">
+                  1. Địa Chỉ Nhận Hàng
+                </h2>
+                <Link to="/profile" className="text-[10px] font-bold text-zinc-500 hover:text-black uppercase tracking-widest flex items-center space-x-1">
+                  <MapPin size={12} />
+                  <span>Quản lý sổ địa chỉ</span>
+                </Link>
+              </div>
+
+              {/* Saved Address Selector */}
+              {savedAddresses.length > 0 && (
+                <div className="mb-6 space-y-3">
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-gray-400">
+                    Chọn nhanh từ sổ địa chỉ đã lưu:
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {savedAddresses.map((addr) => (
+                      <button
+                        key={addr.id}
+                        type="button"
+                        onClick={() => handleSelectSavedAddress(addr)}
+                        className={`p-3.5 border text-left transition-all ${
+                          selectedAddressId === addr.id
+                            ? 'border-black bg-zinc-50 shadow-sm ring-1 ring-black'
+                            : 'border-gray-200 bg-white hover:border-gray-400'
+                        }`}
+                      >
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-[10px] uppercase font-bold tracking-wider text-gray-500">
+                            {addr.label || 'Địa chỉ'}
+                          </span>
+                          {addr.is_default && (
+                            <span className="text-[9px] bg-black text-white px-1.5 py-0.5 font-bold uppercase">Mặc định</span>
+                          )}
+                        </div>
+                        <p className="font-bold text-xs text-black font-serif truncate">{addr.recipient_name} - <span className="font-sans font-normal text-gray-600">{addr.phone}</span></p>
+                        <p className="text-xs text-gray-500 truncate mt-0.5">{addr.address}, {addr.city}</p>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <form id="checkout-form" onSubmit={handleCheckout} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

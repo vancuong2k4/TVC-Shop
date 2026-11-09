@@ -418,18 +418,23 @@ const Checkout = () => {
                 </div>
               </div>
 
-              {/* Coupon Input */}
+              {/* Coupon / Gift Card Input */}
               <div className="mt-6 border-t border-gray-200 pt-6">
-                <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
-                  Mã Giảm Giá
-                </label>
+                <div className="flex justify-between items-center mb-2">
+                  <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                    Mã Giảm Giá / Thẻ Quà Tặng
+                  </label>
+                  <Link to="/gift-cards" target="_blank" className="text-[10px] uppercase font-bold text-black hover:underline">
+                    Mua E-Gift Card
+                  </Link>
+                </div>
                 <div className="flex space-x-2">
                   <input 
                     type="text" 
                     value={couponCode} 
                     onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
                     disabled={appliedCoupon !== null}
-                    placeholder="MÃ COUPON..." 
+                    placeholder="MÃ COUPON / E-GIFT CARD..." 
                     className="flex-1 border border-gray-300 p-2.5 outline-none focus:border-black text-xs uppercase font-bold tracking-widest bg-white disabled:bg-gray-100" 
                   />
                   {appliedCoupon ? (

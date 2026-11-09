@@ -3,8 +3,8 @@ import {
   Award, Sparkles, TrendingUp, ShieldCheck, Gift, 
   ChevronRight, Clock, Star, Zap, Crown 
 } from 'lucide-react';
-import api from '../api/axios';
-import { formatPrice } from '../utils/formatPrice';
+import api from '../../api/axios';
+import { formatPrice } from '../../utils/formatPrice';
 
 const LoyaltyDashboard = () => {
   const [data, setData] = useState({

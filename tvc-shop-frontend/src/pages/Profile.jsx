@@ -5,7 +5,8 @@ import api from '../api/axios';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import Breadcrumb from '../components/common/Breadcrumb';
-import { User, ShoppingBag, LogOut } from 'lucide-react';
+import { User, ShoppingBag, LogOut, Award, Sparkles } from 'lucide-react';
+import LoyaltyDashboard from '../components/profile/LoyaltyDashboard';
 
 const Profile = () => {
   const { user, logout } = useAuth();
@@ -24,6 +25,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
+  const [activeTab, setActiveTab] = useState('profile'); // 'profile' | 'loyalty'
 
   useEffect(() => {
     if (!user) {
@@ -77,8 +79,8 @@ const Profile = () => {
   if (loading) return null; // Or a loading spinner
 
   const navItems = [
-    { name: 'Tài Khoản', path: '/profile', icon: <User size={20} /> },
-    { name: 'Đơn Hàng', path: '/orders', icon: <ShoppingBag size={20} /> },
+    { id: 'profile', name: 'Hồ Sơ Của Tôi', icon: <User size={20} /> },
+    { id: 'loyalty', name: 'Điểm & Hạng Hội Viên', icon: <Award size={20} /> },
   ];
 
   return (
@@ -103,16 +105,25 @@ const Profile = () => {
               </div>
               <ul className="space-y-4">
                 {navItems.map(item => (
-                  <li key={item.path}>
-                    <Link 
-                      to={item.path} 
-                      className={`flex items-center space-x-3 text-sm font-bold uppercase tracking-widest transition-colors ${location.pathname === item.path ? 'text-black' : 'text-gray-400 hover:text-black'}`}
+                  <li key={item.id}>
+                    <button 
+                      onClick={() => setActiveTab(item.id)}
+                      className={`flex items-center space-x-3 text-sm font-bold uppercase tracking-widest transition-colors w-full text-left ${activeTab === item.id ? 'text-black font-extrabold' : 'text-gray-400 hover:text-black'}`}
                     >
                       {item.icon}
                       <span>{item.name}</span>
-                    </Link>
+                    </button>
                   </li>
                 ))}
+                <li>
+                  <Link 
+                    to="/orders"
+                    className="flex items-center space-x-3 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors"
+                  >
+                    <ShoppingBag size={20} />
+                    <span>Đơn Hàng</span>
+                  </Link>
+                </li>
                 <li className="pt-4 border-t border-gray-100">
                   <button 
                     onClick={() => { logout(); navigate('/login'); }}
@@ -128,15 +139,19 @@ const Profile = () => {
 
           {/* Main Content */}
           <div className="lg:w-3/4 bg-white p-8 lg:p-12 shadow-sm">
-            <h2 className="text-xl font-bold uppercase tracking-widest mb-8 border-l-4 border-black pl-4">Hồ Sơ Của Tôi</h2>
-            
-            {message.text && (
-              <div className={`p-4 mb-8 text-sm font-bold uppercase tracking-widest ${message.type === 'success' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'}`}>
-                {message.text}
-              </div>
-            )}
+            {activeTab === 'loyalty' ? (
+              <LoyaltyDashboard />
+            ) : (
+              <>
+                <h2 className="text-xl font-bold uppercase tracking-widest mb-8 border-l-4 border-black pl-4">Hồ Sơ Của Tôi</h2>
+                
+                {message.text && (
+                  <div className={`p-4 mb-8 text-sm font-bold uppercase tracking-widest ${message.type === 'success' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'}`}>
+                    {message.text}
+                  </div>
+                )}
 
-            <form onSubmit={handleSubmit} className="space-y-8 max-w-2xl">
+                <form onSubmit={handleSubmit} className="space-y-8 max-w-2xl">
               <div>
                 <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Email Đăng Nhập</label>
                 <input 
@@ -239,6 +254,8 @@ const Profile = () => {
                 </button>
               </div>
             </form>
+            </>
+          )}
           </div>
 
         </div>

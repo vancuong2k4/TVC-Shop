@@ -36,6 +36,7 @@ Route::get('/reviews', [ReviewController::class, 'getReviews']);
 Route::get('/banners', [\App\Http\Controllers\BannerController::class, 'index']);
 Route::get('/blogs', [\App\Http\Controllers\BlogController::class, 'index']);
 Route::get('/blogs/{id}', [\App\Http\Controllers\BlogController::class, 'show']);
+Route::get('/social-proof/recent-purchases', [\App\Http\Controllers\SocialProofController::class, 'getRecentPurchases']);
 
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);

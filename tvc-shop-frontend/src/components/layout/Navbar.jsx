@@ -5,12 +5,12 @@ import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
 import CartDrawer from '../cart/CartDrawer';
+import SearchModal from '../common/SearchModal';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchKeyword, setSearchKeyword] = useState('');
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   
   const { user, logout } = useAuth();
   const { totalItems, setIsCartOpen } = useCart();
@@ -19,14 +19,17 @@ const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (searchKeyword.trim()) {
-      navigate(`/shop?search=${encodeURIComponent(searchKeyword.trim())}`);
-      setIsSearchOpen(false);
-      setSearchKeyword('');
-    }
-  };
+  // Keyboard shortcut Ctrl+K / Cmd+K to open Search
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsSearchModalOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,32 +68,17 @@ const Navbar = () => {
 
         {/* Icons */}
         <div className={`flex items-center space-x-6 transition-colors duration-300 ${textClass}`}>
-          {/* Search Toggle */}
-          <div className="relative">
-            <button 
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="hidden md:block hover:opacity-70 transition-opacity"
-            >
-              <Search size={20} />
-            </button>
-            
-            {/* Search Dropdown */}
-            <div className={`absolute right-0 top-full mt-6 bg-white text-black shadow-2xl p-4 transition-all duration-300 w-72 border border-gray-100 ${isSearchOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
-              <form onSubmit={handleSearchSubmit} className="relative">
-                <input 
-                  type="text" 
-                  value={searchKeyword}
-                  onChange={(e) => setSearchKeyword(e.target.value)}
-                  placeholder="Tìm kiếm sản phẩm..."
-                  className="w-full border-b border-gray-300 pb-2 outline-none text-sm focus:border-black pr-8"
-                  autoFocus={isSearchOpen}
-                />
-                <button type="submit" className="absolute right-0 top-0 text-gray-400 hover:text-black">
-                  <Search size={16} />
-                </button>
-              </form>
-            </div>
-          </div>
+          {/* Search Button (Triggers Real-time Modal) */}
+          <button 
+            onClick={() => setIsSearchModalOpen(true)}
+            className="hover:opacity-70 transition-opacity flex items-center space-x-2"
+            title="Tìm kiếm (Ctrl + K)"
+          >
+            <Search size={20} />
+            <span className="hidden xl:inline-block text-[10px] font-semibold uppercase tracking-widest text-gray-400 border border-current/20 px-1.5 py-0.5 rounded">
+              ⌘K
+            </span>
+          </button>
           
           {/* User Auth Handling */}
           {user ? (
@@ -144,9 +132,20 @@ const Navbar = () => {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white text-black shadow-xl border-t border-gray-100 py-6 px-4 flex flex-col space-y-6 text-sm font-semibold uppercase tracking-widest text-center">
+          <button 
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsSearchModalOpen(true);
+            }} 
+            className="flex items-center justify-center space-x-2 text-black bg-gray-50 py-3 border border-gray-200"
+          >
+            <Search size={16} />
+            <span>Tìm kiếm sản phẩm</span>
+          </button>
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Trang chủ</Link>
           <Link to="/shop" onClick={() => setIsMobileMenuOpen(false)}>Cửa hàng</Link>
           <Link to="/categories" onClick={() => setIsMobileMenuOpen(false)}>Bộ sưu tập</Link>
+          <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)}>Tạp chí</Link>
           
           <div className="border-t border-gray-100 pt-6">
             {user ? (
@@ -165,6 +164,12 @@ const Navbar = () => {
 
       {/* Cart Drawer Component */}
       <CartDrawer />
+
+      {/* Global Real-time Search Modal */}
+      <SearchModal 
+        isOpen={isSearchModalOpen} 
+        onClose={() => setIsSearchModalOpen(false)} 
+      />
     </>
   );
 };

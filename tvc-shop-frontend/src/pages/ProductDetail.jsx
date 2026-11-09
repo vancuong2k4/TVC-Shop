@@ -33,7 +33,7 @@ const ProductDetail = () => {
       setLoading(true);
       try {
         const response = await api.get(`/products`);
-        const allProducts = response.data;
+        const allProducts = Array.isArray(response.data) ? response.data : (response.data?.data || []);
         const currentProduct = allProducts.find(p => String(p.id) === String(id));
         setProduct(currentProduct);
         

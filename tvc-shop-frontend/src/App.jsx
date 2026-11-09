@@ -20,6 +20,7 @@ import Wishlist from './pages/Wishlist';
 import Profile from './pages/Profile';
 import GiftCards from './pages/GiftCards';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
+import SocialProofPopup from './components/common/SocialProofPopup';
 
 // Admin Imports
 import AdminRoute from './components/common/AdminRoute';
@@ -68,6 +69,7 @@ function App() {
           <Route path="/auth/google/callback" element={<GoogleCallback />} />
         </Routes>
         <ChatbotWidget />
+        <SocialProofPopup />
         </Router>
         </CompareProvider>
         </ToastProvider>

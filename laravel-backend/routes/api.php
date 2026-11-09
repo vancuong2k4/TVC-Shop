@@ -73,6 +73,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/notifications', [NotificationController::class, 'getNotifications']);
     Route::post('/notifications/read-all', [NotificationController::class, 'markAllAsRead']);
 
+    // Loyalty Points & Membership Tier Routes
+    Route::get('/loyalty/profile', [\App\Http\Controllers\LoyaltyController::class, 'getLoyaltyProfile']);
+
     // Admin Routes
     Route::middleware('admin')->group(function () {
         Route::get('/admin/dashboard', [AdminController::class, 'getDashboard']);

@@ -59,6 +59,7 @@
   - `NotificationController`: Quản lý thông báo người dùng (`/notifications`, `/notifications/read-all`), tự động đồng bộ trạng thái đơn hàng (Đang xử lý, Đang giao, Đã giao thành công, Đã hủy) kèm số lượng tin chưa đọc.
   - `SeoController`: Cung cấp API thẻ Meta động (`/seo/meta`) và trình tạo Sitemap XML tự động (`/seo/sitemap.xml`) phục vụ Googlebot và các công cụ tìm kiếm.
   - `LoyaltyController`: Quản lý hệ thống điểm thưởng khách hàng thân thiết (`/loyalty/profile`), tính toán cấp bậc thành viên (Bronze, Silver, Gold, Diamond), tiến độ % nâng hạng, và lịch sử tích lũy điểm theo đơn hàng.
+  - `ReferralController`: Quản lý chương trình đại sứ giới thiệu bạn bè (`/referral/stats`) và hệ thống phát hành / tra cứu phiếu quà tặng điện tử E-Gift Cards (`/gift-cards/purchase`, `/gift-cards/check`). Tự động sinh mã voucher độc quyền cho người giới thiệu và người nhận quà.
   - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
   - `WishlistController`, `CouponController`.
   - `ReviewController`: Quản lý đánh giá sản phẩm nâng cao; hỗ trợ lọc theo số sao (1-5 sao), lọc bài có hình ảnh thực tế, sắp xếp đánh giá, tính toán phân bổ xếp hạng (Rating distribution), và hỗ trợ tải lên nhiều hình ảnh feedback thực tế từ khách hàng đã mua sản phẩm.
@@ -76,6 +77,8 @@
 - **Hệ thống Thông Báo Hoạt Động Thời Gian Thực**: Tích hợp chuông thông báo (NotificationDropdown) trên thanh điều hướng Navbar với cơ chế polling tự động, kết hợp cùng hệ thống Toast nổi toàn cục (`ToastContext`).
 - **Tối ưu hóa SEO & OpenGraph**: Sử dụng hook tùy chỉnh `useSEO` tự động tiêm các thẻ `og:image`, `og:title`, canonical link và dữ liệu có cấu trúc JSON-LD chuẩn Schema.org cho từng sản phẩm và bài viết tạp chí.
 - **Hệ thống Điểm Thưởng & Khách Hàng Thân Thiết (Loyalty & VIP Tiers)**: Phân hạng người dùng dựa trên tổng giá trị chi tiêu thực tế (Bronze, Silver, Gold, Diamond), cấp thẻ thành viên kỹ thuật số cao cấp và hiển thị chi tiết tiến trình thăng hạng tại trang Hồ sơ.
+- **Hệ thống Phiếu Quà Tặng Điện Tử (E-Gift Cards) & Đại Sứ Giới Thiệu (Referral Program)**: Người dùng có thể tùy biến tạo và gửi E-Gift Card kỹ thuật số với nhiều bao bì Cold Luxury, mệnh giá linh hoạt, và chia sẻ link / mã giới thiệu độc quyền để nhận 50.000đ tích lũy mua sắm cho mỗi bạn bè mua hàng thành công.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Phiếu quà tặng điện tử (E-Gift Cards) và mã giới thiệu bạn bè (Referral Program).
+- Hệ thống Khách Hàng Gần Đây Đã Mua (Social Proof / Real-time Sales Popup) kích thích mua sắm.
+- Quản lý Sổ địa chỉ giao hàng nhiều địa điểm (Multi-Address Book) trong Profile.

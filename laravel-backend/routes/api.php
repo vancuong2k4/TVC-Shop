@@ -82,6 +82,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/gift-cards/purchase', [\App\Http\Controllers\ReferralController::class, 'purchaseGiftCard']);
     Route::get('/gift-cards/check', [\App\Http\Controllers\ReferralController::class, 'checkGiftCard']);
 
+    // User Profile & Address Book Routes
+    Route::get('/users/profile', [\App\Http\Controllers\UserController::class, 'getProfile']);
+    Route::put('/users/profile', [\App\Http\Controllers\UserController::class, 'updateProfile']);
+    Route::get('/addresses', [\App\Http\Controllers\AddressController::class, 'getAddresses']);
+    Route::post('/addresses', [\App\Http\Controllers\AddressController::class, 'addAddress']);
+    Route::delete('/addresses/{id}', [\App\Http\Controllers\AddressController::class, 'deleteAddress']);
+    Route::put('/addresses/{id}/default', [\App\Http\Controllers\AddressController::class, 'setDefaultAddress']);
+
     // Admin Routes
     Route::middleware('admin')->group(function () {
         Route::get('/admin/dashboard', [AdminController::class, 'getDashboard']);

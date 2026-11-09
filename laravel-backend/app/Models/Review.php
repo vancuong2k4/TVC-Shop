@@ -10,7 +10,11 @@ class Review extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'product_id', 'rating', 'comment', 'created_at'
+        'user_id', 'product_id', 'rating', 'comment', 'images', 'created_at'
+    ];
+
+    protected $casts = [
+        'images' => 'array',
     ];
 
     const UPDATED_AT = null;

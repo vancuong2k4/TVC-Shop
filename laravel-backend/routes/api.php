@@ -22,6 +22,10 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\SeoController;
+
+Route::get('/seo/meta', [SeoController::class, 'getMetaTags']);
+Route::get('/seo/sitemap.xml', [SeoController::class, 'generateSitemap']);
 
 Route::get('/products/filter-options', [ProductController::class, 'filterOptions']);
 Route::get('/products', [ProductController::class, 'index']);

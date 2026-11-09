@@ -21,6 +21,7 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\NotificationController;
 
 Route::get('/products/filter-options', [ProductController::class, 'filterOptions']);
 Route::get('/products', [ProductController::class, 'index']);
@@ -63,6 +64,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // Payment Routes
     Route::post('/payment/vnpay/create', [PaymentController::class, 'createVnpayPayment']);
     Route::post('/payment/simulate', [PaymentController::class, 'simulateOnlinePayment']);
+
+    // Notification Routes
+    Route::get('/notifications', [NotificationController::class, 'getNotifications']);
+    Route::post('/notifications/read-all', [NotificationController::class, 'markAllAsRead']);
 
     // Admin Routes
     Route::middleware('admin')->group(function () {

@@ -53,7 +53,8 @@
   - `OrderController`: Đặt hàng, xem lịch sử.
   - `PaymentController`: Xử lý tích hợp cổng thanh toán trực tuyến: tạo URL thanh toán VNPay Sandbox với mã băm bảo mật SHA-512 (`createVnpayPayment`), tiếp nhận và xác thực callback từ VNPay (`vnpayCallback`), và hỗ trợ mô phỏng thanh toán trực tuyến tức thì (`simulateOnlinePayment`) cho thẻ quốc tế Visa/Mastercard và ví MoMo.
   - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
-  - `WishlistController`, `ReviewController`, `CouponController`.
+  - `WishlistController`, `CouponController`.
+  - `ReviewController`: Quản lý đánh giá sản phẩm nâng cao; hỗ trợ lọc theo số sao (1-5 sao), lọc bài có hình ảnh thực tế, sắp xếp đánh giá, tính toán phân bổ xếp hạng (Rating distribution), và hỗ trợ tải lên nhiều hình ảnh feedback thực tế từ khách hàng đã mua sản phẩm.
   - `ChatbotController`: Xử lý logic gọi sang Google Gemini qua Header `x-goog-api-key`.
   - `AdminController`: Các API đặc quyền (tạo sản phẩm, sửa trạng thái đơn, v.v.). API `getDashboard` cung cấp dữ liệu phân tích số liệu động theo khoảng thời gian (`range`: 7 ngày, 30 ngày, 6 tháng, 1 năm), tính % tăng trưởng doanh thu/đơn hàng so với kỳ trước, giá trị đơn hàng trung bình (AOV), thống kê biểu đồ doanh thu dạng Area/Bar, tỷ lệ trạng thái đơn hàng, Top 5 sản phẩm bán chạy nhất kèm doanh thu từng món, và danh sách đơn hàng gần đây.
 
@@ -64,6 +65,7 @@
 - **Infinite Loop ở AuthCallback**: Fix lỗi vòng lặp re-render ở `GoogleCallback.jsx` bằng cách ép tải lại trang bằng `window.location.href` thay vì `navigate` của React Router và bỏ dependency `login` trong `useEffect`.
 - **Tương thích ngược dữ liệu API Products**: Bổ sung cờ `paginate=1` để phân tách phản hồi mảng phẳng (cho FeaturedProducts, BlogDetail, ProductDetail) và phản hồi phân trang (cho Shop), tránh lỗi vỡ mảng JS.
 - **Xử lý luồng cổng thanh toán VNPay / MoMo**: Thiết lập cơ chế fallback linh hoạt và luồng điều hướng callback thông minh về trang Orders của Frontend kèm banner trạng thái trực quan.
+- **Hệ thống đánh giá sản phẩm kèm ảnh thực tế**: Xử lý upload ảnh multipart form data, phân tích tỷ lệ phần trăm phân bổ số sao và tích hợp modal Lightbox phóng to ảnh chất lượng cao.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Đánh giá sản phẩm nâng cao kèm upload ảnh feedback từ khách hàng.
+- Hệ thống thông báo thời gian thực (Real-time Notifications / WebSockets hoặc Toast) cho các hoạt động đơn hàng.

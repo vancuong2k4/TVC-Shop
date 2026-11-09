@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
+import { ToastProvider } from './context/ToastContext';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
@@ -35,7 +36,8 @@ function App() {
     <AuthProvider>
       <CartProvider>
         <WishlistProvider>
-          <Router>
+          <ToastProvider>
+            <Router>
           <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
@@ -63,6 +65,7 @@ function App() {
         </Routes>
         <ChatbotWidget />
         </Router>
+        </ToastProvider>
         </WishlistProvider>
       </CartProvider>
     </AuthProvider>

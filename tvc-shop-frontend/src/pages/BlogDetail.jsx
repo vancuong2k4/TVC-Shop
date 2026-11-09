@@ -4,6 +4,7 @@ import api from '../api/axios';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import { ArrowLeft, ShoppingBag } from 'lucide-react';
+import useSEO from '../hooks/useSEO';
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -11,6 +12,27 @@ const BlogDetail = () => {
   const [blog, setBlog] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // Dynamic SEO for Editorial Lookbook
+  useSEO({
+    title: blog ? `${blog.title} - Editorial Lookbook` : 'Tạp Chí Thời Trang',
+    description: blog?.content ? blog.content.substring(0, 160) : 'Khám phá các câu chuyện phong cách và xu hướng thời trang tối giản tại TVC-Shop.',
+    keywords: blog ? `${blog.title}, lookbook, thời trang tối giản, editorial` : '',
+    ogImage: blog?.image_url,
+    ogType: 'article',
+    canonicalUrl: blog ? `${window.location.origin}/blog/${blog.id}` : undefined,
+    structuredData: blog ? {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": blog.title,
+      "image": [blog.image_url],
+      "datePublished": blog.created_at,
+      "author": {
+        "@type": "Person",
+        "name": blog.author_name || "TVC-Shop Editorial"
+      }
+    } : null
+  });
 
   useEffect(() => {
     fetchBlogDetail();

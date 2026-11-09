@@ -10,6 +10,7 @@ import { useWishlist } from '../context/WishlistContext';
 import ProductReviews from '../components/product/ProductReviews';
 import { formatPrice } from '../utils/formatPrice';
 import api from '../api/axios';
+import useSEO from '../hooks/useSEO';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -22,6 +23,36 @@ const ProductDetail = () => {
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
   const isLiked = isInWishlist(id || 1);
+
+  // Dynamic SEO & OpenGraph Integration
+  useSEO({
+    title: product ? `${product.name} - ${product.category_name || 'Thời Trang'}` : 'Chi Tiết Sản Phẩm',
+    description: product?.description || 'Thiết kế thời trang tối giản thanh lịch, chất liệu cao cấp nguyên bản tại TVC-Shop.',
+    keywords: product ? `${product.name}, ${product.category_name}, thời trang tối giản, lookbook` : '',
+    ogImage: product?.image || product?.image_url,
+    ogType: 'product',
+    canonicalUrl: product ? `${window.location.origin}/product/${product.id}` : undefined,
+    structuredData: product ? {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": product.name,
+      "image": [product.image || product.image_url],
+      "description": product.description,
+      "sku": `TVC-${product.id}`,
+      "brand": {
+        "@type": "Brand",
+        "name": "TVC-Shop"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": `${window.location.origin}/product/${product.id}`,
+        "priceCurrency": "VND",
+        "price": product.discount_price || product.price,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      }
+    } : null
+  });
 
   // Scroll to top when changing products
   useEffect(() => {

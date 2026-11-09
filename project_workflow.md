@@ -57,6 +57,7 @@
   - `OrderController`: Đặt hàng, xem lịch sử.
   - `PaymentController`: Xử lý tích hợp cổng thanh toán trực tuyến: tạo URL thanh toán VNPay Sandbox với mã băm bảo mật SHA-512 (`createVnpayPayment`), tiếp nhận và xác thực callback từ VNPay (`vnpayCallback`), và hỗ trợ mô phỏng thanh toán trực tuyến tức thì (`simulateOnlinePayment`) cho thẻ quốc tế Visa/Mastercard và ví MoMo.
   - `NotificationController`: Quản lý thông báo người dùng (`/notifications`, `/notifications/read-all`), tự động đồng bộ trạng thái đơn hàng (Đang xử lý, Đang giao, Đã giao thành công, Đã hủy) kèm số lượng tin chưa đọc.
+  - `SeoController`: Cung cấp API thẻ Meta động (`/seo/meta`) và trình tạo Sitemap XML tự động (`/seo/sitemap.xml`) phục vụ Googlebot và các công cụ tìm kiếm.
   - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
   - `WishlistController`, `CouponController`.
   - `ReviewController`: Quản lý đánh giá sản phẩm nâng cao; hỗ trợ lọc theo số sao (1-5 sao), lọc bài có hình ảnh thực tế, sắp xếp đánh giá, tính toán phân bổ xếp hạng (Rating distribution), và hỗ trợ tải lên nhiều hình ảnh feedback thực tế từ khách hàng đã mua sản phẩm.
@@ -72,6 +73,7 @@
 - **Xử lý luồng cổng thanh toán VNPay / MoMo**: Thiết lập cơ chế fallback linh hoạt và luồng điều hướng callback thông minh về trang Orders của Frontend kèm banner trạng thái trực quan.
 - **Hệ thống đánh giá sản phẩm kèm ảnh thực tế**: Xử lý upload ảnh multipart form data, phân tích tỷ lệ phần trăm phân bổ số sao và tích hợp modal Lightbox phóng to ảnh chất lượng cao.
 - **Hệ thống Thông Báo Hoạt Động Thời Gian Thực**: Tích hợp chuông thông báo (NotificationDropdown) trên thanh điều hướng Navbar với cơ chế polling tự động, kết hợp cùng hệ thống Toast nổi toàn cục (`ToastContext`).
+- **Tối ưu hóa SEO & OpenGraph**: Sử dụng hook tùy chỉnh `useSEO` tự động tiêm các thẻ `og:image`, `og:title`, canonical link và dữ liệu có cấu trúc JSON-LD chuẩn Schema.org cho từng sản phẩm và bài viết tạp chí.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Tối ưu hóa SEO & Meta OpenGraph tự động cho sản phẩm và bài viết tạp chí.
+- Hệ thống Khách hàng thân thiết & Tích lũy điểm thưởng (Loyalty Points / Tier Rewards).

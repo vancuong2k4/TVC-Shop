@@ -30,13 +30,15 @@
   - `AuthContext`: Quản lý trạng thái đăng nhập, token, thông tin user.
   - `CartContext`: Quản lý giỏ hàng cục bộ (localStorage).
   - `WishlistContext`: Quản lý danh sách yêu thích (đồng bộ với API).
+  - `ToastContext`: Hệ thống thông báo toast nổi toàn cầu phong cách Cold Luxury.
+  - `CompareContext`: Quản lý danh sách so sánh sản phẩm đối chiếu đa tiêu chí (tối đa 4 sản phẩm, lưu trữ localStorage).
 - **UI Components Nổi bật**:
   - `Navbar` có hiệu ứng kính (Glassmorphism), thay đổi màu khi cuộn, tích hợp Instant Search modal (phím tắt `Ctrl + K` / `Cmd + K`) và chuông thông báo hoạt động (`NotificationDropdown`).
   - `SearchModal`: Hộp thoại tìm kiếm thời gian thực toàn cục (Instant Spotlight Search) gợi ý sản phẩm ngay khi gõ, lưu lịch sử tìm kiếm gần đây và từ khóa xu hướng.
   - `QuickViewModal`: Cửa sổ xem nhanh sản phẩm tức thì (Instant Quick View) với bộ sưu tập ảnh, chọn biến thể size/màu sắc, tăng giảm số lượng và thêm vào giỏ hàng ngay tại danh sách mà không cần rời trang.
+  - `CompareModal` & `CompareFloatingBar`: Ma trận so sánh trực quan tối đa 4 sản phẩm cùng lúc (đối chiếu ảnh, mức giá, khuyến mãi, bảng size, màu sắc, đặc điểm và nút thêm nhanh vào giỏ hàng).
   - `Shop`: Trang cửa hàng tích hợp bộ lọc đa chiều (Category, Price Presets & Custom, Size, Color, Stock availability), tìm kiếm tức thì debounced, thanh gắn thẻ filter đang lọc (Active filter chips), chuyển đổi lưới hiển thị 3/4 cột, và phân trang mượt mà.
   - `CartDrawer` hiển thị giỏ hàng dạng trượt.
-  - `ToastContext`: Hệ thống thông báo toast nổi toàn cầu phong cách Cold Luxury.
   - `ChatbotWidget` tích hợp Gemini AI, hiển thị góc dưới màn hình.
 - **Phân hệ Admin (`/admin/*`)**:
   - Được bảo vệ bằng `AdminRoute` (chỉ user có `role === 'admin'` mới được vào).

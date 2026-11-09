@@ -4,6 +4,7 @@ import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
 import { ToastProvider } from './context/ToastContext';
+import { CompareProvider } from './context/CompareContext';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
@@ -37,7 +38,8 @@ function App() {
       <CartProvider>
         <WishlistProvider>
           <ToastProvider>
-            <Router>
+            <CompareProvider>
+              <Router>
           <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
@@ -65,6 +67,7 @@ function App() {
         </Routes>
         <ChatbotWidget />
         </Router>
+        </CompareProvider>
         </ToastProvider>
         </WishlistProvider>
       </CartProvider>

@@ -7,6 +7,8 @@ import { useWishlist } from '../../context/WishlistContext';
 import CartDrawer from '../cart/CartDrawer';
 import SearchModal from '../common/SearchModal';
 import NotificationDropdown from '../common/NotificationDropdown';
+import CompareModal from '../common/CompareModal';
+import CompareFloatingBar from '../common/CompareFloatingBar';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -176,6 +178,10 @@ const Navbar = () => {
         isOpen={isSearchModalOpen} 
         onClose={() => setIsSearchModalOpen(false)} 
       />
+
+      {/* Global Product Comparison Matrix Modal & Floating Bar */}
+      <CompareModal />
+      <CompareFloatingBar />
     </>
   );
 };

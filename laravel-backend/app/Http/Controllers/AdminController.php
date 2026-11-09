@@ -14,43 +14,157 @@ use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
-    public function getDashboard()
+    public function getDashboard(Request $request)
     {
-        $revenue = Order::where('status', '!=', 'cancelled')->sum('total_amount');
-        $totalOrders = Order::count();
+        $timeRange = $request->input('range', '6_months'); // '7_days', '30_days', '6_months', '1_year'
+
+        $now = \Carbon\Carbon::now();
+        $startDate = $now->copy()->subMonths(6)->startOfMonth();
+        $prevStartDate = $startDate->copy()->subMonths(6);
+        $prevEndDate = $startDate->copy();
+
+        if ($timeRange === '7_days') {
+            $startDate = $now->copy()->subDays(6)->startOfDay();
+            $prevStartDate = $startDate->copy()->subDays(7);
+            $prevEndDate = $startDate->copy();
+        } elseif ($timeRange === '30_days') {
+            $startDate = $now->copy()->subDays(29)->startOfDay();
+            $prevStartDate = $startDate->copy()->subDays(30);
+            $prevEndDate = $startDate->copy();
+        } elseif ($timeRange === '1_year') {
+            $startDate = $now->copy()->subMonths(11)->startOfMonth();
+            $prevStartDate = $startDate->copy()->subMonths(12);
+            $prevEndDate = $startDate->copy();
+        }
+
+        // Doanh thu trong khoảng thời gian đã chọn (loại bỏ đơn hủy)
+        $revenue = (float) Order::where('status', '!=', 'cancelled')
+            ->where('created_at', '>=', $startDate)
+            ->sum('total_amount');
+
+        // Doanh thu chu kỳ trước để tính % tăng trưởng
+        $prevRevenue = (float) Order::where('status', '!=', 'cancelled')
+            ->whereBetween('created_at', [$prevStartDate, $prevEndDate])
+            ->sum('total_amount');
+
+        $revenueGrowth = $prevRevenue > 0 ? round((($revenue - $prevRevenue) / $prevRevenue) * 100, 1) : 0;
+
+        // Số đơn hàng trong khoảng thời gian
+        $totalOrders = Order::where('created_at', '>=', $startDate)->count();
+        $prevOrders = Order::whereBetween('created_at', [$prevStartDate, $prevEndDate])->count();
+        $ordersGrowth = $prevOrders > 0 ? round((($totalOrders - $prevOrders) / $prevOrders) * 100, 1) : 0;
+
+        // Tổng người dùng & sản phẩm
         $totalUsers = User::where('role', 'customer')->count();
         $totalProducts = Product::count();
 
-        // Thống kê 6 tháng gần nhất cho Doanh thu
+        // Giá trị đơn hàng trung bình (AOV - Average Order Value)
+        $successfulOrdersCount = Order::where('status', '!=', 'cancelled')
+            ->where('created_at', '>=', $startDate)
+            ->count();
+        $aov = $successfulOrdersCount > 0 ? round($revenue / $successfulOrdersCount) : 0;
+
+        // Dữ liệu biểu đồ Doanh thu & Đơn hàng theo thời gian
         $revenueData = [];
-        for ($i = 5; $i >= 0; $i--) {
-            $month = \Carbon\Carbon::now()->subMonths($i)->format('m/Y');
-            $revenueForMonth = Order::where('status', '!=', 'cancelled')
-                                    ->whereYear('created_at', \Carbon\Carbon::now()->subMonths($i)->year)
-                                    ->whereMonth('created_at', \Carbon\Carbon::now()->subMonths($i)->month)
-                                    ->sum('total_amount');
-            $revenueData[] = [
-                'name' => $month,
-                'revenue' => (float) $revenueForMonth
-            ];
+        if ($timeRange === '7_days' || $timeRange === '30_days') {
+            $days = $timeRange === '7_days' ? 7 : 30;
+            for ($i = $days - 1; $i >= 0; $i--) {
+                $day = \Carbon\Carbon::now()->subDays($i);
+                $dayStr = $day->format('d/m');
+                $rev = Order::where('status', '!=', 'cancelled')
+                    ->whereDate('created_at', $day->toDateString())
+                    ->sum('total_amount');
+                $ordCount = Order::whereDate('created_at', $day->toDateString())->count();
+                $revenueData[] = [
+                    'name' => $dayStr,
+                    'revenue' => (float) $rev,
+                    'orders' => $ordCount
+                ];
+            }
+        } else {
+            $months = $timeRange === '1_year' ? 12 : 6;
+            for ($i = $months - 1; $i >= 0; $i--) {
+                $monthDate = \Carbon\Carbon::now()->subMonths($i);
+                $monthStr = $monthDate->format('m/Y');
+                $rev = Order::where('status', '!=', 'cancelled')
+                    ->whereYear('created_at', $monthDate->year)
+                    ->whereMonth('created_at', $monthDate->month)
+                    ->sum('total_amount');
+                $ordCount = Order::whereYear('created_at', $monthDate->year)
+                    ->whereMonth('created_at', $monthDate->month)
+                    ->count();
+                $revenueData[] = [
+                    'name' => $monthStr,
+                    'revenue' => (float) $rev,
+                    'orders' => $ordCount
+                ];
+            }
         }
 
         // Thống kê Trạng thái Đơn hàng
         $orderStatusData = [
-            ['name' => 'Chờ xử lý', 'value' => Order::where('status', 'pending')->count(), 'color' => '#9a3412'], // orange-800
-            ['name' => 'Đang xử lý', 'value' => Order::where('status', 'processing')->count(), 'color' => '#1e40af'], // blue-800
-            ['name' => 'Đang giao', 'value' => Order::where('status', 'shipped')->count(), 'color' => '#6b21a8'], // purple-800
-            ['name' => 'Đã giao', 'value' => Order::where('status', 'delivered')->count(), 'color' => '#166534'], // green-800
-            ['name' => 'Đã hủy', 'value' => Order::where('status', 'cancelled')->count(), 'color' => '#991b1b'], // red-800
+            ['name' => 'Chờ xử lý', 'status_key' => 'pending', 'value' => Order::where('created_at', '>=', $startDate)->where('status', 'pending')->count(), 'color' => '#d97706'], 
+            ['name' => 'Đang xử lý', 'status_key' => 'processing', 'value' => Order::where('created_at', '>=', $startDate)->where('status', 'processing')->count(), 'color' => '#2563eb'], 
+            ['name' => 'Đang giao', 'status_key' => 'shipped', 'value' => Order::where('created_at', '>=', $startDate)->where('status', 'shipped')->count(), 'color' => '#7c3aed'], 
+            ['name' => 'Đã giao', 'status_key' => 'delivered', 'value' => Order::where('created_at', '>=', $startDate)->where('status', 'delivered')->count(), 'color' => '#16a34a'], 
+            ['name' => 'Đã hủy', 'status_key' => 'cancelled', 'value' => Order::where('created_at', '>=', $startDate)->where('status', 'cancelled')->count(), 'color' => '#dc2626'], 
         ];
 
+        // Top 5 sản phẩm bán chạy nhất (Best Sellers)
+        $topProducts = \App\Models\OrderItem::select(
+                'product_id',
+                \Illuminate\Support\Facades\DB::raw('SUM(quantity) as total_sold'),
+                \Illuminate\Support\Facades\DB::raw('SUM(price * quantity) as total_revenue')
+            )
+            ->join('orders', 'order_items.order_id', '=', 'orders.id')
+            ->where('orders.status', '!=', 'cancelled')
+            ->where('orders.created_at', '>=', $startDate)
+            ->groupBy('product_id')
+            ->orderByDesc('total_sold')
+            ->limit(5)
+            ->with(['product.primaryImage', 'product.category'])
+            ->get()
+            ->map(function ($item) {
+                $product = $item->product;
+                return [
+                    'id' => $product ? $product->id : $item->product_id,
+                    'name' => $product ? $product->name : 'Sản phẩm đã xóa',
+                    'category' => $product && $product->category ? $product->category->name : 'Khác',
+                    'image' => $product && $product->primaryImage ? $product->primaryImage->image_url : null,
+                    'total_sold' => (int) $item->total_sold,
+                    'total_revenue' => (float) $item->total_revenue
+                ];
+            });
+
+        // 5 đơn hàng mới nhất (Recent Orders)
+        $recentOrders = Order::with('user:id,full_name,email')
+            ->orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get()
+            ->map(function ($order) {
+                return [
+                    'id' => $order->id,
+                    'customer_name' => $order->user ? $order->user->full_name : 'Khách vãng lai',
+                    'customer_email' => $order->user ? $order->user->email : '',
+                    'total_amount' => (float) $order->total_amount,
+                    'status' => $order->status,
+                    'created_at' => $order->created_at ? $order->created_at->format('d/m/Y H:i') : ''
+                ];
+            });
+
         return response()->json([
+            'time_range' => $timeRange,
             'revenue' => $revenue,
+            'revenue_growth' => $revenueGrowth,
             'total_orders' => $totalOrders,
+            'orders_growth' => $ordersGrowth,
             'total_users' => $totalUsers,
             'total_products' => $totalProducts,
+            'aov' => $aov,
             'revenue_chart' => $revenueData,
-            'order_status_chart' => $orderStatusData
+            'order_status_chart' => $orderStatusData,
+            'top_products' => $topProducts,
+            'recent_orders' => $recentOrders
         ]);
     }
 

@@ -31,12 +31,14 @@
   - `CartContext`: Quản lý giỏ hàng cục bộ (localStorage).
   - `WishlistContext`: Quản lý danh sách yêu thích (đồng bộ với API).
 - **UI Components Nổi bật**:
-  - `Navbar` có hiệu ứng kính (Glassmorphism), thay đổi màu khi cuộn.
+  - `Navbar` có hiệu ứng kính (Glassmorphism), thay đổi màu khi cuộn, tích hợp Instant Search modal (phím tắt `Ctrl + K` / `Cmd + K`).
+  - `SearchModal`: Hộp thoại tìm kiếm thời gian thực toàn cục (Instant Spotlight Search) gợi ý sản phẩm ngay khi gõ, lưu lịch sử tìm kiếm gần đây và từ khóa xu hướng.
+  - `Shop`: Trang cửa hàng tích hợp bộ lọc đa chiều (Category, Price Presets & Custom, Size, Color, Stock availability), tìm kiếm tức thì debounced, thanh gắn thẻ filter đang lọc (Active filter chips), chuyển đổi lưới hiển thị 3/4 cột, và phân trang mượt mà.
   - `CartDrawer` hiển thị giỏ hàng dạng trượt.
   - `ChatbotWidget` tích hợp Gemini AI, hiển thị góc dưới màn hình.
 - **Phân hệ Admin (`/admin/*`)**:
   - Được bảo vệ bằng `AdminRoute` (chỉ user có `role === 'admin'` mới được vào).
-  - Quản lý Sản phẩm, Đơn hàng, Coupon, Blogs.
+  - Quản lý Sản phẩm, Đơn hàng, Coupon, Blogs (hỗ trợ upload ảnh nội bộ).
   - Quản lý Khách Hàng (User Management): Cho phép khóa tài khoản và thay đổi phân quyền.
 
 ## 5. Backend Architecture (`laravel-backend`)
@@ -46,19 +48,21 @@
 - **Controllers Chính**:
   - `AuthController`: Đăng nhập, đăng ký, đăng xuất.
   - `GoogleAuthController`: Quản lý luồng đăng nhập qua Google OAuth (sử dụng thư viện `laravel/socialite`).
-  - `ProductController` / `CategoryController`: Hiển thị danh sách và chi tiết.
+  - `ProductController`: API danh sách sản phẩm hỗ trợ tìm kiếm toàn văn (`search`), lọc theo danh mục (`category`/`category_id`), khoảng giá (`min_price`, `max_price`), kích cỡ (`size`), màu sắc (`color`), tồn kho (`in_stock`), sắp xếp (`sort`) và phân trang (`paginate`). Cung cấp endpoint `/products/filter-options` trả về danh mục, kích thước, màu sắc và mức giá động từ CSDL.
+  - `CategoryController`: API `/categories` trả về danh sách danh mục kèm số lượng sản phẩm kích hoạt (`products_count`).
   - `OrderController`: Đặt hàng, xem lịch sử.
+  - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
   - `WishlistController`, `ReviewController`, `CouponController`.
   - `ChatbotController`: Xử lý logic gọi sang Google Gemini qua Header `x-goog-api-key`.
-  - `AdminController`: Các API đặc quyền (tạo sản phẩm, sửa trạng thái đơn, v.v.).
+  - `AdminController`: Các API đặc quyền (tạo sản phẩm, sửa trạng thái đơn, v.v.). API `getDashboard` cung cấp dữ liệu phân tích số liệu động theo khoảng thời gian (`range`: 7 ngày, 30 ngày, 6 tháng, 1 năm), tính % tăng trưởng doanh thu/đơn hàng so với kỳ trước, giá trị đơn hàng trung bình (AOV), thống kê biểu đồ doanh thu dạng Area/Bar, tỷ lệ trạng thái đơn hàng, Top 5 sản phẩm bán chạy nhất kèm doanh thu từng món, và danh sách đơn hàng gần đây.
 
 ## 6. Các vấn đề kỹ thuật đã xử lý
 - Lỗi `cURL error 60 (SSL certificate problem)` trên XAMPP local: Đã fix bằng cấu hình `['verify' => false]` trong HTTP client của Laravel.
 - **Cập nhật Model Gemini**: API đã được nâng cấp lên dùng `gemini-flash-latest` vì Google khóa model cũ (`1.5-flash`) đối với các key tạo sau năm 2026. Code API gửi key thông qua Header.
 - **Z-Index UI**: Navbar và Cart Drawer được quy định z-index chính xác (Navbar 50, Cart 50+, Chatbot cao nhất).
 - **Infinite Loop ở AuthCallback**: Fix lỗi vòng lặp re-render ở `GoogleCallback.jsx` bằng cách ép tải lại trang bằng `window.location.href` thay vì `navigate` của React Router và bỏ dependency `login` trong `useEffect`.
+- **Tương thích ngược dữ liệu API Products**: Bổ sung cờ `paginate=1` để phân tách phản hồi mảng phẳng (cho FeaturedProducts, BlogDetail, ProductDetail) và phản hồi phân trang (cho Shop), tránh lỗi vỡ mảng JS.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hoàn thiện chức năng quản lý Users trong Admin.
-- Tích hợp thanh toán online (nếu cần).
-- Phân trang, lọc sản phẩm nâng cao ở giao diện Shop.
+- Tích hợp cổng thanh toán trực tuyến (VNPay / MoMo / Stripe).
+- Đánh giá sản phẩm nâng cao kèm upload ảnh feedback từ khách hàng.

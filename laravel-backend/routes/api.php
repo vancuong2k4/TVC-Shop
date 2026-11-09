@@ -76,6 +76,11 @@ Route::middleware('auth:sanctum')->group(function () {
     // Loyalty Points & Membership Tier Routes
     Route::get('/loyalty/profile', [\App\Http\Controllers\LoyaltyController::class, 'getLoyaltyProfile']);
 
+    // Referral & E-Gift Cards Routes
+    Route::get('/referral/stats', [\App\Http\Controllers\ReferralController::class, 'getReferralStats']);
+    Route::post('/gift-cards/purchase', [\App\Http\Controllers\ReferralController::class, 'purchaseGiftCard']);
+    Route::get('/gift-cards/check', [\App\Http\Controllers\ReferralController::class, 'checkGiftCard']);
+
     // Admin Routes
     Route::middleware('admin')->group(function () {
         Route::get('/admin/dashboard', [AdminController::class, 'getDashboard']);

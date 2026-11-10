@@ -448,6 +448,24 @@ const ProductReviews = ({ productId }) => {
                       ))}
                     </div>
                   )}
+
+                  {/* Official Admin Reply */}
+                  {review.admin_reply && (
+                    <div className="mt-4 p-4 bg-zinc-50 border-l-2 border-black rounded-sm space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-black flex items-center space-x-1.5">
+                          <span className="w-1.5 h-1.5 bg-black rounded-full"></span>
+                          <span>Phản hồi từ TVC-Shop</span>
+                        </span>
+                        {review.replied_at && (
+                          <span className="text-[10px] text-gray-400 font-mono">{review.replied_at}</span>
+                        )}
+                      </div>
+                      <p className="text-xs text-gray-600 leading-relaxed font-light">
+                        {review.admin_reply}
+                      </p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

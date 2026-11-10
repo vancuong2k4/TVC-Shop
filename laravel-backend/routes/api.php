@@ -44,6 +44,9 @@ Route::post('/restock/subscribe', [\App\Http\Controllers\RestockNotificationCont
 Route::get('/lucky-wheel/config', [\App\Http\Controllers\LuckyWheelController::class, 'getWheelConfig']);
 Route::post('/lucky-wheel/spin', [\App\Http\Controllers\LuckyWheelController::class, 'spin']);
 
+// Group Buy & Team Discount Routes
+Route::get('/group-buys', [\App\Http\Controllers\GroupBuyController::class, 'getActiveGroupBuys']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 
@@ -96,6 +99,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/addresses', [\App\Http\Controllers\AddressController::class, 'addAddress']);
     Route::delete('/addresses/{id}', [\App\Http\Controllers\AddressController::class, 'deleteAddress']);
     Route::put('/addresses/{id}/default', [\App\Http\Controllers\AddressController::class, 'setDefaultAddress']);
+
+    // Group Buy Action
+    Route::post('/group-buys/{id}/join', [\App\Http\Controllers\GroupBuyController::class, 'joinGroupBuy']);
 
     // Admin Routes
     Route::middleware('admin')->group(function () {

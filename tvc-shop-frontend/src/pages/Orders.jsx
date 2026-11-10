@@ -5,9 +5,10 @@ import api from '../api/axios';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import Breadcrumb from '../components/common/Breadcrumb';
-import { Package, Clock, CheckCircle, XCircle, CreditCard, ShieldCheck, AlertCircle, ArrowRight, Truck } from 'lucide-react';
+import { Package, Clock, CheckCircle, XCircle, CreditCard, ShieldCheck, AlertCircle, ArrowRight, Truck, FileText } from 'lucide-react';
 import { formatPrice } from '../utils/formatPrice';
 import OrderTrackingModal from '../components/order/OrderTrackingModal';
+import InvoiceModal from '../components/order/InvoiceModal';
 
 const Orders = () => {
   const { user } = useAuth();
@@ -16,6 +17,7 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [trackingOrderId, setTrackingOrderId] = useState(null);
+  const [invoiceOrderId, setInvoiceOrderId] = useState(null);
 
   // Check if returning from VNPay / Online payment
   const paymentStatus = searchParams.get('payment_status');
@@ -246,13 +248,23 @@ const Orders = () => {
 
                   {/* Footer Order Card */}
                   <div className="bg-gray-50/30 px-6 py-4 border-t border-gray-200 flex flex-col sm:flex-row justify-between sm:items-center gap-4">
-                    <button
-                      onClick={() => setTrackingOrderId(order.id)}
-                      className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-black hover:text-zinc-600 transition-colors py-1"
-                    >
-                      <Truck size={15} />
-                      <span>Theo Dõi Vận Chuyển Real-time</span>
-                    </button>
+                    <div className="flex items-center space-x-4">
+                      <button
+                        onClick={() => setTrackingOrderId(order.id)}
+                        className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-widest text-black hover:text-zinc-600 transition-colors py-1"
+                      >
+                        <Truck size={14} />
+                        <span>Hành Trình Vận Chuyển</span>
+                      </button>
+
+                      <button
+                        onClick={() => setInvoiceOrderId(order.id)}
+                        className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-black transition-colors py-1 border-l border-gray-300 pl-4"
+                      >
+                        <FileText size={14} />
+                        <span>Hóa Đơn Điện Tử</span>
+                      </button>
+                    </div>
 
                     <div className="flex items-center space-x-4 self-end sm:self-auto">
                       <span className="text-xs font-bold uppercase tracking-widest text-gray-500">
@@ -276,6 +288,13 @@ const Orders = () => {
         orderId={trackingOrderId}
         isOpen={trackingOrderId !== null}
         onClose={() => setTrackingOrderId(null)}
+      />
+
+      {/* Official Electronic Invoice Modal */}
+      <InvoiceModal
+        orderId={invoiceOrderId}
+        isOpen={invoiceOrderId !== null}
+        onClose={() => setInvoiceOrderId(null)}
       />
 
       <Footer />

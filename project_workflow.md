@@ -63,6 +63,7 @@
   - `SocialProofController`: Cung cấp danh sách các giao dịch mua hàng thực tế gần đây (`/social-proof/recent-purchases`) với tên khách hàng ẩn danh, khu vực thành phố, tên sản phẩm và thời gian mua để hiển thị thông báo popup trực tiếp trên giao diện.
   - `UserController`: Quản lý hồ sơ cá nhân của người dùng (`/users/profile`).
   - `AddressController`: Quản lý Sổ địa chỉ giao hàng nhiều địa điểm (`/addresses`, `/addresses/{id}/default`), hỗ trợ nhãn địa chỉ (Nhà riêng, Văn phòng) và chọn địa chỉ nhận hàng mặc định.
+  - `TrackingController`: Cung cấp API tra cứu hành trình vận chuyển thời gian thực (`/orders/{id}/tracking`) với các mốc thời gian chi tiết, vị trí kho bãi, mã vận đơn tự động và thời gian dự kiến giao hàng.
   - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
   - `WishlistController`, `CouponController`.
   - `ReviewController`: Quản lý đánh giá sản phẩm nâng cao; hỗ trợ lọc theo số sao (1-5 sao), lọc bài có hình ảnh thực tế, sắp xếp đánh giá, tính toán phân bổ xếp hạng (Rating distribution), và hỗ trợ tải lên nhiều hình ảnh feedback thực tế từ khách hàng đã mua sản phẩm.
@@ -83,7 +84,9 @@
 - **Hệ thống Phiếu Quà Tặng Điện Tử (E-Gift Cards) & Đại Sứ Giới Thiệu (Referral Program)**: Người dùng có thể tùy biến tạo và gửi E-Gift Card kỹ thuật số với nhiều bao bì Cold Luxury, mệnh giá linh hoạt, và chia sẻ link / mã giới thiệu độc quyền để nhận 50.000đ tích lũy mua sắm cho mỗi bạn bè mua hàng thành công.
 - **Hệ thống Khách Hàng Gần Đây Đã Mua (Social Proof Real-time Sales Popup)**: Tự động hiển thị popup góc màn hình với hiệu ứng mượt mà thông báo các giao dịch mua hàng thành công gần nhất, tạo độ uy tín cao và kích thích hành vi mua sắm.
 - **Quản lý Sổ Địa Chỉ Giao Hàng Đa Điểm (Multi-Address Book)**: Cho phép khách hàng lưu nhiều địa chỉ nhận hàng (Nhà riêng, Văn phòng), thiết lập địa chỉ mặc định trong Profile và chọn nhanh 1-click tại trang Checkout mà không phải nhập lại.
+- **Hệ thống Tra Cứu Hành Trình Đơn Hàng Thời Gian Thực (Live Logistics Order Tracking Timeline)**: Cung cấp mã vận đơn chi tiết, các mốc tiến trình đóng gói kiểm duyệt chất lượng, bàn giao xe chuyên dụng và thời gian dự kiến giao hàng qua modal trực quan.
+- **Hệ thống Khảo Sát Gợi Ý Size Thông Minh (Smart Fit & Size Recommender)**: Cho phép khách hàng nhập chiều cao, cân nặng, giới tính và phom dáng mong muốn (Slim, Regular, Relaxed) để hệ thống tự động tính toán chỉ số BMI và đề xuất size trang phục chuẩn xác kèm 1-click áp dụng ngay tại trang chi tiết sản phẩm.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Tra cứu Hành trình Đơn hàng & Live Order Tracking Timeline.
-- Hệ thống Khảo sát Gợi ý Size Thời trang (Smart Fit & Size Recommender).
+- Hệ thống Thông báo Đặt hàng trước / Đăng ký nhận tin khi có hàng (Back in Stock & Pre-order Notifications).
+- Hệ thống Flash Sale Countdown Banner với đồng hồ đếm ngược thời gian thực.

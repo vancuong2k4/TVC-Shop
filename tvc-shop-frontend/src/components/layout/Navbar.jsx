@@ -65,6 +65,7 @@ const Navbar = () => {
         <div className={`hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 ${textClass}`}>
           <Link to="/" className="hover:text-gray-500 transition-colors">Trang chủ</Link>
           <Link to="/shop" className="hover:text-gray-500 transition-colors">Cửa hàng</Link>
+          <Link to="/group-buy" className="hover:text-gray-500 transition-colors">Mua chung</Link>
           <Link to="/categories" className="hover:text-gray-500 transition-colors">Bộ sưu tập</Link>
           <Link to="/gift-cards" className="hover:text-gray-500 transition-colors">E-Gift Cards</Link>
           <Link to="/blog" className="hover:text-gray-500 transition-colors">Tạp chí</Link>
@@ -153,6 +154,7 @@ const Navbar = () => {
           </button>
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Trang chủ</Link>
           <Link to="/shop" onClick={() => setIsMobileMenuOpen(false)}>Cửa hàng</Link>
+          <Link to="/group-buy" onClick={() => setIsMobileMenuOpen(false)}>Mua chung</Link>
           <Link to="/categories" onClick={() => setIsMobileMenuOpen(false)}>Bộ sưu tập</Link>
           <Link to="/gift-cards" onClick={() => setIsMobileMenuOpen(false)}>E-Gift Cards</Link>
           <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)}>Tạp chí</Link>

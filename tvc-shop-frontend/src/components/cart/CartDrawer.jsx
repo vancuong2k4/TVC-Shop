@@ -1,11 +1,39 @@
-import React from 'react';
-import { X, Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, Minus, Plus, Trash2, ShoppingBag, Share2, Check, Copy } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import { formatPrice } from '../../utils/formatPrice';
+import api from '../../api/axios';
 
 const CartDrawer = () => {
   const { cartItems, isCartOpen, setIsCartOpen, removeFromCart, updateQuantity, cartTotal } = useCart();
+  const [sharing, setSharing] = useState(false);
+  const [shareUrl, setShareUrl] = useState('');
+  const [copied, setCopied] = useState(false);
+
+  const handleShareCart = async () => {
+    if (cartItems.length === 0) return;
+    setSharing(true);
+    try {
+      const response = await api.post('/cart/share', {
+        items: cartItems.map(item => ({
+          id: item.id,
+          quantity: item.quantity,
+          size: item.size,
+          color: item.color
+        }))
+      });
+      const generatedUrl = `${window.location.origin}/cart/shared/${response.data.share_code}`;
+      setShareUrl(generatedUrl);
+      navigator.clipboard.writeText(generatedUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    } catch (error) {
+      console.error('Lỗi khi chia sẻ giỏ hàng:', error);
+    } finally {
+      setSharing(false);
+    }
+  };
 
   return (
     <>
@@ -84,6 +112,19 @@ const CartDrawer = () => {
               <span className="text-2xl font-bold">{formatPrice(cartTotal)}</span>
             </div>
             <p className="text-[11px] text-gray-400 mb-6 text-center tracking-wider">THUẾ VÀ PHÍ VẬN CHUYỂN SẼ ĐƯỢC TÍNH KHI THANH TOÁN.</p>
+            
+            {/* Share Cart Button */}
+            <div className="mb-3">
+              <button
+                onClick={handleShareCart}
+                disabled={sharing}
+                className="w-full py-2.5 border border-dashed border-gray-300 text-gray-700 hover:text-black hover:border-black text-[11px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center space-x-2"
+              >
+                {copied ? <Check size={14} className="text-emerald-600" /> : <Share2 size={14} />}
+                <span>{copied ? 'Đã sao chép link giỏ hàng!' : 'Chia sẻ giỏ hàng (Share Cart)'}</span>
+              </button>
+            </div>
+
             <Link to="/checkout" onClick={() => setIsCartOpen(false)} className="block w-full text-center bg-black text-white font-bold uppercase tracking-widest py-4 hover:bg-gray-800 transition-colors shadow-xl">
               Thanh Toán Ngay
             </Link>

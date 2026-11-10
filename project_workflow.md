@@ -71,6 +71,7 @@
   - `FaqController`: Cung cấp danh mục câu hỏi thường gặp động (`/faqs`) phân loại theo chủ đề (vận chuyển, đổi trả, thanh toán, kích cỡ, thành viên) và tiếp nhận thông tin yêu cầu hỗ trợ trực tiếp (`/faqs/inquiry`).
   - `SharedCartController`: Xử lý tạo liên kết chia sẻ giỏ hàng độc nhất (`/cart/share`) và tái tạo giỏ hàng cho người nhận qua mã chia sẻ (`/cart/shared/{code}`).
   - `OccasionController`: Cung cấp hướng dẫn phối đồ và tuyển chọn trang phục theo từng dịp (`/occasions`) (Công sở & Họp cấp cao, Dạ tiệc & Cocktail, Dạo phố cuối tuần, Nghỉ dưỡng biển).
+  - `InvoiceController`: Xuất dữ liệu hóa đơn điện tử chính thức của đơn hàng (`/orders/{id}/invoice`), định dạng chuẩn thuế điện tử, chữ ký số và hỗ trợ xem/in ấn trực tiếp.
   - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
   - `WishlistController`, `CouponController`.
   - `ReviewController`: Quản lý đánh giá sản phẩm nâng cao; hỗ trợ lọc theo số sao (1-5 sao), lọc bài có hình ảnh thực tế, sắp xếp đánh giá, tính toán phân bổ xếp hạng (Rating distribution), và hỗ trợ tải lên nhiều hình ảnh feedback thực tế từ khách hàng đã mua sản phẩm.
@@ -101,7 +102,9 @@
 - **Tùy Chọn Đóng Gói Hộp Quà Cold Luxury (Luxury Gift Wrapping & Greeting Card)**: Khách hàng tại trang thanh toán có thể chọn dịch vụ đóng hộp đen nguyên khối sang trọng (+50.000₫), giấy nến lụa, ruy băng và tùy chỉnh lời chúc in trên thiệp trao gửi người thân yêu.
 - **Hệ thống Giỏ Hàng Chia Sẻ Đa Kênh (Shareable Cart Link & Collaborative Cart)**: Khách hàng có thể tạo nhanh liên kết chia sẻ giỏ hàng 1-chạm từ CartDrawer để gửi cho bạn bè hoặc người thân qua mạng xã hội, cho phép người nhận sao chép toàn bộ giỏ hàng và tiến hành thanh toán tức thì.
 - **Hướng Dẫn Phối Đồ Theo Từng Dịp (Outfit by Occasion Curated Styling Guide)**: Trang chuyên đề định hình phong cách Cold Luxury theo 4 dịp đặc trưng (Công sở & Họp cấp cao, Dạ tiệc & Cocktail, Dạo phố cuối tuần, Nghỉ dưỡng biển) với sản phẩm tuyển chọn và câu chuyện phong cách riêng biệt.
+- **Hệ thống Kiểm Duyệt & Phản Hồi Đánh Giá Chính Thức (Admin Review Moderation & Official Replies)**: Phân hệ Admin chuyên biệt (`/admin/reviews`) cho phép quản trị viên xem xét tất cả đánh giá của khách hàng, phản hồi chính thức từ thương hiệu TVC-Shop và xóa các đánh giá tiêu cực vi phạm tiêu chuẩn.
+- **Hóa Đơn Điện Tử Bán Hàng In Ấn Trực Tuyến (Printable Electronic Order Invoice)**: Khách hàng tại trang đơn hàng có thể xem và in ngay hóa đơn điện tử chuẩn mực gồm mã hóa đơn, thông tin người mua, chi tiết đơn giá từng món, dấu xác nhận chữ ký điện tử TVC-Shop.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Phản hồi Đánh giá của Khách hàng từ Quản trị viên (Admin Review Replies & Moderation).
-- Tích hợp Tải Hóa Đơn Điện Tử Đơn Hàng Dạng PDF (Order Invoice PDF Download).
+- Hệ thống Danh Sách Sản Phẩm Xem Gần Đây (Recently Viewed Products Bar).
+- Hệ thống Bộ sưu tập Lookbook Video Reels tương tác trực tiếp (Shoppable Video Reels).

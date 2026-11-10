@@ -65,6 +65,9 @@ Route::get('/video-reels', [\App\Http\Controllers\VideoReelController::class, 'g
 Route::get('/currencies', [\App\Http\Controllers\CurrencyController::class, 'getCurrencies']);
 Route::get('/currencies/convert', [\App\Http\Controllers\CurrencyController::class, 'convert']);
 
+// Size Guide & Measurement Routes
+Route::get('/size-guides', [\App\Http\Controllers\SizeGuideController::class, 'getSizeGuides']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

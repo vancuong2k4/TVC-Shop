@@ -106,8 +106,9 @@
 - **Hóa Đơn Điện Tử Bán Hàng In Ấn Trực Tuyến (Printable Electronic Order Invoice)**: Khách hàng tại trang đơn hàng có thể xem và in ngay hóa đơn điện tử chuẩn mực gồm mã hóa đơn, thông tin người mua, chi tiết đơn giá từng món, dấu xác nhận chữ ký điện tử TVC-Shop.
 - **Hệ thống Bộ Sưu Tập Sản Phẩm Xem Gần Đây (Recently Viewed Products)**: Tự động lưu vết các sản phẩm khách hàng vừa duyệt vào LocalStorage qua `RecentlyViewedContext`, tích hợp thanh carousel xem lại nhanh ở chân trang chi tiết sản phẩm kèm xóa lịch sử 1-click.
 - **Sàn Diễn Lookbook Video Reels Tương Tác Trực Tiếp (Shoppable Video Reels Editorial)**: Trang trình diễn video thời trang chuẩn Cold Luxury (`/lookbook`), video full-screen dọc với tương tác thả tim, sao chép liên kết chia sẻ, bật/tắt âm thanh, điều hướng playlist và thẻ mua sắm sản phẩm trực tiếp (Shoppable Tag) 1-click vào giỏ hàng.
+- **Hệ Thống Đa Tiền Tệ Toàn Cầu (Multi-Currency Switcher VND / USD / EUR / JPY / GBP)**: Cung cấp API tỷ giá chuẩn hóa (`/currencies`, `/currencies/convert`), bộ chuyển đổi `CurrencySwitcher` trên Navbar và `CurrencyContext` đồng bộ giá toàn sàn và LocalStorage.
+- **Bảng Thông Số Kích Cỡ May Đo Tương Tác (Atelier Interactive Size Guide)**: Cung cấp API bảng kích cỡ chuẩn hóa theo từng dòng sản phẩm (`/size-guides`), modal `SizeGuideModal` tích hợp tại ProductDetail với chuyển đổi đơn vị đo linh hoạt giữa Centimet (CM) và Inches.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Chuyển Đổi Tiền Tệ Đa Quốc Gia Tức Thì (Multi-Currency Switcher VND / USD / EUR / JPY).
-- Bảng Tra Cứu Kích Cỡ Tương Tác Đa Phân Khúc (Interactive Size Chart Visualizer & Body Measurement Drawer).
 - Hệ thống Đặt Cọc Giữ Chỗ Hàng Hiếm (Pre-order Deposit & Reservation Management).
+- Hệ thống Trải Nghiệm Mix & Match Trang Phục Ảo (Interactive Virtual Fitting & Outfit Canvas).

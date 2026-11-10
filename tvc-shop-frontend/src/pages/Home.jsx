@@ -5,6 +5,7 @@ import HeroSection from './Home/HeroSection';
 import CategoryGrid from './Home/CategoryGrid';
 import FeaturedProducts from './Home/FeaturedProducts';
 import PromoBanner from './Home/PromoBanner';
+import FlashSaleBanner from '../components/common/FlashSaleBanner';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
+        <FlashSaleBanner />
         <CategoryGrid />
         <FeaturedProducts />
         <PromoBanner />

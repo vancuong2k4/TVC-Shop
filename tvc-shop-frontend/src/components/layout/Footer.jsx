@@ -79,10 +79,10 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-gray-600"></span>
             </h4>
             <ul className="space-y-4 text-base text-gray-400">
-              <li><Link to="#" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Chính sách đổi trả</Link></li>
-              <li><Link to="#" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Câu hỏi thường gặp (FAQ)</Link></li>
-              <li><Link to="#" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Hướng dẫn chọn size</Link></li>
-              <li><Link to="#" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Liên hệ</Link></li>
+              <li><Link to="/faq" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Chính sách đổi trả</Link></li>
+              <li><Link to="/faq" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Câu hỏi thường gặp (FAQ)</Link></li>
+              <li><Link to="/faq" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Hướng dẫn chọn size</Link></li>
+              <li><Link to="/faq" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Liên hệ & Hỗ trợ</Link></li>
             </ul>
           </div>
 

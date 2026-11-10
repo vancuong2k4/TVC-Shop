@@ -69,6 +69,8 @@
   - `LuckyWheelController`: Cung cấp cấu hình 8 ô quà tặng (`/lucky-wheel/config`) và thuật toán quay thưởng theo trọng số (`/lucky-wheel/spin`), tự động phát hành mã Coupon độc nhất trong CSDL.
   - `GroupBuyController`: Quản lý danh sách các phòng mua chung theo nhóm (`/group-buys`, `/group-buys/{id}/join`), đối chiếu số lượng thành viên tối thiểu và áp dụng mức giá chiết khấu nhóm độc quyền.
   - `FaqController`: Cung cấp danh mục câu hỏi thường gặp động (`/faqs`) phân loại theo chủ đề (vận chuyển, đổi trả, thanh toán, kích cỡ, thành viên) và tiếp nhận thông tin yêu cầu hỗ trợ trực tiếp (`/faqs/inquiry`).
+  - `SharedCartController`: Xử lý tạo liên kết chia sẻ giỏ hàng độc nhất (`/cart/share`) và tái tạo giỏ hàng cho người nhận qua mã chia sẻ (`/cart/shared/{code}`).
+  - `OccasionController`: Cung cấp hướng dẫn phối đồ và tuyển chọn trang phục theo từng dịp (`/occasions`) (Công sở & Họp cấp cao, Dạ tiệc & Cocktail, Dạo phố cuối tuần, Nghỉ dưỡng biển).
   - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
   - `WishlistController`, `CouponController`.
   - `ReviewController`: Quản lý đánh giá sản phẩm nâng cao; hỗ trợ lọc theo số sao (1-5 sao), lọc bài có hình ảnh thực tế, sắp xếp đánh giá, tính toán phân bổ xếp hạng (Rating distribution), và hỗ trợ tải lên nhiều hình ảnh feedback thực tế từ khách hàng đã mua sản phẩm.
@@ -97,7 +99,9 @@
 - **Hệ thống Mua Chung Theo Nhóm (Team Group Buy & Group Discount)**: Cho phép khách hàng gia nhập phòng mua chung của các thành viên khác hoặc mời thêm bạn bè để nhận mức giá ưu đãi tới 25-30%, đồng bộ trực tiếp vào giỏ hàng cá nhân.
 - **Trung Tâm Trợ Giúp & Câu Hỏi Thường Gặp (Dynamic FAQs & Help Center)**: Cung cấp kho tri thức giải đáp các thắc mắc cốt lõi (vận chuyển, đổi trả, chọn size, thanh toán, hội viên VIP), tích hợp thanh tìm kiếm thời gian thực, bộ lọc danh mục và biểu mẫu gửi câu hỏi trực tiếp cho tư vấn viên.
 - **Tùy Chọn Đóng Gói Hộp Quà Cold Luxury (Luxury Gift Wrapping & Greeting Card)**: Khách hàng tại trang thanh toán có thể chọn dịch vụ đóng hộp đen nguyên khối sang trọng (+50.000₫), giấy nến lụa, ruy băng và tùy chỉnh lời chúc in trên thiệp trao gửi người thân yêu.
+- **Hệ thống Giỏ Hàng Chia Sẻ Đa Kênh (Shareable Cart Link & Collaborative Cart)**: Khách hàng có thể tạo nhanh liên kết chia sẻ giỏ hàng 1-chạm từ CartDrawer để gửi cho bạn bè hoặc người thân qua mạng xã hội, cho phép người nhận sao chép toàn bộ giỏ hàng và tiến hành thanh toán tức thì.
+- **Hướng Dẫn Phối Đồ Theo Từng Dịp (Outfit by Occasion Curated Styling Guide)**: Trang chuyên đề định hình phong cách Cold Luxury theo 4 dịp đặc trưng (Công sở & Họp cấp cao, Dạ tiệc & Cocktail, Dạo phố cuối tuần, Nghỉ dưỡng biển) với sản phẩm tuyển chọn và câu chuyện phong cách riêng biệt.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Giỏ hàng Tạm tính Chia sẻ (Shareable Cart Link) gửi qua mạng xã hội.
-- Hệ thống Lọc & Đề xuất Sản phẩm Thông minh theo Dịp (Outfit by Occasion).
+- Hệ thống Phản hồi Đánh giá của Khách hàng từ Quản trị viên (Admin Review Replies & Moderation).
+- Tích hợp Tải Hóa Đơn Điện Tử Đơn Hàng Dạng PDF (Order Invoice PDF Download).

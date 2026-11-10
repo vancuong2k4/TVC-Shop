@@ -47,6 +47,10 @@ Route::post('/lucky-wheel/spin', [\App\Http\Controllers\LuckyWheelController::cl
 // Group Buy & Team Discount Routes
 Route::get('/group-buys', [\App\Http\Controllers\GroupBuyController::class, 'getActiveGroupBuys']);
 
+// FAQ & Help Center Routes
+Route::get('/faqs', [\App\Http\Controllers\FaqController::class, 'getFaqs']);
+Route::post('/faqs/inquiry', [\App\Http\Controllers\FaqController::class, 'submitInquiry']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

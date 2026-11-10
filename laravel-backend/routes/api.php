@@ -40,6 +40,10 @@ Route::get('/social-proof/recent-purchases', [\App\Http\Controllers\SocialProofC
 Route::get('/flash-sale', [\App\Http\Controllers\FlashSaleController::class, 'getActiveFlashSale']);
 Route::post('/restock/subscribe', [\App\Http\Controllers\RestockNotificationController::class, 'subscribe']);
 
+// Lucky Spin Voucher Wheel Routes
+Route::get('/lucky-wheel/config', [\App\Http\Controllers\LuckyWheelController::class, 'getWheelConfig']);
+Route::post('/lucky-wheel/spin', [\App\Http\Controllers\LuckyWheelController::class, 'spin']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

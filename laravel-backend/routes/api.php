@@ -58,6 +58,9 @@ Route::get('/cart/shared/{code}', [\App\Http\Controllers\SharedCartController::c
 // Occasion & Outfit Recommender Routes
 Route::get('/occasions', [\App\Http\Controllers\OccasionController::class, 'getOccasions']);
 
+// Shoppable Video Reels Routes
+Route::get('/video-reels', [\App\Http\Controllers\VideoReelController::class, 'getReels']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

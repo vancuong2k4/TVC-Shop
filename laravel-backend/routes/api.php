@@ -55,6 +55,9 @@ Route::post('/faqs/inquiry', [\App\Http\Controllers\FaqController::class, 'submi
 Route::post('/cart/share', [\App\Http\Controllers\SharedCartController::class, 'createSharedCart']);
 Route::get('/cart/shared/{code}', [\App\Http\Controllers\SharedCartController::class, 'getSharedCart']);
 
+// Occasion & Outfit Recommender Routes
+Route::get('/occasions', [\App\Http\Controllers\OccasionController::class, 'getOccasions']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

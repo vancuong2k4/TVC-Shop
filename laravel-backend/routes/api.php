@@ -51,6 +51,10 @@ Route::get('/group-buys', [\App\Http\Controllers\GroupBuyController::class, 'get
 Route::get('/faqs', [\App\Http\Controllers\FaqController::class, 'getFaqs']);
 Route::post('/faqs/inquiry', [\App\Http\Controllers\FaqController::class, 'submitInquiry']);
 
+// Shareable Cart Routes
+Route::post('/cart/share', [\App\Http\Controllers\SharedCartController::class, 'createSharedCart']);
+Route::get('/cart/shared/{code}', [\App\Http\Controllers\SharedCartController::class, 'getSharedCart']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

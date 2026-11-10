@@ -37,6 +37,8 @@ Route::get('/banners', [\App\Http\Controllers\BannerController::class, 'index'])
 Route::get('/blogs', [\App\Http\Controllers\BlogController::class, 'index']);
 Route::get('/blogs/{id}', [\App\Http\Controllers\BlogController::class, 'show']);
 Route::get('/social-proof/recent-purchases', [\App\Http\Controllers\SocialProofController::class, 'getRecentPurchases']);
+Route::get('/flash-sale', [\App\Http\Controllers\FlashSaleController::class, 'getActiveFlashSale']);
+Route::post('/restock/subscribe', [\App\Http\Controllers\RestockNotificationController::class, 'subscribe']);
 
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);

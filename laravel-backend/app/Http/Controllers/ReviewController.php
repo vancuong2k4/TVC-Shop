@@ -85,7 +85,9 @@ class ReviewController extends Controller
                 'created_at' => $r->created_at,
                 'full_name' => $r->user ? $r->user->full_name : 'Người dùng Ẩn danh',
                 'user_avatar' => $r->user ? $r->user->avatar : null,
-                'verified_purchase' => true
+                'verified_purchase' => true,
+                'admin_reply' => $r->admin_reply,
+                'replied_at' => $r->replied_at ? \Carbon\Carbon::parse($r->replied_at)->format('d/m/Y H:i') : null
             ];
         });
 
@@ -167,5 +169,56 @@ class ReviewController extends Controller
                 "error" => $e->getMessage()
             ], 500);
         }
+    }
+
+    /**
+     * Admin: Lấy toàn bộ danh sách đánh giá của khách hàng để kiểm duyệt & phản hồi
+     */
+    public function adminGetReviews(Request $request)
+    {
+        $reviews = Review::with(['user:id,full_name,email,avatar', 'product:id,name,slug'])
+            ->orderBy('created_at', 'desc')
+            ->paginate(15);
+
+        return response()->json($reviews);
+    }
+
+    /**
+     * Admin: Phản hồi chính thức đánh giá của khách hàng
+     */
+    public function adminReplyReview(Request $request, $id)
+    {
+        $request->validate([
+            'reply' => 'required|string|max:1000'
+        ]);
+
+        $review = Review::find($id);
+        if (!$review) {
+            return response()->json(['message' => 'Không tìm thấy đánh giá.'], 404);
+        }
+
+        $review->admin_reply = $request->reply;
+        $review->replied_at = date('Y-m-d H:i:s');
+        $review->save();
+
+        return response()->json([
+            'message' => 'Đã gửi phản hồi chính thức cho khách hàng thành công!',
+            'review' => $review
+        ]);
+    }
+
+    /**
+     * Admin: Xóa đánh giá vi phạm tiêu chuẩn cộng đồng
+     */
+    public function adminDeleteReview($id)
+    {
+        $review = Review::find($id);
+        if (!$review) {
+            return response()->json(['message' => 'Không tìm thấy đánh giá.'], 404);
+        }
+
+        $review->delete();
+
+        return response()->json(['message' => 'Đã xóa đánh giá thành công.']);
     }
 }

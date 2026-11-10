@@ -141,5 +141,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/admin/banners', [\App\Http\Controllers\BannerController::class, 'store']);
         Route::put('/admin/banners/{id}', [\App\Http\Controllers\BannerController::class, 'update']);
         Route::delete('/admin/banners/{id}', [\App\Http\Controllers\BannerController::class, 'destroy']);
+
+        // Review Moderation & Reply Routes
+        Route::get('/admin/reviews', [ReviewController::class, 'adminGetReviews']);
+        Route::post('/admin/reviews/{id}/reply', [ReviewController::class, 'adminReplyReview']);
+        Route::delete('/admin/reviews/{id}', [ReviewController::class, 'adminDeleteReview']);
     });
 });

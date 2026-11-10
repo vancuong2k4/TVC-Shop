@@ -9,7 +9,9 @@ import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import ProductReviews from '../components/product/ProductReviews';
 import SizeRecommenderModal from '../components/product/SizeRecommenderModal';
+import RestockModal from '../components/product/RestockModal';
 import { formatPrice } from '../utils/formatPrice';
+import { Bell } from 'lucide-react';
 import api from '../api/axios';
 import useSEO from '../hooks/useSEO';
 
@@ -22,6 +24,7 @@ const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState('M');
   const [selectedColor, setSelectedColor] = useState('Black');
   const [isSizeModalOpen, setIsSizeModalOpen] = useState(false);
+  const [isRestockModalOpen, setIsRestockModalOpen] = useState(false);
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
   const isLiked = isInWishlist(id || 1);
@@ -194,7 +197,7 @@ const ProductDetail = () => {
               </div>
 
               {/* Add to Cart Actions */}
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-12 max-w-md">
+              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-4 max-w-md">
                 <div className="flex items-center border border-black w-full sm:w-1/3 justify-between">
                   <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="p-4 hover:bg-gray-100 transition-colors"><Minus size={18} /></button>
                   <span className="font-semibold text-lg">{quantity}</span>
@@ -211,6 +214,18 @@ const ProductDetail = () => {
                   className="border border-black p-4 flex items-center justify-center hover:bg-black hover:text-white transition-colors"
                 >
                   <Heart size={24} strokeWidth={1.5} className={isLiked ? "fill-red-500 text-red-500" : ""} />
+                </button>
+              </div>
+
+              {/* Pre-order / Back In Stock Notification Trigger */}
+              <div className="mb-12 max-w-md">
+                <button
+                  type="button"
+                  onClick={() => setIsRestockModalOpen(true)}
+                  className="w-full py-2.5 border border-dashed border-gray-300 text-gray-500 hover:text-black hover:border-black text-[11px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center space-x-2"
+                >
+                  <Bell size={13} />
+                  <span>Cần size/màu khác? Nhận thông báo khi có hàng lại</span>
                 </button>
               </div>
 
@@ -263,6 +278,15 @@ const ProductDetail = () => {
         onClose={() => setIsSizeModalOpen(false)}
         onSelectSize={(sz) => setSelectedSize(sz)}
         availableSizes={['S', 'M', 'L', 'XL']}
+      />
+
+      {/* Restock Notification Modal */}
+      <RestockModal
+        isOpen={isRestockModalOpen}
+        onClose={() => setIsRestockModalOpen(false)}
+        product={product}
+        selectedSize={selectedSize}
+        selectedColor={selectedColor}
       />
 
       <Footer />

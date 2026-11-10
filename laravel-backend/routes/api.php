@@ -86,6 +86,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'getUserOrders']);
     Route::post('/orders', [\App\Http\Controllers\OrderController::class, 'create']);
     Route::get('/orders/{id}/tracking', [\App\Http\Controllers\TrackingController::class, 'getOrderTracking']);
+    Route::get('/orders/{id}/invoice', [\App\Http\Controllers\InvoiceController::class, 'getInvoice']);
 
     // Payment Routes
     Route::post('/payment/vnpay/create', [PaymentController::class, 'createVnpayPayment']);

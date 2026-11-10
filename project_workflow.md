@@ -68,6 +68,7 @@
   - `RestockNotificationController`: Quản lý đăng ký nhận thông báo qua email khi sản phẩm hoặc size/màu hết hàng được restock (`/restock/subscribe`).
   - `LuckyWheelController`: Cung cấp cấu hình 8 ô quà tặng (`/lucky-wheel/config`) và thuật toán quay thưởng theo trọng số (`/lucky-wheel/spin`), tự động phát hành mã Coupon độc nhất trong CSDL.
   - `GroupBuyController`: Quản lý danh sách các phòng mua chung theo nhóm (`/group-buys`, `/group-buys/{id}/join`), đối chiếu số lượng thành viên tối thiểu và áp dụng mức giá chiết khấu nhóm độc quyền.
+  - `FaqController`: Cung cấp danh mục câu hỏi thường gặp động (`/faqs`) phân loại theo chủ đề (vận chuyển, đổi trả, thanh toán, kích cỡ, thành viên) và tiếp nhận thông tin yêu cầu hỗ trợ trực tiếp (`/faqs/inquiry`).
   - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
   - `WishlistController`, `CouponController`.
   - `ReviewController`: Quản lý đánh giá sản phẩm nâng cao; hỗ trợ lọc theo số sao (1-5 sao), lọc bài có hình ảnh thực tế, sắp xếp đánh giá, tính toán phân bổ xếp hạng (Rating distribution), và hỗ trợ tải lên nhiều hình ảnh feedback thực tế từ khách hàng đã mua sản phẩm.
@@ -94,7 +95,9 @@
 - **Hệ thống Đăng Ký Nhận Thông Báo Khi Có Hàng / Đặt Hàng Trước (Back in Stock & Pre-order Alert)**: Cho phép khách hàng để lại email và số điện thoại theo từng phân loại size/màu sắc cụ thể để nhận thông báo ưu tiên ngay khi sản phẩm được bổ sung tồn kho.
 - **Hệ thống Mini-game Vòng Quay May Mắn (Lucky Spin Voucher Wheel)**: Vòng quay may mắn Canvas đồ họa sắc nét với 8 ô giải thưởng, thuật toán quay thưởng theo trọng số (weighted random), tự động phát hành mã voucher giảm giá (SPIN-XXXXXX) vào cơ sở dữ liệu và nút bấm nổi 1-chạm toàn trang.
 - **Hệ thống Mua Chung Theo Nhóm (Team Group Buy & Group Discount)**: Cho phép khách hàng gia nhập phòng mua chung của các thành viên khác hoặc mời thêm bạn bè để nhận mức giá ưu đãi tới 25-30%, đồng bộ trực tiếp vào giỏ hàng cá nhân.
+- **Trung Tâm Trợ Giúp & Câu Hỏi Thường Gặp (Dynamic FAQs & Help Center)**: Cung cấp kho tri thức giải đáp các thắc mắc cốt lõi (vận chuyển, đổi trả, chọn size, thanh toán, hội viên VIP), tích hợp thanh tìm kiếm thời gian thực, bộ lọc danh mục và biểu mẫu gửi câu hỏi trực tiếp cho tư vấn viên.
+- **Tùy Chọn Đóng Gói Hộp Quà Cold Luxury (Luxury Gift Wrapping & Greeting Card)**: Khách hàng tại trang thanh toán có thể chọn dịch vụ đóng hộp đen nguyên khối sang trọng (+50.000₫), giấy nến lụa, ruy băng và tùy chỉnh lời chúc in trên thiệp trao gửi người thân yêu.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Câu Hỏi Thường Gặp (Dynamic FAQs & Help Center Accordion).
-- Tùy chỉnh Gói Quà Tặng & Thiệp Chúc Mừng Cao Cấp (Luxury Gift Wrapping Option) tại bước Checkout.
+- Hệ thống Giỏ hàng Tạm tính Chia sẻ (Shareable Cart Link) gửi qua mạng xã hội.
+- Hệ thống Lọc & Đề xuất Sản phẩm Thông minh theo Dịp (Outfit by Occasion).

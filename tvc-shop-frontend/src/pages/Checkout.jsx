@@ -9,7 +9,7 @@ import Breadcrumb from '../components/common/Breadcrumb';
 import { formatPrice } from '../utils/formatPrice';
 import { 
   ShieldCheck, CreditCard, Truck, QrCode, CheckCircle2, 
-  ExternalLink, ArrowRight, Lock, Check, MapPin, Plus
+  ExternalLink, ArrowRight, Lock, Check, MapPin, Plus, Gift
 } from 'lucide-react';
 
 const PAYMENT_METHODS = [
@@ -65,8 +65,13 @@ const Checkout = () => {
   const [couponMessage, setCouponMessage] = useState('');
   const [couponError, setCouponError] = useState(false);
 
+  // Luxury Gift Wrap option (+50.000đ)
+  const [isGiftWrap, setIsGiftWrap] = useState(false);
+  const [giftGreeting, setGiftGreeting] = useState('');
+  const giftWrapFee = isGiftWrap ? 50000 : 0;
+
   const discountAmount = appliedCoupon ? (cartTotal * (appliedCoupon.discount_percentage / 100)) : 0;
-  const finalTotal = cartTotal - discountAmount;
+  const finalTotal = cartTotal - discountAmount + giftWrapFee;
 
   const [savedAddresses, setSavedAddresses] = useState([]);
   const [selectedAddressId, setSelectedAddressId] = useState(null);
@@ -484,10 +489,51 @@ const Checkout = () => {
                   </div>
                 )}
                 
+                {isGiftWrap && (
+                  <div className="flex justify-between text-zinc-800 font-medium">
+                    <span>Hộp quà Cold Luxury</span>
+                    <span>+{formatPrice(giftWrapFee)}</span>
+                  </div>
+                )}
+                
                 <div className="flex justify-between text-gray-600 font-medium">
                   <span>Phí vận chuyển</span>
                   <span className="text-emerald-600 font-bold">Miễn phí</span>
                 </div>
+              </div>
+
+              {/* Luxury Gift Wrapping Option */}
+              <div className="mt-6 border-t border-gray-200 pt-6">
+                <label className="flex items-start space-x-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={isGiftWrap}
+                    onChange={(e) => setIsGiftWrap(e.target.checked)}
+                    className="accent-black w-4 h-4 rounded mt-0.5"
+                  />
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-black flex items-center space-x-1.5">
+                      <Gift size={14} className="text-amber-600" />
+                      <span>Đóng gói hộp quà Cold Luxury (+50.000₫)</span>
+                    </span>
+                    <p className="text-[10px] text-gray-500 mt-0.5 leading-relaxed">
+                      Bao gồm hộp đen nguyên khối, bọc giấy nến lụa, ruy băng sang trọng và thiệp viết tay.
+                    </p>
+                  </div>
+                </label>
+
+                {isGiftWrap && (
+                  <div className="mt-3 animate-fade-in">
+                    <input
+                      type="text"
+                      value={giftGreeting}
+                      onChange={(e) => setGiftGreeting(e.target.value)}
+                      placeholder="Lời chúc in trên thiệp (Tùy chọn)..."
+                      className="w-full border border-gray-300 p-2 text-xs outline-none focus:border-black bg-white"
+                      maxLength="150"
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Coupon / Gift Card Input */}

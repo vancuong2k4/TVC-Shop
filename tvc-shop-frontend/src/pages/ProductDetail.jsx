@@ -9,6 +9,7 @@ import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import ProductReviews from '../components/product/ProductReviews';
 import SizeRecommenderModal from '../components/product/SizeRecommenderModal';
+import SizeGuideModal from '../components/product/SizeGuideModal';
 import RestockModal from '../components/product/RestockModal';
 import RecentlyViewedBar from '../components/product/RecentlyViewedBar';
 import { useRecentlyViewed } from '../context/RecentlyViewedContext';
@@ -26,6 +27,7 @@ const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState('M');
   const [selectedColor, setSelectedColor] = useState('Black');
   const [isSizeModalOpen, setIsSizeModalOpen] = useState(false);
+  const [isSizeGuideModalOpen, setIsSizeGuideModalOpen] = useState(false);
   const [isRestockModalOpen, setIsRestockModalOpen] = useState(false);
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
@@ -181,13 +183,23 @@ const ProductDetail = () => {
                   <h3 className="text-xs font-bold uppercase tracking-widest">
                     Kích cỡ: <span className="text-gray-500 font-normal ml-1">{selectedSize}</span>
                   </h3>
-                  <button 
-                    type="button"
-                    onClick={() => setIsSizeModalOpen(true)}
-                    className="flex items-center space-x-1.5 text-xs text-black font-semibold hover:text-gray-600 transition-colors underline"
-                  >
-                    <Ruler size={15} /> <span>Gợi ý chọn size (Smart Fit)</span>
-                  </button>
+                  <div className="flex items-center gap-3">
+                    <button 
+                      type="button"
+                      onClick={() => setIsSizeGuideModalOpen(true)}
+                      className="flex items-center space-x-1 text-xs text-zinc-500 hover:text-black transition-colors underline"
+                    >
+                      <span>Bảng số đo</span>
+                    </button>
+                    <span className="text-zinc-300">|</span>
+                    <button 
+                      type="button"
+                      onClick={() => setIsSizeModalOpen(true)}
+                      className="flex items-center space-x-1.5 text-xs text-black font-semibold hover:text-gray-600 transition-colors underline"
+                    >
+                      <Ruler size={14} /> <span>Gợi ý size AI</span>
+                    </button>
+                  </div>
                 </div>
                 <div className="flex flex-wrap gap-4 max-w-md">
                   {['S', 'M', 'L', 'XL'].map(size => (
@@ -287,6 +299,13 @@ const ProductDetail = () => {
         onClose={() => setIsSizeModalOpen(false)}
         onSelectSize={(sz) => setSelectedSize(sz)}
         availableSizes={['S', 'M', 'L', 'XL']}
+      />
+
+      {/* Atelier Interactive Size Guide Modal */}
+      <SizeGuideModal
+        isOpen={isSizeGuideModalOpen}
+        onClose={() => setIsSizeGuideModalOpen(false)}
+        defaultCategory={product?.category_name?.toLowerCase().includes('áo') ? 'tops' : 'blazers'}
       />
 
       {/* Restock Notification Modal */}

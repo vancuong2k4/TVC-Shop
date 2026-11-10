@@ -21,6 +21,7 @@ import Profile from './pages/Profile';
 import GiftCards from './pages/GiftCards';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
+import LuckyWheelButton from './components/common/LuckyWheelButton';
 
 // Admin Imports
 import AdminRoute from './components/common/AdminRoute';
@@ -70,6 +71,7 @@ function App() {
         </Routes>
         <ChatbotWidget />
         <SocialProofPopup />
+        <LuckyWheelButton />
         </Router>
         </CompareProvider>
         </ToastProvider>

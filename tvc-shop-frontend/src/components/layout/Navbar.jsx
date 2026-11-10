@@ -9,6 +9,7 @@ import SearchModal from '../common/SearchModal';
 import NotificationDropdown from '../common/NotificationDropdown';
 import CompareModal from '../common/CompareModal';
 import CompareFloatingBar from '../common/CompareFloatingBar';
+import CurrencySwitcher from '../common/CurrencySwitcher';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -75,6 +76,11 @@ const Navbar = () => {
 
         {/* Icons */}
         <div className={`flex items-center space-x-6 transition-colors duration-300 ${textClass}`}>
+          {/* Currency Switcher */}
+          <div className="hidden sm:block">
+            <CurrencySwitcher lightMode={!isHomePage || isScrolled} />
+          </div>
+
           {/* Search Button (Triggers Real-time Modal) */}
           <button 
             onClick={() => setIsSearchModalOpen(true)}

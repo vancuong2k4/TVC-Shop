@@ -104,7 +104,10 @@
 - **Hướng Dẫn Phối Đồ Theo Từng Dịp (Outfit by Occasion Curated Styling Guide)**: Trang chuyên đề định hình phong cách Cold Luxury theo 4 dịp đặc trưng (Công sở & Họp cấp cao, Dạ tiệc & Cocktail, Dạo phố cuối tuần, Nghỉ dưỡng biển) với sản phẩm tuyển chọn và câu chuyện phong cách riêng biệt.
 - **Hệ thống Kiểm Duyệt & Phản Hồi Đánh Giá Chính Thức (Admin Review Moderation & Official Replies)**: Phân hệ Admin chuyên biệt (`/admin/reviews`) cho phép quản trị viên xem xét tất cả đánh giá của khách hàng, phản hồi chính thức từ thương hiệu TVC-Shop và xóa các đánh giá tiêu cực vi phạm tiêu chuẩn.
 - **Hóa Đơn Điện Tử Bán Hàng In Ấn Trực Tuyến (Printable Electronic Order Invoice)**: Khách hàng tại trang đơn hàng có thể xem và in ngay hóa đơn điện tử chuẩn mực gồm mã hóa đơn, thông tin người mua, chi tiết đơn giá từng món, dấu xác nhận chữ ký điện tử TVC-Shop.
+- **Hệ thống Bộ Sưu Tập Sản Phẩm Xem Gần Đây (Recently Viewed Products)**: Tự động lưu vết các sản phẩm khách hàng vừa duyệt vào LocalStorage qua `RecentlyViewedContext`, tích hợp thanh carousel xem lại nhanh ở chân trang chi tiết sản phẩm kèm xóa lịch sử 1-click.
+- **Sàn Diễn Lookbook Video Reels Tương Tác Trực Tiếp (Shoppable Video Reels Editorial)**: Trang trình diễn video thời trang chuẩn Cold Luxury (`/lookbook`), video full-screen dọc với tương tác thả tim, sao chép liên kết chia sẻ, bật/tắt âm thanh, điều hướng playlist và thẻ mua sắm sản phẩm trực tiếp (Shoppable Tag) 1-click vào giỏ hàng.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Danh Sách Sản Phẩm Xem Gần Đây (Recently Viewed Products Bar).
-- Hệ thống Bộ sưu tập Lookbook Video Reels tương tác trực tiếp (Shoppable Video Reels).
+- Hệ thống Chuyển Đổi Tiền Tệ Đa Quốc Gia Tức Thì (Multi-Currency Switcher VND / USD / EUR / JPY).
+- Bảng Tra Cứu Kích Cỡ Tương Tác Đa Phân Khúc (Interactive Size Chart Visualizer & Body Measurement Drawer).
+- Hệ thống Đặt Cọc Giữ Chỗ Hàng Hiếm (Pre-order Deposit & Reservation Management).

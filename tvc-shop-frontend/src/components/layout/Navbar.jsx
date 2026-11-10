@@ -65,6 +65,7 @@ const Navbar = () => {
         <div className={`hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 ${textClass}`}>
           <Link to="/" className="hover:text-gray-500 transition-colors">Trang chủ</Link>
           <Link to="/shop" className="hover:text-gray-500 transition-colors">Cửa hàng</Link>
+          <Link to="/occasions" className="hover:text-gray-500 transition-colors">Dịp diện</Link>
           <Link to="/group-buy" className="hover:text-gray-500 transition-colors">Mua chung</Link>
           <Link to="/categories" className="hover:text-gray-500 transition-colors">Bộ sưu tập</Link>
           <Link to="/gift-cards" className="hover:text-gray-500 transition-colors">E-Gift Cards</Link>

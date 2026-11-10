@@ -22,6 +22,7 @@ import GiftCards from './pages/GiftCards';
 import GroupBuy from './pages/GroupBuy';
 import FAQ from './pages/FAQ';
 import SharedCart from './pages/SharedCart';
+import OccasionOutfits from './pages/OccasionOutfits';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
 import LuckyWheelButton from './components/common/LuckyWheelButton';
@@ -60,6 +61,7 @@ function App() {
           <Route path="/group-buy" element={<GroupBuy />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/cart/shared/:code" element={<SharedCart />} />
+          <Route path="/occasions" element={<OccasionOutfits />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

@@ -66,6 +66,8 @@
   - `TrackingController`: Cung cấp API tra cứu hành trình vận chuyển thời gian thực (`/orders/{id}/tracking`) với các mốc thời gian chi tiết, vị trí kho bãi, mã vận đơn tự động và thời gian dự kiến giao hàng.
   - `FlashSaleController`: Quản lý phiên giảm giá chớp nhoáng theo chu kỳ ngày (`/flash-sale`), tính toán thời gian đếm ngược chính xác, tỷ lệ phần trăm chiết khấu và mức độ khan hiếm tồn kho.
   - `RestockNotificationController`: Quản lý đăng ký nhận thông báo qua email khi sản phẩm hoặc size/màu hết hàng được restock (`/restock/subscribe`).
+  - `LuckyWheelController`: Cung cấp cấu hình 8 ô quà tặng (`/lucky-wheel/config`) và thuật toán quay thưởng theo trọng số (`/lucky-wheel/spin`), tự động phát hành mã Coupon độc nhất trong CSDL.
+  - `GroupBuyController`: Quản lý danh sách các phòng mua chung theo nhóm (`/group-buys`, `/group-buys/{id}/join`), đối chiếu số lượng thành viên tối thiểu và áp dụng mức giá chiết khấu nhóm độc quyền.
   - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
   - `WishlistController`, `CouponController`.
   - `ReviewController`: Quản lý đánh giá sản phẩm nâng cao; hỗ trợ lọc theo số sao (1-5 sao), lọc bài có hình ảnh thực tế, sắp xếp đánh giá, tính toán phân bổ xếp hạng (Rating distribution), và hỗ trợ tải lên nhiều hình ảnh feedback thực tế từ khách hàng đã mua sản phẩm.
@@ -90,7 +92,9 @@
 - **Hệ thống Khảo Sát Gợi Ý Size Thông Minh (Smart Fit & Size Recommender)**: Cho phép khách hàng nhập chiều cao, cân nặng, giới tính và phom dáng mong muốn (Slim, Regular, Relaxed) để hệ thống tự động tính toán chỉ số BMI và đề xuất size trang phục chuẩn xác kèm 1-click áp dụng ngay tại trang chi tiết sản phẩm.
 - **Hệ thống Flash Sale Countdown Banner Với Đồng Hồ Đếm Ngược Thời Gian Thực**: Tích hợp banner Flash Sale phong cách Midnight Noir trên trang chủ với đồng hồ đếm ngược từng giây đến nửa đêm, thanh tiến độ bán hàng (stock progression scarcity bar) và huy hiệu "Sắp cháy hàng".
 - **Hệ thống Đăng Ký Nhận Thông Báo Khi Có Hàng / Đặt Hàng Trước (Back in Stock & Pre-order Alert)**: Cho phép khách hàng để lại email và số điện thoại theo từng phân loại size/màu sắc cụ thể để nhận thông báo ưu tiên ngay khi sản phẩm được bổ sung tồn kho.
+- **Hệ thống Mini-game Vòng Quay May Mắn (Lucky Spin Voucher Wheel)**: Vòng quay may mắn Canvas đồ họa sắc nét với 8 ô giải thưởng, thuật toán quay thưởng theo trọng số (weighted random), tự động phát hành mã voucher giảm giá (SPIN-XXXXXX) vào cơ sở dữ liệu và nút bấm nổi 1-chạm toàn trang.
+- **Hệ thống Mua Chung Theo Nhóm (Team Group Buy & Group Discount)**: Cho phép khách hàng gia nhập phòng mua chung của các thành viên khác hoặc mời thêm bạn bè để nhận mức giá ưu đãi tới 25-30%, đồng bộ trực tiếp vào giỏ hàng cá nhân.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Mini Mini-game / Vòng quay may mắn (Lucky Spin Voucher Wheel) nhận quà chào mừng.
-- Hệ thống Đơn hàng Mua Chung (Group Buy & Team Discount).
+- Hệ thống Câu Hỏi Thường Gặp (Dynamic FAQs & Help Center Accordion).
+- Tùy chỉnh Gói Quà Tặng & Thiệp Chúc Mừng Cao Cấp (Luxury Gift Wrapping Option) tại bước Checkout.

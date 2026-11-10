@@ -8,6 +8,7 @@ import ProductCard from '../components/common/ProductCard';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import ProductReviews from '../components/product/ProductReviews';
+import SizeRecommenderModal from '../components/product/SizeRecommenderModal';
 import { formatPrice } from '../utils/formatPrice';
 import api from '../api/axios';
 import useSEO from '../hooks/useSEO';
@@ -20,6 +21,7 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState('M');
   const [selectedColor, setSelectedColor] = useState('Black');
+  const [isSizeModalOpen, setIsSizeModalOpen] = useState(false);
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
   const isLiked = isInWishlist(id || 1);
@@ -167,9 +169,15 @@ const ProductDetail = () => {
               {/* Size Selection */}
               <div className="mb-12">
                 <div className="flex justify-between items-end mb-5 max-w-md">
-                  <h3 className="text-xs font-bold uppercase tracking-widest">Kích cỡ</h3>
-                  <button className="flex items-center space-x-2 text-xs text-gray-500 hover:text-black transition-colors underline">
-                    <Ruler size={16} /> <span>Bảng kích cỡ</span>
+                  <h3 className="text-xs font-bold uppercase tracking-widest">
+                    Kích cỡ: <span className="text-gray-500 font-normal ml-1">{selectedSize}</span>
+                  </h3>
+                  <button 
+                    type="button"
+                    onClick={() => setIsSizeModalOpen(true)}
+                    className="flex items-center space-x-1.5 text-xs text-black font-semibold hover:text-gray-600 transition-colors underline"
+                  >
+                    <Ruler size={15} /> <span>Gợi ý chọn size (Smart Fit)</span>
                   </button>
                 </div>
                 <div className="flex flex-wrap gap-4 max-w-md">
@@ -248,6 +256,14 @@ const ProductDetail = () => {
         <ProductReviews productId={id || 1} />
         
       </main>
+
+      {/* Smart Size Recommender Modal */}
+      <SizeRecommenderModal
+        isOpen={isSizeModalOpen}
+        onClose={() => setIsSizeModalOpen(false)}
+        onSelectSize={(sz) => setSelectedSize(sz)}
+        availableSizes={['S', 'M', 'L', 'XL']}
+      />
 
       <Footer />
     </div>

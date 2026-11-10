@@ -5,6 +5,7 @@ import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
 import { ToastProvider } from './context/ToastContext';
 import { CompareProvider } from './context/CompareContext';
+import { RecentlyViewedProvider } from './context/RecentlyViewedContext';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
@@ -47,7 +48,8 @@ function App() {
         <WishlistProvider>
           <ToastProvider>
             <CompareProvider>
-              <Router>
+              <RecentlyViewedProvider>
+                <Router>
           <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
@@ -83,6 +85,7 @@ function App() {
         <SocialProofPopup />
         <LuckyWheelButton />
         </Router>
+        </RecentlyViewedProvider>
         </CompareProvider>
         </ToastProvider>
         </WishlistProvider>

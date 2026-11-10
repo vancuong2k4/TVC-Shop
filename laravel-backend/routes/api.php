@@ -61,6 +61,10 @@ Route::get('/occasions', [\App\Http\Controllers\OccasionController::class, 'getO
 // Shoppable Video Reels Routes
 Route::get('/video-reels', [\App\Http\Controllers\VideoReelController::class, 'getReels']);
 
+// Multi-Currency Exchange Rates & Conversion Routes
+Route::get('/currencies', [\App\Http\Controllers\CurrencyController::class, 'getCurrencies']);
+Route::get('/currencies/convert', [\App\Http\Controllers\CurrencyController::class, 'convert']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

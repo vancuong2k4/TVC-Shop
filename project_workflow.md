@@ -64,6 +64,8 @@
   - `UserController`: Quản lý hồ sơ cá nhân của người dùng (`/users/profile`).
   - `AddressController`: Quản lý Sổ địa chỉ giao hàng nhiều địa điểm (`/addresses`, `/addresses/{id}/default`), hỗ trợ nhãn địa chỉ (Nhà riêng, Văn phòng) và chọn địa chỉ nhận hàng mặc định.
   - `TrackingController`: Cung cấp API tra cứu hành trình vận chuyển thời gian thực (`/orders/{id}/tracking`) với các mốc thời gian chi tiết, vị trí kho bãi, mã vận đơn tự động và thời gian dự kiến giao hàng.
+  - `FlashSaleController`: Quản lý phiên giảm giá chớp nhoáng theo chu kỳ ngày (`/flash-sale`), tính toán thời gian đếm ngược chính xác, tỷ lệ phần trăm chiết khấu và mức độ khan hiếm tồn kho.
+  - `RestockNotificationController`: Quản lý đăng ký nhận thông báo qua email khi sản phẩm hoặc size/màu hết hàng được restock (`/restock/subscribe`).
   - `BlogController`: Trả dữ liệu Tạp chí (Lookbook) cho Frontend (công khai).
   - `WishlistController`, `CouponController`.
   - `ReviewController`: Quản lý đánh giá sản phẩm nâng cao; hỗ trợ lọc theo số sao (1-5 sao), lọc bài có hình ảnh thực tế, sắp xếp đánh giá, tính toán phân bổ xếp hạng (Rating distribution), và hỗ trợ tải lên nhiều hình ảnh feedback thực tế từ khách hàng đã mua sản phẩm.
@@ -86,7 +88,9 @@
 - **Quản lý Sổ Địa Chỉ Giao Hàng Đa Điểm (Multi-Address Book)**: Cho phép khách hàng lưu nhiều địa chỉ nhận hàng (Nhà riêng, Văn phòng), thiết lập địa chỉ mặc định trong Profile và chọn nhanh 1-click tại trang Checkout mà không phải nhập lại.
 - **Hệ thống Tra Cứu Hành Trình Đơn Hàng Thời Gian Thực (Live Logistics Order Tracking Timeline)**: Cung cấp mã vận đơn chi tiết, các mốc tiến trình đóng gói kiểm duyệt chất lượng, bàn giao xe chuyên dụng và thời gian dự kiến giao hàng qua modal trực quan.
 - **Hệ thống Khảo Sát Gợi Ý Size Thông Minh (Smart Fit & Size Recommender)**: Cho phép khách hàng nhập chiều cao, cân nặng, giới tính và phom dáng mong muốn (Slim, Regular, Relaxed) để hệ thống tự động tính toán chỉ số BMI và đề xuất size trang phục chuẩn xác kèm 1-click áp dụng ngay tại trang chi tiết sản phẩm.
+- **Hệ thống Flash Sale Countdown Banner Với Đồng Hồ Đếm Ngược Thời Gian Thực**: Tích hợp banner Flash Sale phong cách Midnight Noir trên trang chủ với đồng hồ đếm ngược từng giây đến nửa đêm, thanh tiến độ bán hàng (stock progression scarcity bar) và huy hiệu "Sắp cháy hàng".
+- **Hệ thống Đăng Ký Nhận Thông Báo Khi Có Hàng / Đặt Hàng Trước (Back in Stock & Pre-order Alert)**: Cho phép khách hàng để lại email và số điện thoại theo từng phân loại size/màu sắc cụ thể để nhận thông báo ưu tiên ngay khi sản phẩm được bổ sung tồn kho.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Thông báo Đặt hàng trước / Đăng ký nhận tin khi có hàng (Back in Stock & Pre-order Notifications).
-- Hệ thống Flash Sale Countdown Banner với đồng hồ đếm ngược thời gian thực.
+- Hệ thống Mini Mini-game / Vòng quay may mắn (Lucky Spin Voucher Wheel) nhận quà chào mừng.
+- Hệ thống Đơn hàng Mua Chung (Group Buy & Team Discount).

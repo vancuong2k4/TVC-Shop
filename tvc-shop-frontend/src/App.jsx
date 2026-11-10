@@ -6,6 +6,7 @@ import { WishlistProvider } from './context/WishlistContext';
 import { ToastProvider } from './context/ToastContext';
 import { CompareProvider } from './context/CompareContext';
 import { RecentlyViewedProvider } from './context/RecentlyViewedContext';
+import { CurrencyProvider } from './context/CurrencyContext';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
@@ -50,6 +51,7 @@ function App() {
           <ToastProvider>
             <CompareProvider>
               <RecentlyViewedProvider>
+                <CurrencyProvider>
                 <Router>
           <Routes>
           <Route path="/" element={<Home />} />
@@ -87,6 +89,7 @@ function App() {
         <SocialProofPopup />
         <LuckyWheelButton />
         </Router>
+        </CurrencyProvider>
         </RecentlyViewedProvider>
         </CompareProvider>
         </ToastProvider>

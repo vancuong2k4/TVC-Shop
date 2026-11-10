@@ -10,6 +10,8 @@ import { useWishlist } from '../context/WishlistContext';
 import ProductReviews from '../components/product/ProductReviews';
 import SizeRecommenderModal from '../components/product/SizeRecommenderModal';
 import RestockModal from '../components/product/RestockModal';
+import RecentlyViewedBar from '../components/product/RecentlyViewedBar';
+import { useRecentlyViewed } from '../context/RecentlyViewedContext';
 import { formatPrice } from '../utils/formatPrice';
 import { Bell } from 'lucide-react';
 import api from '../api/axios';
@@ -27,6 +29,7 @@ const ProductDetail = () => {
   const [isRestockModalOpen, setIsRestockModalOpen] = useState(false);
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
+  const { addProductToRecentlyViewed } = useRecentlyViewed();
   const isLiked = isInWishlist(id || 1);
 
   // Dynamic SEO & OpenGraph Integration
@@ -72,6 +75,9 @@ const ProductDetail = () => {
         const allProducts = Array.isArray(response.data) ? response.data : (response.data?.data || []);
         const currentProduct = allProducts.find(p => String(p.id) === String(id));
         setProduct(currentProduct);
+        if (currentProduct) {
+          addProductToRecentlyViewed(currentProduct);
+        }
         
         // Find related products (same category or randomly selected)
         if (currentProduct) {
@@ -266,6 +272,9 @@ const ProductDetail = () => {
               ))}
             </div>
           </div>
+
+          {/* Recently Viewed Products Bar */}
+          <RecentlyViewedBar currentProductId={id} />
 
         {/* --- Phần Hiển thị Reviews --- */}
         <ProductReviews productId={id || 1} />

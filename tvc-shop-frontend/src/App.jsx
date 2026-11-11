@@ -37,6 +37,7 @@ import RunwayVoting from './pages/RunwayVoting';
 import AuthenticityCertificate from './pages/AuthenticityCertificate';
 import CommunityLookbook from './pages/CommunityLookbook';
 import HardwareCustomizer from './pages/HardwareCustomizer';
+import MeasurementLedger from './pages/MeasurementLedger';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
 import LuckyWheelButton from './components/common/LuckyWheelButton';
@@ -91,6 +92,7 @@ function App() {
           <Route path="/authenticity" element={<AuthenticityCertificate />} />
           <Route path="/community-lookbook" element={<CommunityLookbook />} />
           <Route path="/customizer" element={<HardwareCustomizer />} />
+          <Route path="/measurement-ledger" element={<MeasurementLedger />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

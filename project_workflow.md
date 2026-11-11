@@ -124,6 +124,8 @@
 - **Hồ Sơ May Đo Kỹ Thuật Số Đa Chiều (VIP Digital Measurement Profile & Fit Ledger)**: Cung cấp API lưu trữ và đồng bộ 14 thông số hình thể giải phẫu (`/measurement-ledger`), trang quản lý thông số may đo (`/measurement-ledger`) hỗ trợ chuyển đổi cm/inch, phân loại dáng đứng và phom mặc mong muốn giúp xưởng may cắt rập chính xác tuyệt đối.
 - **Trình Trình Chiếu Sản Phẩm Xoay 360 Độ Tương Tác (Interactive 360-Degree Product Spin Viewer)**: Tích hợp API cung cấp chuỗi khung hình xoay vòng 360° và các điểm nút thủ công mỹ nghệ (`/spin-viewer/data`), modal `SpinViewer360Modal` cho phép kéo chuột/chạm vuốt xoay góc nhìn đa chiều, chế độ tự động quay và phóng to chi tiết hoàn thiện thủ công.
 
+- **Hầm Kho Báu Đặc Quyền VIP Kín & Bản Lưu Trữ Giới Hạn (VIP Secret Perks Vault & Archival Releases)**: Cung cấp API hồ sơ bảo mật thứ hạng thành viên (`/secret-vault/catalog`, `/secret-vault/acquire`), trang Hầm Kín (`/secret-vault`) bảo vệ bằng cấp bậc Silver/Gold/Diamond, hiển thị tiến trình chi tiêu, mở khóa quyền mua tác phẩm lưu trữ độc bản One-of-a-Kind, khắc dấu triện laser riêng và giao nhận bằng hòm chống sốc chuyên dụng.
+
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hầm Kho Báu Đặc Quyền VIP Kín & Bản Phát Hành Bí Mật (VIP Tier Secret Perks Vault & Runway Archival Releases).
-- Hệ Thống Phân Tích Sắc Tố Da & Bảng Màu Cá Nhân Hóa (AI Seasonal Color Palette & Undertone Matcher).
+- Hệ Thống Phân Tích Sắc Tố Da & Bảng Màu Thời Trang Cá Nhân Hóa (AI Seasonal Color Palette & Skin Undertone Matcher).
+- Cổng Ký Gửi & Bàn Giao Kỹ Thuật Số Trang Phục Cũ (Atelier Buyback & Circular Resell Portal).

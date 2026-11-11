@@ -108,7 +108,9 @@
 - **Sàn Diễn Lookbook Video Reels Tương Tác Trực Tiếp (Shoppable Video Reels Editorial)**: Trang trình diễn video thời trang chuẩn Cold Luxury (`/lookbook`), video full-screen dọc với tương tác thả tim, sao chép liên kết chia sẻ, bật/tắt âm thanh, điều hướng playlist và thẻ mua sắm sản phẩm trực tiếp (Shoppable Tag) 1-click vào giỏ hàng.
 - **Hệ Thống Đa Tiền Tệ Toàn Cầu (Multi-Currency Switcher VND / USD / EUR / JPY / GBP)**: Cung cấp API tỷ giá chuẩn hóa (`/currencies`, `/currencies/convert`), bộ chuyển đổi `CurrencySwitcher` trên Navbar và `CurrencyContext` đồng bộ giá toàn sàn và LocalStorage.
 - **Bảng Thông Số Kích Cỡ May Đo Tương Tác (Atelier Interactive Size Guide)**: Cung cấp API bảng kích cỡ chuẩn hóa theo từng dòng sản phẩm (`/size-guides`), modal `SizeGuideModal` tích hợp tại ProductDetail với chuyển đổi đơn vị đo linh hoạt giữa Centimet (CM) và Inches.
+- **Hệ thống Đặt Cọc Giữ Chỗ Hàng Hiếm (Runway Capsule Pre-order & Reservation Management)**: Cho phép khách hàng đặt cọc 30-40% giữ chỗ các thiết kế Runway phiên bản giới hạn (`/pre-orders`), chọn kích cỡ may đo riêng, tùy chọn khắc thêu Monogram tên viết tắt, theo dõi số suất còn lại theo thời gian thực và quản lý phiếu xác nhận may đo.
+- **Phòng Thử Đồ & Studio Phối Trang Phục Ảo (Virtual Fitting Room & Layering Canvas)**: Studio phối đồ trực quan (`/fitting-room`), mô phỏng layer đa tầng (Áo khoác ngoài, Áo trong, Quần âu/chân váy), tích hợp gợi ý bản phối kinh điển (Preset Matches), tính tổng giá set đồ tự động và thêm trọn bộ vào giỏ hàng 1-click.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Đặt Cọc Giữ Chỗ Hàng Hiếm (Pre-order Deposit & Reservation Management).
-- Hệ thống Trải Nghiệm Mix & Match Trang Phục Ảo (Interactive Virtual Fitting & Outfit Canvas).
+- Hệ thống Khảo Sát Phong Cách Cá Nhân Hóa (AI Personal Stylist Quiz & Wardrobe Recommendation).
+- Chương Trình Hội Viên Tinh Hoa & Đặt Lịch Tư Vấn Private Salon 1-1 (Private Salon VIP Appointment Booking).

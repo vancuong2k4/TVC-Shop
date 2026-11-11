@@ -11,6 +11,7 @@ import ProductReviews from '../components/product/ProductReviews';
 import SizeRecommenderModal from '../components/product/SizeRecommenderModal';
 import SizeGuideModal from '../components/product/SizeGuideModal';
 import RestockModal from '../components/product/RestockModal';
+import SpinViewer360Modal from '../components/product/SpinViewer360Modal';
 import RecentlyViewedBar from '../components/product/RecentlyViewedBar';
 import { useRecentlyViewed } from '../context/RecentlyViewedContext';
 import { formatPrice } from '../utils/formatPrice';
@@ -28,6 +29,7 @@ const ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState('Black');
   const [isSizeModalOpen, setIsSizeModalOpen] = useState(false);
   const [isSizeGuideModalOpen, setIsSizeGuideModalOpen] = useState(false);
+  const [isSpinModalOpen, setIsSpinModalOpen] = useState(false);
   const [isRestockModalOpen, setIsRestockModalOpen] = useState(false);
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
@@ -130,6 +132,17 @@ const ProductDetail = () => {
               {/* Main Image */}
               <div className="w-full lg:h-[600px] xl:h-[700px] aspect-[4/5] lg:aspect-auto bg-gray-50 relative group cursor-zoom-in flex-grow">
                 <img src={product.image} alt={product.name} className="w-full h-full object-cover object-top" />
+
+                {/* 360 Spin View Button Floating Trigger */}
+                <button
+                  type="button"
+                  onClick={() => setIsSpinModalOpen(true)}
+                  className="absolute bottom-4 right-4 px-3.5 py-2 rounded-full bg-black/80 backdrop-blur-md text-white border border-white/20 text-xs font-mono uppercase tracking-wider flex items-center gap-1.5 shadow-xl hover:bg-black transition-all"
+                  title="Xem xoay 360 độ"
+                >
+                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                  <span>Xoay 360°</span>
+                </button>
               </div>
             </div>
 
@@ -306,6 +319,13 @@ const ProductDetail = () => {
         isOpen={isSizeGuideModalOpen}
         onClose={() => setIsSizeGuideModalOpen(false)}
         defaultCategory={product?.category_name?.toLowerCase().includes('áo') ? 'tops' : 'blazers'}
+      />
+
+      {/* Interactive 360 Spin Viewer Modal */}
+      <SpinViewer360Modal
+        isOpen={isSpinModalOpen}
+        onClose={() => setIsSpinModalOpen(false)}
+        productId={id || 1}
       />
 
       {/* Restock Notification Modal */}

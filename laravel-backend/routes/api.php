@@ -96,6 +96,10 @@ Route::post('/bespoke-box/order', [\App\Http\Controllers\BespokeBoxController::c
 Route::get('/fabric-archive', [\App\Http\Controllers\FabricArchiveController::class, 'getArchive']);
 Route::get('/fabric-archive/verify', [\App\Http\Controllers\FabricArchiveController::class, 'verifyPassport']);
 
+// Atelier Design Co-Creation & Runway Community Voting Routes
+Route::get('/runway-voting/concepts', [\App\Http\Controllers\RunwayVotingController::class, 'getConcepts']);
+Route::post('/runway-voting/vote', [\App\Http\Controllers\RunwayVotingController::class, 'castVote']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

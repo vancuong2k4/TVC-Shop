@@ -114,7 +114,9 @@
 - **Đặt Lịch Tư Vấn Private Salon & May Đo Bespoke 1-1 (Private Salon VIP Appointment Booking)**: Hệ thống đặt lịch trải nghiệm phòng salon kín đáo chuẩn 5 sao (`/private-salon`) cùng Giám đốc sáng tạo hoặc Nghệ nhân may đo, hỗ trợ 2 salon vật lý tại Hà Nội & TP. Hồ Chí Minh hoặc dịch vụ Private Video Concierge trực tuyến, cấp thẻ mời kỹ thuật số độc quyền kèm mã đặt chỗ VIP.
 - **Trung Tâm Chăm Sóc & Bảo Dưỡng Trang Phục Trọn Đời (Atelier Garment Care & Lifetime Maintenance Portal)**: Cung cấp cẩm nang bảo quản chất liệu thượng hạng (`/garment-care`) chuẩn xưởng may đo (Cashmere, Tơ tằm Mulberry, Len may đo cấu trúc), tiếp nhận yêu cầu gửi đồ bảo dưỡng (hấp khử khuẩn hơi nước cao áp, đính khuy sừng, căn chỉnh số đo) kèm phiếu tiếp nhận điện tử `CARE-XXXXXXX` và dịch vụ giao nhận tận nơi.
 - **Hộp Quà Tặng Gỗ Sơn Mài Bespoke Thẻ Kim Loại (Bespoke Physical Lacquer Gift Box & Metal Card)**: Dịch vụ chế tác hộp quà tặng cao cấp (`/bespoke-box`) bằng gỗ óc chó phủ 12 lớp sơn mài bóng gương lót nhung tơ tằm, tùy biến nạp giá trị thẻ quà tặng, khắc laser tên người nhận lên thẻ hợp kim đồng hoặc titan đen mờ, và viết thiệp lụa dát vàng trao tận tay.
+- **Thư Viện Chất Liệu & Hộ Chiếu Vải Kỹ Thuật Số (Digital Fabric Archive & Traceability Passport)**: Kho tư liệu số hóa nguồn gốc vải thượng hạng (`/fabric-archive`) từ các xưởng dệt di sản tại Ý, Pháp, Nhật Bản; cung cấp công cụ tra cứu mã hộ chiếu vải (`/fabric-archive/verify?code=...`) minh bạch các tiêu chuẩn kiểm định quốc tế (Oeko-Tex 100, GOTS, BCI) và chỉ số sinh thái bền vững.
+- **Bầu Chọn Thiết Kế Runway & Đồng Sáng Tạo Atelier (Atelier Design Co-Creation & Community Voting)**: Diễn đàn dân chủ hóa thời trang cao cấp (`/runway-voting`), cho phép giới mộ điệu bầu chọn và đóng góp ý kiến về phom dáng/chất liệu cho các bản phác thảo của Giám đốc nghệ thuật, thiết kế đạt đủ mốc phiếu ủng hộ sẽ tự động được phê duyệt đưa vào sản xuất trên sàn diễn chính thức.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Thư Viện Chất Liệu & Xuất Xứ Vải Số Hóa (Digital Fabric Archive & Traceability Passport).
-- Trình Đóng Góp Ý Kiến & Bầu Chọn Thiết Kế Runway Tương Lai (Atelier Design Co-Creation & Community Voting).
+- Hệ thống Chứng Nhận Độc Bản NFT / Blockchain Luxury Certificate.
+- Bảng Xếp Hạng Phong Cách & Lookbook Do Khách Hàng Tự Đăng Tải (Community Lookbook Feed).

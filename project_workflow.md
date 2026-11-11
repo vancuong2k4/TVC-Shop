@@ -116,7 +116,9 @@
 - **Hộp Quà Tặng Gỗ Sơn Mài Bespoke Thẻ Kim Loại (Bespoke Physical Lacquer Gift Box & Metal Card)**: Dịch vụ chế tác hộp quà tặng cao cấp (`/bespoke-box`) bằng gỗ óc chó phủ 12 lớp sơn mài bóng gương lót nhung tơ tằm, tùy biến nạp giá trị thẻ quà tặng, khắc laser tên người nhận lên thẻ hợp kim đồng hoặc titan đen mờ, và viết thiệp lụa dát vàng trao tận tay.
 - **Thư Viện Chất Liệu & Hộ Chiếu Vải Kỹ Thuật Số (Digital Fabric Archive & Traceability Passport)**: Kho tư liệu số hóa nguồn gốc vải thượng hạng (`/fabric-archive`) từ các xưởng dệt di sản tại Ý, Pháp, Nhật Bản; cung cấp công cụ tra cứu mã hộ chiếu vải (`/fabric-archive/verify?code=...`) minh bạch các tiêu chuẩn kiểm định quốc tế (Oeko-Tex 100, GOTS, BCI) và chỉ số sinh thái bền vững.
 - **Bầu Chọn Thiết Kế Runway & Đồng Sáng Tạo Atelier (Atelier Design Co-Creation & Community Voting)**: Diễn đàn dân chủ hóa thời trang cao cấp (`/runway-voting`), cho phép giới mộ điệu bầu chọn và đóng góp ý kiến về phom dáng/chất liệu cho các bản phác thảo của Giám đốc nghệ thuật, thiết kế đạt đủ mốc phiếu ủng hộ sẽ tự động được phê duyệt đưa vào sản xuất trên sàn diễn chính thức.
+- **Hệ Thống Chứng Nhận Độc Bản Kỹ Thuật Số Mật Mã (Cryptographic Authenticity Certificate & Sovereign Ledger)**: Cung cấp API xác thực mã chứng thư (`/authenticity/verify?code=...`) và trang tra cứu (`/authenticity`) bảo chứng tính nguyên bản bất biến của các tuyệt tác Runway/Bespoke (số Serial giới hạn, danh tính nghệ nhân, mã băm SHA-256 trên sổ cái Ethereum L2, quyền lợi bảo dưỡng và lịch sử chuyển nhượng).
+- **Bảng Tin Phong Cách Khách Hàng & Mua Sắm Gắn Thẻ Trực Tiếp (Community Lookbook Style Feed & Shoppable Tagging)**: Mạng xã hội phong cách thượng lưu nội bộ (`/community-lookbook`), nơi khách hàng VIP chia sẻ hình ảnh bản phối trang phục đời thường, gắn thẻ sản phẩm (`Shoppable Product Tag`) kèm 1-click thêm vào giỏ hàng và tương tác thả tim thời gian thực.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Chứng Nhận Độc Bản NFT / Blockchain Luxury Certificate.
-- Bảng Xếp Hạng Phong Cách & Lookbook Do Khách Hàng Tự Đăng Tải (Community Lookbook Feed).
+- Hệ thống Tri Ân Độc Quyền Private Concierge Chatbot Voice Assistant.
+- Tính Năng Tùy Chỉnh Điêu Khắc Khuy Áo & Khóa Kéo 3D (Interactive 3D Hardware Customizer).

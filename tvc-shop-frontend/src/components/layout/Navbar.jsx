@@ -83,6 +83,7 @@ const Navbar = () => {
           <Link to="/customizer" className="hover:text-gray-500 transition-colors flex items-center gap-1">May Đo Kim Khí</Link>
           <Link to="/secret-vault" className="hover:text-amber-400 transition-colors flex items-center gap-1">Hầm Kín VIP <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span></Link>
           <Link to="/measurement-ledger" className="hover:text-gray-500 transition-colors flex items-center gap-1">Sổ Thước Đo</Link>
+          <Link to="/color-analysis" className="hover:text-cyan-400 transition-colors flex items-center gap-1">Màu Sắc 4 Mùa <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span></Link>
           <Link to="/blog" className="hover:text-gray-500 transition-colors">Tạp chí</Link>
         </div>
 

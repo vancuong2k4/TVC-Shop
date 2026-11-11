@@ -100,6 +100,10 @@ Route::get('/fabric-archive/verify', [\App\Http\Controllers\FabricArchiveControl
 Route::get('/runway-voting/concepts', [\App\Http\Controllers\RunwayVotingController::class, 'getConcepts']);
 Route::post('/runway-voting/vote', [\App\Http\Controllers\RunwayVotingController::class, 'castVote']);
 
+// Blockchain & Cryptographic Authenticity Certificate Routes
+Route::get('/authenticity/showcase', [\App\Http\Controllers\AuthenticityCertificateController::class, 'getShowcase']);
+Route::get('/authenticity/verify', [\App\Http\Controllers\AuthenticityCertificateController::class, 'verifyCertificate']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

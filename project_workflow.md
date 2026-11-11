@@ -110,7 +110,9 @@
 - **Bảng Thông Số Kích Cỡ May Đo Tương Tác (Atelier Interactive Size Guide)**: Cung cấp API bảng kích cỡ chuẩn hóa theo từng dòng sản phẩm (`/size-guides`), modal `SizeGuideModal` tích hợp tại ProductDetail với chuyển đổi đơn vị đo linh hoạt giữa Centimet (CM) và Inches.
 - **Hệ thống Đặt Cọc Giữ Chỗ Hàng Hiếm (Runway Capsule Pre-order & Reservation Management)**: Cho phép khách hàng đặt cọc 30-40% giữ chỗ các thiết kế Runway phiên bản giới hạn (`/pre-orders`), chọn kích cỡ may đo riêng, tùy chọn khắc thêu Monogram tên viết tắt, theo dõi số suất còn lại theo thời gian thực và quản lý phiếu xác nhận may đo.
 - **Phòng Thử Đồ & Studio Phối Trang Phục Ảo (Virtual Fitting Room & Layering Canvas)**: Studio phối đồ trực quan (`/fitting-room`), mô phỏng layer đa tầng (Áo khoác ngoài, Áo trong, Quần âu/chân váy), tích hợp gợi ý bản phối kinh điển (Preset Matches), tính tổng giá set đồ tự động và thêm trọn bộ vào giỏ hàng 1-click.
+- **Khảo Sát Định Hình Phong Cách Cá Nhân Hóa (AI Personal Stylist Aesthetic Quiz)**: Khảo sát thẩm mỹ tương tác (`/stylist-quiz`) qua 4 câu hỏi cốt lõi về bảng màu, phom dáng, không gian và xúc giác vải; tự động giải mã thành 4 trường phái thẩm mỹ thượng lưu (The Architectural Noir, The Quiet Luxury Purist, The Modern Minimalist, The Midnight Icon) kèm gợi ý tủ đồ con nhộng (Capsule Wardrobe) và lời khuyên phối đồ chuyên sâu.
+- **Đặt Lịch Tư Vấn Private Salon & May Đo Bespoke 1-1 (Private Salon VIP Appointment Booking)**: Hệ thống đặt lịch trải nghiệm phòng salon kín đáo chuẩn 5 sao (`/private-salon`) cùng Giám đốc sáng tạo hoặc Nghệ nhân may đo, hỗ trợ 2 salon vật lý tại Hà Nội & TP. Hồ Chí Minh hoặc dịch vụ Private Video Concierge trực tuyến, cấp thẻ mời kỹ thuật số độc quyền kèm mã đặt chỗ VIP.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Khảo Sát Phong Cách Cá Nhân Hóa (AI Personal Stylist Quiz & Wardrobe Recommendation).
-- Chương Trình Hội Viên Tinh Hoa & Đặt Lịch Tư Vấn Private Salon 1-1 (Private Salon VIP Appointment Booking).
+- Hệ thống Thẻ Quà Tặng Vật Lý Đóng Hộp Gỗ Sơn Mài (Physical Bespoke Gift Card Box).
+- Trung Tâm Theo Dõi Bảo Dưỡng Trang Phục Cao Cấp (Garment Care & Lifetime Maintenance Portal).

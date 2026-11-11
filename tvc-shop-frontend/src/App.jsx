@@ -36,6 +36,7 @@ import FabricArchive from './pages/FabricArchive';
 import RunwayVoting from './pages/RunwayVoting';
 import AuthenticityCertificate from './pages/AuthenticityCertificate';
 import CommunityLookbook from './pages/CommunityLookbook';
+import HardwareCustomizer from './pages/HardwareCustomizer';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
 import LuckyWheelButton from './components/common/LuckyWheelButton';
@@ -89,6 +90,7 @@ function App() {
           <Route path="/runway-voting" element={<RunwayVoting />} />
           <Route path="/authenticity" element={<AuthenticityCertificate />} />
           <Route path="/community-lookbook" element={<CommunityLookbook />} />
+          <Route path="/customizer" element={<HardwareCustomizer />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

@@ -73,6 +73,9 @@ Route::get('/pre-orders', [\App\Http\Controllers\PreorderController::class, 'get
 Route::get('/pre-orders/{id}', [\App\Http\Controllers\PreorderController::class, 'getCampaignDetail']);
 Route::post('/pre-orders/reserve', [\App\Http\Controllers\PreorderController::class, 'createReservation']);
 
+// Virtual Fitting Room & Outfit Canvas Routes
+Route::get('/fitting-room/wardrobe', [\App\Http\Controllers\FittingRoomController::class, 'getFittingWardrobe']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

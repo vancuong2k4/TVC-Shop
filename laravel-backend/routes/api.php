@@ -124,6 +124,10 @@ Route::get('/spin-viewer/data', [\App\Http\Controllers\SpinViewer360Controller::
 Route::get('/secret-vault/catalog', [\App\Http\Controllers\Api\SecretVaultController::class, 'getVaultData']);
 Route::post('/secret-vault/acquire', [\App\Http\Controllers\Api\SecretVaultController::class, 'acquireVaultItem']);
 
+// AI Seasonal Color Palette & Undertone Matcher Routes
+Route::get('/color-analysis/schema', [\App\Http\Controllers\Api\ColorAnalysisController::class, 'getAnalysisSchema']);
+Route::post('/color-analysis/diagnose', [\App\Http\Controllers\Api\ColorAnalysisController::class, 'diagnose']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

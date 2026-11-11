@@ -26,6 +26,7 @@ import FAQ from './pages/FAQ';
 import SharedCart from './pages/SharedCart';
 import OccasionOutfits from './pages/OccasionOutfits';
 import LookbookReels from './pages/LookbookReels';
+import Preorders from './pages/Preorders';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
 import LuckyWheelButton from './components/common/LuckyWheelButton';
@@ -69,6 +70,7 @@ function App() {
           <Route path="/cart/shared/:code" element={<SharedCart />} />
           <Route path="/occasions" element={<OccasionOutfits />} />
           <Route path="/lookbook" element={<LookbookReels />} />
+          <Route path="/pre-orders" element={<Preorders />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

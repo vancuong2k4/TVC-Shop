@@ -128,6 +128,8 @@
 
 - **Hệ Thống Phân Tích Sắc Tố Da & Bảng Màu Cá Nhân Hóa (AI Seasonal Color Palette & Undertone Matcher)**: Cung cấp API trắc nghiệm sắc tố và quang phổ màu 4 mùa (`/color-analysis/schema`, `/color-analysis/diagnose`), studio phối màu sắc độ (`/color-analysis`), modal chẩn đoán undertone dựa trên phản ứng mao mạch/ánh nắng/sơ-mi trắng, 4 bảng màu di sản (Winter Noir, Autumn Heritage, Summer Minimalist, Spring Luminary) kèm tính năng 1-click copy mã HEX và đề xuất trang phục tương thích.
 
+- **Cổng Ký Gửi & Bàn Giao Kỹ Thuật Số Trang Phục Cũ (Atelier Circular Buyback & Archival Resell Portal)**: Cung cấp API tiêu chuẩn thẩm định và chỉ số phát triển bền vững (`/circular-buyback/config`, `/circular-buyback/appraisal`), trang Ký gửi tuần hoàn (`/circular-buyback`), thanh theo dõi môi trường (CO₂ và nước sạch bảo tồn), máy tính định giá tự động tới 70% giá trị gốc (Store Credit hoặc tiền mặt), và quy trình thu nhận White-Glove tận nơi bằng xe chuyên dụng.
+
 ## 7. Tính năng tiếp theo (Roadmap)
-- Cổng Ký Gửi & Bàn Giao Kỹ Thuật Số Trang Phục Cũ (Atelier Buyback & Circular Resell Portal).
-- Trải Nghiệm Mùi Hương Nước Hoa Kỹ Thuật Số & Bản Đồ Khứu Giác (Digital Olfactory Scent Profiler & Fragrance Pairing).
+- Bản Đồ Hương Nước Hoa & Ghép Đôi Khứu Giác Kỹ Thuật Số (Digital Olfactory Scent Profiler & Fragrance Pairing).
+- Phòng Thử Kính Mát & Phụ Kiện Kim Khí Thực Tế Ảo (Virtual Eyewear & Haute Joaillerie AR Mirror).

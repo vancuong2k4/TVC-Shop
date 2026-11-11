@@ -109,6 +109,10 @@ Route::get('/community-lookbook/feed', [\App\Http\Controllers\CommunityLookbookC
 Route::post('/community-lookbook/posts', [\App\Http\Controllers\CommunityLookbookController::class, 'createPost']);
 Route::post('/community-lookbook/posts/{id}/like', [\App\Http\Controllers\CommunityLookbookController::class, 'likePost']);
 
+// Bespoke 3D Hardware & Lining Customizer Routes
+Route::get('/hardware-customizer/config', [\App\Http\Controllers\HardwareCustomizerController::class, 'getCustomizerConfig']);
+Route::post('/hardware-customizer/save', [\App\Http\Controllers\HardwareCustomizerController::class, 'saveCustomization']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

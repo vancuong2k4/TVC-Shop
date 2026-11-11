@@ -76,6 +76,10 @@ Route::post('/pre-orders/reserve', [\App\Http\Controllers\PreorderController::cl
 // Virtual Fitting Room & Outfit Canvas Routes
 Route::get('/fitting-room/wardrobe', [\App\Http\Controllers\FittingRoomController::class, 'getFittingWardrobe']);
 
+// AI Personal Stylist Quiz Routes
+Route::get('/stylist-quiz/questions', [\App\Http\Controllers\StylistQuizController::class, 'getQuestions']);
+Route::post('/stylist-quiz/analyze', [\App\Http\Controllers\StylistQuizController::class, 'analyzeResults']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

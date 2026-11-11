@@ -78,6 +78,7 @@ const Navbar = () => {
           <Link to="/bespoke-box" className="hover:text-gray-500 transition-colors flex items-center gap-1">Hộp Quà Sơn Mài</Link>
           <Link to="/fabric-archive" className="hover:text-gray-500 transition-colors flex items-center gap-1">Hộ Chiếu Vải</Link>
           <Link to="/runway-voting" className="hover:text-gray-500 transition-colors flex items-center gap-1">Bầu Chọn Runway</Link>
+          <Link to="/authenticity" className="hover:text-gray-500 transition-colors flex items-center gap-1">Chứng Thư Độc Bản</Link>
           <Link to="/blog" className="hover:text-gray-500 transition-colors">Tạp chí</Link>
         </div>
 

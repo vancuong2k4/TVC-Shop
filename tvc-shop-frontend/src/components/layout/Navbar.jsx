@@ -76,6 +76,7 @@ const Navbar = () => {
           <Link to="/categories" className="hover:text-gray-500 transition-colors">Bộ sưu tập</Link>
           <Link to="/gift-cards" className="hover:text-gray-500 transition-colors">E-Gift Cards</Link>
           <Link to="/bespoke-box" className="hover:text-gray-500 transition-colors flex items-center gap-1">Hộp Quà Sơn Mài</Link>
+          <Link to="/fabric-archive" className="hover:text-gray-500 transition-colors flex items-center gap-1">Hộ Chiếu Vải</Link>
           <Link to="/blog" className="hover:text-gray-500 transition-colors">Tạp chí</Link>
         </div>
 

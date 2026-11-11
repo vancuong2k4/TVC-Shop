@@ -32,6 +32,7 @@ import StylistQuiz from './pages/StylistQuiz';
 import PrivateSalon from './pages/PrivateSalon';
 import GarmentCare from './pages/GarmentCare';
 import BespokeBox from './pages/BespokeBox';
+import FabricArchive from './pages/FabricArchive';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
 import LuckyWheelButton from './components/common/LuckyWheelButton';
@@ -81,6 +82,7 @@ function App() {
           <Route path="/private-salon" element={<PrivateSalon />} />
           <Route path="/garment-care" element={<GarmentCare />} />
           <Route path="/bespoke-box" element={<BespokeBox />} />
+          <Route path="/fabric-archive" element={<FabricArchive />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

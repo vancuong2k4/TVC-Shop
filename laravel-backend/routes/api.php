@@ -68,6 +68,11 @@ Route::get('/currencies/convert', [\App\Http\Controllers\CurrencyController::cla
 // Size Guide & Measurement Routes
 Route::get('/size-guides', [\App\Http\Controllers\SizeGuideController::class, 'getSizeGuides']);
 
+// Pre-order & Reservation Campaigns Routes
+Route::get('/pre-orders', [\App\Http\Controllers\PreorderController::class, 'getCampaigns']);
+Route::get('/pre-orders/{id}', [\App\Http\Controllers\PreorderController::class, 'getCampaignDetail']);
+Route::post('/pre-orders/reserve', [\App\Http\Controllers\PreorderController::class, 'createReservation']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

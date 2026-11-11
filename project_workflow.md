@@ -121,6 +121,9 @@
 - **Xưởng May Đo Tùy Biến Kim Khí & Lót Lụa 3D (Bespoke 3D Hardware & Lining Customizer)**: Trình cá nhân hóa phụ liệu kim khí thời gian thực (`/customizer`), cho phép quý khách tự chọn khuy sừng trâu Thụy Sĩ, khuy xà cừ biển sâu Úc, khóa kéo titan mài bóng PVD, lớp lót trong Cupro Jacquard Bemberg, và khắc thêu chữ viết tắt Monogram độc bản đồng bộ trực tiếp vào giỏ hàng.
 - **Trợ Lý Thời Trang Thượng Lưu Tích Hợp Giọng Nói 2 Chiều (Voice-Enabled Private Concierge AI Assistant)**: Nâng cấp Chatbot Gemini với System Prompt phong cách quản gia quý tộc; tích hợp công nghệ nhận diện giọng nói tiếng Việt (*Web Speech Recognition API*) và phát âm giọng đọc tự nhiên (*Speech Synthesis Text-to-Speech*) hỗ trợ tư vấn rảnh tay 100%.
 
+- **Hồ Sơ May Đo Kỹ Thuật Số Đa Chiều (VIP Digital Measurement Profile & Fit Ledger)**: Cung cấp API lưu trữ và đồng bộ 14 thông số hình thể giải phẫu (`/measurement-ledger`), trang quản lý thông số may đo (`/measurement-ledger`) hỗ trợ chuyển đổi cm/inch, phân loại dáng đứng và phom mặc mong muốn giúp xưởng may cắt rập chính xác tuyệt đối.
+- **Trình Trình Chiếu Sản Phẩm Xoay 360 Độ Tương Tác (Interactive 360-Degree Product Spin Viewer)**: Tích hợp API cung cấp chuỗi khung hình xoay vòng 360° và các điểm nút thủ công mỹ nghệ (`/spin-viewer/data`), modal `SpinViewer360Modal` cho phép kéo chuột/chạm vuốt xoay góc nhìn đa chiều, chế độ tự động quay và phóng to chi tiết hoàn thiện thủ công.
+
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Hồ Sơ May Đo Cá Nhân Số Hóa Đa Chiều (VIP Digital Measurement Profile & Fit Ledger).
-- Trình Xem Sản Phẩm 360 Độ Tương Tác Xoay Đa Chiều (Interactive 360 Degree Product Spin Viewer).
+- Hầm Kho Báu Đặc Quyền VIP Kín & Bản Phát Hành Bí Mật (VIP Tier Secret Perks Vault & Runway Archival Releases).
+- Hệ Thống Phân Tích Sắc Tố Da & Bảng Màu Cá Nhân Hóa (AI Seasonal Color Palette & Undertone Matcher).

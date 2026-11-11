@@ -117,6 +117,9 @@ Route::post('/hardware-customizer/save', [\App\Http\Controllers\HardwareCustomiz
 Route::get('/measurement-ledger/schema', [\App\Http\Controllers\MeasurementLedgerController::class, 'getLedgerSchema']);
 Route::post('/measurement-ledger/save', [\App\Http\Controllers\MeasurementLedgerController::class, 'saveLedger']);
 
+// Interactive 360 Degree Product Spin Viewer Routes
+Route::get('/spin-viewer/data', [\App\Http\Controllers\SpinViewer360Controller::class, 'getSpinData']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

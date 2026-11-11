@@ -84,6 +84,10 @@ Route::post('/stylist-quiz/analyze', [\App\Http\Controllers\StylistQuizControlle
 Route::get('/private-salon/config', [\App\Http\Controllers\PrivateSalonController::class, 'getSalonConfig']);
 Route::post('/private-salon/book', [\App\Http\Controllers\PrivateSalonController::class, 'bookAppointment']);
 
+// Garment Care & Lifetime Maintenance Portal Routes
+Route::get('/garment-care', [\App\Http\Controllers\GarmentCareController::class, 'getCarePortal']);
+Route::post('/garment-care/request', [\App\Http\Controllers\GarmentCareController::class, 'submitMaintenanceRequest']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

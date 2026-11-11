@@ -80,6 +80,10 @@ Route::get('/fitting-room/wardrobe', [\App\Http\Controllers\FittingRoomControlle
 Route::get('/stylist-quiz/questions', [\App\Http\Controllers\StylistQuizController::class, 'getQuestions']);
 Route::post('/stylist-quiz/analyze', [\App\Http\Controllers\StylistQuizController::class, 'analyzeResults']);
 
+// Private Salon VIP 1-1 Appointment Booking Routes
+Route::get('/private-salon/config', [\App\Http\Controllers\PrivateSalonController::class, 'getSalonConfig']);
+Route::post('/private-salon/book', [\App\Http\Controllers\PrivateSalonController::class, 'bookAppointment']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

@@ -128,6 +128,10 @@ Route::post('/secret-vault/acquire', [\App\Http\Controllers\Api\SecretVaultContr
 Route::get('/color-analysis/schema', [\App\Http\Controllers\Api\ColorAnalysisController::class, 'getAnalysisSchema']);
 Route::post('/color-analysis/diagnose', [\App\Http\Controllers\Api\ColorAnalysisController::class, 'diagnose']);
 
+// Circular Buyback & Archival Resell Routes
+Route::get('/circular-buyback/config', [\App\Http\Controllers\Api\CircularBuybackController::class, 'getConfig']);
+Route::post('/circular-buyback/appraisal', [\App\Http\Controllers\Api\CircularBuybackController::class, 'submitAppraisal']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

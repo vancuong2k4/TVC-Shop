@@ -120,6 +120,10 @@ Route::post('/measurement-ledger/save', [\App\Http\Controllers\MeasurementLedger
 // Interactive 360 Degree Product Spin Viewer Routes
 Route::get('/spin-viewer/data', [\App\Http\Controllers\SpinViewer360Controller::class, 'getSpinData']);
 
+// VIP Secret Vault & Archival Tiered Perks Routes
+Route::get('/secret-vault/catalog', [\App\Http\Controllers\Api\SecretVaultController::class, 'getVaultData']);
+Route::post('/secret-vault/acquire', [\App\Http\Controllers\Api\SecretVaultController::class, 'acquireVaultItem']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

@@ -92,6 +92,10 @@ Route::post('/garment-care/request', [\App\Http\Controllers\GarmentCareControlle
 Route::get('/bespoke-box/editions', [\App\Http\Controllers\BespokeBoxController::class, 'getEditions']);
 Route::post('/bespoke-box/order', [\App\Http\Controllers\BespokeBoxController::class, 'orderBox']);
 
+// Digital Fabric Archive & Traceability Passport Routes
+Route::get('/fabric-archive', [\App\Http\Controllers\FabricArchiveController::class, 'getArchive']);
+Route::get('/fabric-archive/verify', [\App\Http\Controllers\FabricArchiveController::class, 'verifyPassport']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

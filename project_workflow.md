@@ -130,6 +130,8 @@
 
 - **Cổng Ký Gửi & Bàn Giao Kỹ Thuật Số Trang Phục Cũ (Atelier Circular Buyback & Archival Resell Portal)**: Cung cấp API tiêu chuẩn thẩm định và chỉ số phát triển bền vững (`/circular-buyback/config`, `/circular-buyback/appraisal`), trang Ký gửi tuần hoàn (`/circular-buyback`), thanh theo dõi môi trường (CO₂ và nước sạch bảo tồn), máy tính định giá tự động tới 70% giá trị gốc (Store Credit hoặc tiền mặt), và quy trình thu nhận White-Glove tận nơi bằng xe chuyên dụng.
 
+- **Bản Đồ Mùi Hương & Định Vị Khứu Giác Cá Nhân Hóa (Digital Olfactory Scent Profiler & Fragrance Pairing)**: Cung cấp API danh mục 4 họ hương Haute Parfumerie (`/scent-profiler/catalog`), thuật toán định vị nốt hương theo xúc giác vải và khí chất (`/scent-profiler/diagnose`), studio khứu giác (`/scent-profiler`), cấp hộ chiếu hương thơm `SCENT-XXXXXXX`, và quy trình đặt bộ mẫu thử 3 ống 5ml (Discovery Set) trong hộp sơn mài mini kèm voucher hoàn tiền 100%.
+
 ## 7. Tính năng tiếp theo (Roadmap)
-- Bản Đồ Hương Nước Hoa & Ghép Đôi Khứu Giác Kỹ Thuật Số (Digital Olfactory Scent Profiler & Fragrance Pairing).
 - Phòng Thử Kính Mát & Phụ Kiện Kim Khí Thực Tế Ảo (Virtual Eyewear & Haute Joaillerie AR Mirror).
+- Cổng Ký Thỏa Thuận Chuyển Nhượng Sở Hữu Trực Tuyến Độc Bản (Digital Provenance Deed of Transfer).

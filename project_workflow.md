@@ -126,6 +126,8 @@
 
 - **Hầm Kho Báu Đặc Quyền VIP Kín & Bản Lưu Trữ Giới Hạn (VIP Secret Perks Vault & Archival Releases)**: Cung cấp API hồ sơ bảo mật thứ hạng thành viên (`/secret-vault/catalog`, `/secret-vault/acquire`), trang Hầm Kín (`/secret-vault`) bảo vệ bằng cấp bậc Silver/Gold/Diamond, hiển thị tiến trình chi tiêu, mở khóa quyền mua tác phẩm lưu trữ độc bản One-of-a-Kind, khắc dấu triện laser riêng và giao nhận bằng hòm chống sốc chuyên dụng.
 
+- **Hệ Thống Phân Tích Sắc Tố Da & Bảng Màu Cá Nhân Hóa (AI Seasonal Color Palette & Undertone Matcher)**: Cung cấp API trắc nghiệm sắc tố và quang phổ màu 4 mùa (`/color-analysis/schema`, `/color-analysis/diagnose`), studio phối màu sắc độ (`/color-analysis`), modal chẩn đoán undertone dựa trên phản ứng mao mạch/ánh nắng/sơ-mi trắng, 4 bảng màu di sản (Winter Noir, Autumn Heritage, Summer Minimalist, Spring Luminary) kèm tính năng 1-click copy mã HEX và đề xuất trang phục tương thích.
+
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ Thống Phân Tích Sắc Tố Da & Bảng Màu Thời Trang Cá Nhân Hóa (AI Seasonal Color Palette & Skin Undertone Matcher).
 - Cổng Ký Gửi & Bàn Giao Kỹ Thuật Số Trang Phục Cũ (Atelier Buyback & Circular Resell Portal).
+- Trải Nghiệm Mùi Hương Nước Hoa Kỹ Thuật Số & Bản Đồ Khứu Giác (Digital Olfactory Scent Profiler & Fragrance Pairing).

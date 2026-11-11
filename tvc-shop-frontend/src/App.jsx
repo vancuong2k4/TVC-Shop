@@ -30,6 +30,7 @@ import Preorders from './pages/Preorders';
 import VirtualFittingRoom from './pages/VirtualFittingRoom';
 import StylistQuiz from './pages/StylistQuiz';
 import PrivateSalon from './pages/PrivateSalon';
+import GarmentCare from './pages/GarmentCare';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
 import LuckyWheelButton from './components/common/LuckyWheelButton';
@@ -77,6 +78,7 @@ function App() {
           <Route path="/fitting-room" element={<VirtualFittingRoom />} />
           <Route path="/stylist-quiz" element={<StylistQuiz />} />
           <Route path="/private-salon" element={<PrivateSalon />} />
+          <Route path="/garment-care" element={<GarmentCare />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

@@ -80,6 +80,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4 text-base text-gray-400">
               <li><Link to="/faq" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Chính sách đổi trả</Link></li>
+              <li><Link to="/garment-care" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Bảo dưỡng trang phục</Link></li>
               <li><Link to="/faq" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Câu hỏi thường gặp (FAQ)</Link></li>
               <li><Link to="/faq" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Hướng dẫn chọn size</Link></li>
               <li><Link to="/faq" className="inline-block hover:-translate-y-1 hover:text-white transition-all duration-300">Liên hệ & Hỗ trợ</Link></li>

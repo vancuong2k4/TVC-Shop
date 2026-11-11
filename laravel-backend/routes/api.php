@@ -104,6 +104,11 @@ Route::post('/runway-voting/vote', [\App\Http\Controllers\RunwayVotingController
 Route::get('/authenticity/showcase', [\App\Http\Controllers\AuthenticityCertificateController::class, 'getShowcase']);
 Route::get('/authenticity/verify', [\App\Http\Controllers\AuthenticityCertificateController::class, 'verifyCertificate']);
 
+// Community Style Lookbook Feed Routes
+Route::get('/community-lookbook/feed', [\App\Http\Controllers\CommunityLookbookController::class, 'getFeed']);
+Route::post('/community-lookbook/posts', [\App\Http\Controllers\CommunityLookbookController::class, 'createPost']);
+Route::post('/community-lookbook/posts/{id}/like', [\App\Http\Controllers\CommunityLookbookController::class, 'likePost']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

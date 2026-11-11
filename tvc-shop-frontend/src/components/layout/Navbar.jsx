@@ -85,6 +85,7 @@ const Navbar = () => {
           <Link to="/measurement-ledger" className="hover:text-gray-500 transition-colors flex items-center gap-1">Sổ Thước Đo</Link>
           <Link to="/color-analysis" className="hover:text-cyan-400 transition-colors flex items-center gap-1">Màu Sắc 4 Mùa <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span></Link>
           <Link to="/circular-buyback" className="hover:text-emerald-400 transition-colors flex items-center gap-1">Thu Mua Tuần Hoàn <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span></Link>
+          <Link to="/scent-profiler" className="hover:text-amber-300 transition-colors flex items-center gap-1">Hương Nước Hoa <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span></Link>
           <Link to="/blog" className="hover:text-gray-500 transition-colors">Tạp chí</Link>
         </div>
 

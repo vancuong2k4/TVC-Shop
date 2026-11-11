@@ -41,6 +41,7 @@ import MeasurementLedger from './pages/MeasurementLedger';
 import SecretVault from './pages/SecretVault';
 import ColorAnalysis from './pages/ColorAnalysis';
 import CircularBuyback from './pages/CircularBuyback';
+import ScentProfiler from './pages/ScentProfiler';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
 import LuckyWheelButton from './components/common/LuckyWheelButton';
@@ -99,6 +100,7 @@ function App() {
           <Route path="/secret-vault" element={<SecretVault />} />
           <Route path="/color-analysis" element={<ColorAnalysis />} />
           <Route path="/circular-buyback" element={<CircularBuyback />} />
+          <Route path="/scent-profiler" element={<ScentProfiler />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

@@ -132,6 +132,11 @@ Route::post('/color-analysis/diagnose', [\App\Http\Controllers\Api\ColorAnalysis
 Route::get('/circular-buyback/config', [\App\Http\Controllers\Api\CircularBuybackController::class, 'getConfig']);
 Route::post('/circular-buyback/appraisal', [\App\Http\Controllers\Api\CircularBuybackController::class, 'submitAppraisal']);
 
+// Digital Olfactory Scent Profiler & Fragrance Pairing Routes
+Route::get('/scent-profiler/catalog', [\App\Http\Controllers\Api\ScentProfilerController::class, 'getScentCatalog']);
+Route::post('/scent-profiler/diagnose', [\App\Http\Controllers\Api\ScentProfilerController::class, 'diagnoseScent']);
+Route::post('/scent-profiler/sample-order', [\App\Http\Controllers\Api\ScentProfilerController::class, 'orderSampleSet']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

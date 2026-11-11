@@ -113,6 +113,10 @@ Route::post('/community-lookbook/posts/{id}/like', [\App\Http\Controllers\Commun
 Route::get('/hardware-customizer/config', [\App\Http\Controllers\HardwareCustomizerController::class, 'getCustomizerConfig']);
 Route::post('/hardware-customizer/save', [\App\Http\Controllers\HardwareCustomizerController::class, 'saveCustomization']);
 
+// VIP Digital Measurement Profile & Fit Ledger Routes
+Route::get('/measurement-ledger/schema', [\App\Http\Controllers\MeasurementLedgerController::class, 'getLedgerSchema']);
+Route::post('/measurement-ledger/save', [\App\Http\Controllers\MeasurementLedgerController::class, 'saveLedger']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

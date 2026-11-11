@@ -118,7 +118,9 @@
 - **Bầu Chọn Thiết Kế Runway & Đồng Sáng Tạo Atelier (Atelier Design Co-Creation & Community Voting)**: Diễn đàn dân chủ hóa thời trang cao cấp (`/runway-voting`), cho phép giới mộ điệu bầu chọn và đóng góp ý kiến về phom dáng/chất liệu cho các bản phác thảo của Giám đốc nghệ thuật, thiết kế đạt đủ mốc phiếu ủng hộ sẽ tự động được phê duyệt đưa vào sản xuất trên sàn diễn chính thức.
 - **Hệ Thống Chứng Nhận Độc Bản Kỹ Thuật Số Mật Mã (Cryptographic Authenticity Certificate & Sovereign Ledger)**: Cung cấp API xác thực mã chứng thư (`/authenticity/verify?code=...`) và trang tra cứu (`/authenticity`) bảo chứng tính nguyên bản bất biến của các tuyệt tác Runway/Bespoke (số Serial giới hạn, danh tính nghệ nhân, mã băm SHA-256 trên sổ cái Ethereum L2, quyền lợi bảo dưỡng và lịch sử chuyển nhượng).
 - **Bảng Tin Phong Cách Khách Hàng & Mua Sắm Gắn Thẻ Trực Tiếp (Community Lookbook Style Feed & Shoppable Tagging)**: Mạng xã hội phong cách thượng lưu nội bộ (`/community-lookbook`), nơi khách hàng VIP chia sẻ hình ảnh bản phối trang phục đời thường, gắn thẻ sản phẩm (`Shoppable Product Tag`) kèm 1-click thêm vào giỏ hàng và tương tác thả tim thời gian thực.
+- **Xưởng May Đo Tùy Biến Kim Khí & Lót Lụa 3D (Bespoke 3D Hardware & Lining Customizer)**: Trình cá nhân hóa phụ liệu kim khí thời gian thực (`/customizer`), cho phép quý khách tự chọn khuy sừng trâu Thụy Sĩ, khuy xà cừ biển sâu Úc, khóa kéo titan mài bóng PVD, lớp lót trong Cupro Jacquard Bemberg, và khắc thêu chữ viết tắt Monogram độc bản đồng bộ trực tiếp vào giỏ hàng.
+- **Trợ Lý Thời Trang Thượng Lưu Tích Hợp Giọng Nói 2 Chiều (Voice-Enabled Private Concierge AI Assistant)**: Nâng cấp Chatbot Gemini với System Prompt phong cách quản gia quý tộc; tích hợp công nghệ nhận diện giọng nói tiếng Việt (*Web Speech Recognition API*) và phát âm giọng đọc tự nhiên (*Speech Synthesis Text-to-Speech*) hỗ trợ tư vấn rảnh tay 100%.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ thống Tri Ân Độc Quyền Private Concierge Chatbot Voice Assistant.
-- Tính Năng Tùy Chỉnh Điêu Khắc Khuy Áo & Khóa Kéo 3D (Interactive 3D Hardware Customizer).
+- Hệ thống Hồ Sơ May Đo Cá Nhân Số Hóa Đa Chiều (VIP Digital Measurement Profile & Fit Ledger).
+- Trình Xem Sản Phẩm 360 Độ Tương Tác Xoay Đa Chiều (Interactive 360 Degree Product Spin Viewer).

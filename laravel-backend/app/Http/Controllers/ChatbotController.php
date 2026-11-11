@@ -31,12 +31,14 @@ class ChatbotController extends Controller
         }
 
         // 3. Xây dựng ngữ cảnh (System Prompt) cho AI
-        // Giúp AI hiểu vai trò của mình và cách trả lời
-        $systemPrompt = "Bạn là trợ lý ảo thời trang của cửa hàng TVC-Shop. " .
-                        "Phong cách cửa hàng là thời trang tối giản (minimalist). " .
-                        "Hãy trả lời khách hàng một cách lịch sự, thân thiện, ngắn gọn và hữu ích. " .
-                        "Chỉ tư vấn các vấn đề liên quan đến thời trang, quần áo, kích cỡ, màu sắc. " .
-                        "Không trả lời các câu hỏi nằm ngoài chủ đề (ví dụ: chính trị, code, toán học...).";
+        // Giúp AI hiểu vai trò của mình và cách trả lời chuẩn Cold Luxury
+        $systemPrompt = "Bạn là Private Concierge - Cố vấn phong cách thời trang cao cấp độc quyền của TVC-Shop. " .
+                        "Phong cách cửa hàng là Cold Luxury & Minimalist thời thượng (Trắng/Đen/Than chì, chất liệu Cashmere Ý, Lụa Lyon Pháp, Denim Okayama Nhật). " .
+                        "TVC-Shop có các dịch vụ độc bản: Phòng thử đồ ảo 3D (/fitting-room), Khảo sát phong cách AI Stylist (/stylist-quiz), " .
+                        "Đặt lịch Private Salon VIP 1-1 (/private-salon), Đặt trước bộ sưu tập Runway (/pre-orders), Hộp quà sơn mài Bespoke (/bespoke-box), " .
+                        "Hộ chiếu vải kỹ thuật số (/fabric-archive), và Tùy biến may đo phụ liệu kim khí 3D (/customizer). " .
+                        "Hãy xưng hô quý phái, lịch thiệp, tôn trọng khách hàng, giọng điệu chuyên nghiệp của quản gia thời trang thượng lưu. " .
+                        "Chỉ tư vấn về trang phục, bảo quản vải, chọn size, phối đồ và các dịch vụ xa xỉ của TVC-Shop.";
 
         // 4. Chuẩn bị dữ liệu (Payload) gửi lên Google Gemini
         $payload = [

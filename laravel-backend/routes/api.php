@@ -88,6 +88,10 @@ Route::post('/private-salon/book', [\App\Http\Controllers\PrivateSalonController
 Route::get('/garment-care', [\App\Http\Controllers\GarmentCareController::class, 'getCarePortal']);
 Route::post('/garment-care/request', [\App\Http\Controllers\GarmentCareController::class, 'submitMaintenanceRequest']);
 
+// Bespoke Physical Lacquer Gift Box Routes
+Route::get('/bespoke-box/editions', [\App\Http\Controllers\BespokeBoxController::class, 'getEditions']);
+Route::post('/bespoke-box/order', [\App\Http\Controllers\BespokeBoxController::class, 'orderBox']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

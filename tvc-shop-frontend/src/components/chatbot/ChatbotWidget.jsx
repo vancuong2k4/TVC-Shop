@@ -1,15 +1,83 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Bot, User, Loader2 } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, User, Loader2, Mic, MicOff, Volume2, Sparkles } from 'lucide-react';
 import api from '../../api/axios'; // Import axios instance đã được cấu hình sẵn
 
 const ChatbotWidget = () => {
   // --- Các State quản lý trạng thái của Chatbot ---
   const [isOpen, setIsOpen] = useState(false); // Trạng thái đóng/mở cửa sổ chat
   const [messages, setMessages] = useState([
-    { sender: 'ai', text: 'Xin chào! Tôi là trợ lý thời trang của TVC-Shop. Tôi có thể giúp gì cho bạn hôm nay?' }
+    { sender: 'ai', text: 'Kính chào Quý khách! Tôi là Private Concierge của TVC-Shop. Tôi có thể tư vấn phối đồ, thông số may đo Bespoke hoặc đặt lịch Salon VIP cho Quý khách hôm nay?' }
   ]); // Lưu trữ danh sách tin nhắn
   const [inputValue, setInputValue] = useState(''); // Lưu trữ nội dung người dùng đang gõ
   const [isLoading, setIsLoading] = useState(false); // Trạng thái "AI đang gõ..."
+  const [isListening, setIsListening] = useState(false); // Trạng thái nhận diện giọng nói
+  const [isSpeaking, setIsSpeaking] = useState(false); // Trạng thái phát âm phản hồi
+
+  // Speech Recognition & Speech Synthesis Web APIs
+  const recognitionRef = useRef(null);
+  const synthRef = useRef(window.speechSynthesis || null);
+
+  useEffect(() => {
+    // Khởi tạo Web Speech Recognition nếu trình duyệt hỗ trợ
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      const recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang = 'vi-VN'; // Nhận diện tiếng Việt
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        setInputValue(transcript);
+        setIsListening(false);
+      };
+
+      recognition.onerror = () => {
+        setIsListening(false);
+      };
+
+      recognition.onend = () => {
+        setIsListening(false);
+      };
+
+      recognitionRef.current = recognition;
+    }
+  }, []);
+
+  const toggleVoiceInput = () => {
+    if (!recognitionRef.current) {
+      alert('Trình duyệt của bạn chưa hỗ trợ nhận diện giọng nói trực tiếp.');
+      return;
+    }
+
+    if (isListening) {
+      recognitionRef.current.stop();
+      setIsListening(false);
+    } else {
+      try {
+        recognitionRef.current.start();
+        setIsListening(true);
+      } catch {
+        setIsListening(false);
+      }
+    }
+  };
+
+  const speakText = (text) => {
+    if (!synthRef.current) return;
+    synthRef.current.cancel(); // Dừng câu trước nếu có
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'vi-VN';
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+
+    utterance.onstart = () => setIsSpeaking(true);
+    utterance.onend = () => setIsSpeaking(false);
+    utterance.onerror = () => setIsSpeaking(false);
+
+    synthRef.current.speak(utterance);
+  };
   
   // Tham chiếu đến phần tử cuối cùng để tự động cuộn xuống dưới
   const messagesEndRef = useRef(null);
@@ -43,7 +111,9 @@ const ChatbotWidget = () => {
       const response = await api.post('/chatbot/chat', { message: userText });
       
       // 3. Thêm câu trả lời của AI vào giao diện
-      setMessages(prev => [...prev, { sender: 'ai', text: response.data.reply }]);
+      const replyText = response.data.reply;
+      setMessages(prev => [...prev, { sender: 'ai', text: replyText }]);
+      speakText(replyText); // Tự động đọc câu trả lời bằng giọng nói chuẩn Studio Concierge
     } catch (error) {
       console.error("Lỗi khi gọi AI Chatbot:", error);
       // Xử lý thông báo lỗi cho người dùng
@@ -98,13 +168,22 @@ const ChatbotWidget = () => {
               className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div 
-                className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed shadow-sm ${
+                className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed shadow-sm relative group ${
                   msg.sender === 'user' 
                     ? 'bg-black text-white rounded-tr-sm' 
                     : 'bg-white border border-gray-100 text-gray-800 rounded-tl-sm'
                 }`}
               >
                 {msg.text}
+                {msg.sender === 'ai' && (
+                  <button
+                    onClick={() => speakText(msg.text)}
+                    className="absolute -right-7 top-2 text-zinc-400 hover:text-black transition-colors"
+                    title="Đọc bằng giọng nói"
+                  >
+                    <Volume2 size={15} />
+                  </button>
+                )}
               </div>
             </div>
           ))}
@@ -130,10 +209,22 @@ const ChatbotWidget = () => {
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Hỏi về thời trang..."
-              className="flex-1 bg-gray-50 border border-gray-200 rounded-full px-4 py-3 text-sm outline-none focus:border-black transition-colors"
+              placeholder={isListening ? "Đang lắng nghe giọng nói..." : "Hỏi về phối đồ, size, chất liệu..."}
+              className={`flex-1 bg-gray-50 border rounded-full px-4 py-3 text-sm outline-none transition-colors ${isListening ? 'border-amber-400 bg-amber-50/50' : 'border-gray-200 focus:border-black'}`}
               disabled={isLoading} // Vô hiệu hóa khi đang chờ AI trả lời
             />
+
+            {/* Nút Mic nhận diện giọng nói Voice Input */}
+            <button
+              type="button"
+              onClick={toggleVoiceInput}
+              disabled={isLoading}
+              className={`p-3 rounded-full transition-all ${isListening ? 'bg-rose-500 text-white animate-pulse' : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'}`}
+              title={isListening ? "Dừng ghi âm" : "Nói bằng giọng nói"}
+            >
+              {isListening ? <MicOff size={18} /> : <Mic size={18} />}
+            </button>
+
             <button
               type="submit"
               disabled={isLoading || !inputValue.trim()}

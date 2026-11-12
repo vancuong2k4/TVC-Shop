@@ -137,6 +137,10 @@ Route::get('/scent-profiler/catalog', [\App\Http\Controllers\Api\ScentProfilerCo
 Route::post('/scent-profiler/diagnose', [\App\Http\Controllers\Api\ScentProfilerController::class, 'diagnoseScent']);
 Route::post('/scent-profiler/sample-order', [\App\Http\Controllers\Api\ScentProfilerController::class, 'orderSampleSet']);
 
+// Virtual Eyewear & Haute Joaillerie AR Mirror Routes
+Route::get('/virtual-mirror/catalog', [\App\Http\Controllers\Api\VirtualMirrorController::class, 'getCatalog']);
+Route::post('/virtual-mirror/snapshot', [\App\Http\Controllers\Api\VirtualMirrorController::class, 'saveSnapshot']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

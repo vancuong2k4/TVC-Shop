@@ -149,6 +149,10 @@ Route::post('/jetsetter/packing-list', [\App\Http\Controllers\Api\JetsetterWeath
 Route::get('/ownership-transfer/assets', [\App\Http\Controllers\Api\OwnershipTransferController::class, 'getTransferableAssets']);
 Route::post('/ownership-transfer/execute', [\App\Http\Controllers\Api\OwnershipTransferController::class, 'executeTransfer']);
 
+// Atelier At-Home Fabric Swatch Box Delivery Routes
+Route::get('/swatch-box/catalog', [\App\Http\Controllers\Api\SwatchBoxController::class, 'getSwatchCatalog']);
+Route::post('/swatch-box/order', [\App\Http\Controllers\Api\SwatchBoxController::class, 'orderBox']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

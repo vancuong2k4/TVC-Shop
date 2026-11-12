@@ -141,6 +141,10 @@ Route::post('/scent-profiler/sample-order', [\App\Http\Controllers\Api\ScentProf
 Route::get('/virtual-mirror/catalog', [\App\Http\Controllers\Api\VirtualMirrorController::class, 'getCatalog']);
 Route::post('/virtual-mirror/snapshot', [\App\Http\Controllers\Api\VirtualMirrorController::class, 'saveSnapshot']);
 
+// Global Weather & Jetsetter Wardrobe Packing Routes
+Route::get('/jetsetter/destinations', [\App\Http\Controllers\Api\JetsetterWeatherController::class, 'getDestinations']);
+Route::post('/jetsetter/packing-list', [\App\Http\Controllers\Api\JetsetterWeatherController::class, 'generatePackingList']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

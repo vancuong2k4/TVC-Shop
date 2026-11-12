@@ -61,6 +61,7 @@ import AdminCoupons from './pages/admin/AdminCoupons';
 import AdminBlogs from './pages/admin/AdminBlogs';
 import AdminBanners from './pages/admin/AdminBanners';
 import AdminReviews from './pages/admin/AdminReviews';
+import AdminVipConcierge from './pages/admin/AdminVipConcierge';
 
 import AdminUsers from './pages/admin/AdminUsers';
 
@@ -124,6 +125,7 @@ function App() {
           <Route path="/admin/users" element={<AdminRoute><AdminLayout><AdminUsers /></AdminLayout></AdminRoute>} />
           <Route path="/admin/banners" element={<AdminRoute><AdminLayout><AdminBanners /></AdminLayout></AdminRoute>} />
           <Route path="/admin/reviews" element={<AdminRoute><AdminLayout><AdminReviews /></AdminLayout></AdminRoute>} />
+          <Route path="/admin/vip-concierge" element={<AdminRoute><AdminLayout><AdminVipConcierge /></AdminLayout></AdminRoute>} />
 
           <Route path="/auth/google/callback" element={<GoogleCallback />} />
         </Routes>

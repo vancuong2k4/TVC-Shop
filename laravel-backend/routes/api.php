@@ -246,5 +246,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/admin/reviews', [ReviewController::class, 'adminGetReviews']);
         Route::post('/admin/reviews/{id}/reply', [ReviewController::class, 'adminReplyReview']);
         Route::delete('/admin/reviews/{id}', [ReviewController::class, 'adminDeleteReview']);
+
+        // VIP Concierge & Private Salon Management Routes
+        Route::get('/admin/vip-concierge', [\App\Http\Controllers\Api\AdminVipConciergeController::class, 'getConciergeDashboard']);
+        Route::put('/admin/vip-concierge/appointments/{id}', [\App\Http\Controllers\Api\AdminVipConciergeController::class, 'updateAppointmentStatus']);
+        Route::post('/admin/vip-concierge/invitations', [\App\Http\Controllers\Api\AdminVipConciergeController::class, 'sendVipInvitation']);
     });
 });

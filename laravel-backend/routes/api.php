@@ -153,6 +153,10 @@ Route::post('/ownership-transfer/execute', [\App\Http\Controllers\Api\OwnershipT
 Route::get('/swatch-box/catalog', [\App\Http\Controllers\Api\SwatchBoxController::class, 'getSwatchCatalog']);
 Route::post('/swatch-box/order', [\App\Http\Controllers\Api\SwatchBoxController::class, 'orderBox']);
 
+// Haute Couture Runway Trend Forecaster & Atelier Cartography Routes
+Route::get('/runway-forecast/data', [\App\Http\Controllers\Api\RunwayForecastController::class, 'getForecastData']);
+Route::post('/runway-forecast/briefing', [\App\Http\Controllers\Api\RunwayForecastController::class, 'requestRunwayBriefing']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

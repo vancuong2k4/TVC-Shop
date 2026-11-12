@@ -140,6 +140,8 @@
 
 - **Hộp Thử Mẫu Vải Trực Tiếp Tại Gia (Atelier At-Home Fabric Swatch Box Delivery)**: Cung cấp API danh mục hộp mẫu vải di sản (`/swatch-box/catalog`), đơn đặt giao hộp sơn mài mini tận nhà (`/swatch-box/order`), trang Hộp mẫu vải (`/swatch-box`), gồm 6 mẫu vải thật 15x15cm (Cashmere Loro Piana, tơ tằm Mulberry Como, lanh Normandie), kính lúp 10x, găng tay lụa trắng và voucher hoàn tiền cọc 300.000₫.
 
+- **Dự Báo Xu Hướng Runway & Bản Đồ May Đo Toàn Cầu (Haute Couture Trend Forecaster & Tailoring Cartography)**: Cung cấp API dự báo thẩm mỹ các mùa diễn 2026-2027 và tọa độ 5 xưởng may đo di sản quốc tế (`/runway-forecast/data`), đăng ký giữ suất phác thảo trước sàn diễn (`/runway-forecast/briefing`), trang Dự báo Runway (`/runway-forecast`), tích hợp chỉ số vĩ mô Quiet Luxury (+42.5%), dự báo 4 bảng màu thống trị, và xếp hàng ưu tiên Tier 1 Early Access `FCAST-XXXXXXX`.
+
 ## 7. Tính năng tiếp theo (Roadmap)
-- Hệ Thống Dự Báo Xu Hướng Runway & Bản Đồ May Đo Toàn Cầu (Haute Couture Trend Forecaster & Tailoring Cartography).
 - Phòng Tiếp Đón Khách Hàng VIP Trực Tuyến 3D (3D Virtual Atelier Flagship Walkthrough).
+- Dịch Vụ Khắc Chữ Ký Nghệ Nhân & Thêu Chữ Thập Vàng 24K Cá Nhân Hóa (Bespoke 24K Gold Embroidery & Artisan Seal Sign-off).

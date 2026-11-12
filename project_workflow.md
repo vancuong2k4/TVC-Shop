@@ -136,6 +136,8 @@
 
 - **Bản Đồ Khí Tượng & Tủ Đồ Du Hành Jetsetter (Global Weather & Jetsetter Wardrobe Packing Engine)**: Cung cấp API khí tượng 5 thành phố thượng lưu (Paris, St. Moritz, Lake Como, Tokyo Ginza, Monaco) và bộ sưu tập Capsule may đo (`/jetsetter/destinations`), trình tạo kế hoạch xếp vali theo số ngày lưu trú (`/jetsetter/packing-list`), trang Jetsetter (`/jetsetter`) hiển thị nhiệt độ/độ ẩm/sức gió thời gian thực, cấp mã định danh `JET-XXXXXXX`, và dịch vụ quản gia gửi vali thẳng tới khách sạn 5 sao.
 
+- **Cổng Ký Thỏa Thuận Chuyển Nhượng Sở Hữu Trực Tuyến Độc Bản (Digital Provenance Deed of Transfer & Heritage Heirship)**: Cung cấp API tài sản di sản có thể chuyển giao (`/ownership-transfer/assets`), nghi thức công chứng chuyển nhượng quyền sở hữu sang chủ nhân mới (`/ownership-transfer/execute`), trang Chuyển nhượng (`/ownership-transfer`), tích hợp ký điện tử bất biến, khắc lời đề từ truyền đời và cấp mã văn tự mới `DEED-VN-XXXX` liên kết mã băm chuỗi khối.
+
 ## 7. Tính năng tiếp theo (Roadmap)
-- Cổng Ký Thỏa Thuận Chuyển Nhượng Sở Hữu Trực Tuyến Độc Bản (Digital Provenance Deed of Transfer & Heritage Heirship).
 - Phòng Thử Mẫu Vải Trực Tiếp Tại Gia (Atelier At-Home Fabric Swatch Box Delivery).
+- Hệ Thống Dự Báo Xu Hướng Runway & Bản Đồ May Đo Toàn Cầu (Haute Couture Trend Forecaster & Tailoring Cartography).

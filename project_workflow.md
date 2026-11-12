@@ -134,6 +134,8 @@
 
 - **Phòng Thử Kính Mát & Trang Sức Thực Tế Ảo (Virtual Eyewear & Haute Joaillerie AR Mirror)**: Cung cấp API phụ kiện điêu khắc (`/virtual-mirror/catalog`, `/virtual-mirror/snapshot`), studio gương AR (`/virtual-mirror`) cho phép bật camera trực tiếp hoặc dùng mẫu chân dung studio Atelier, tự động áp kính titanium/đồi mồi và vòng cổ kim cương/khuyên tai đá Obsidian lên phom mặt, chụp ảnh chân dung kèm lưu trữ mã định danh `SNAP-XXXXXXX`.
 
+- **Bản Đồ Khí Tượng & Tủ Đồ Du Hành Jetsetter (Global Weather & Jetsetter Wardrobe Packing Engine)**: Cung cấp API khí tượng 5 thành phố thượng lưu (Paris, St. Moritz, Lake Como, Tokyo Ginza, Monaco) và bộ sưu tập Capsule may đo (`/jetsetter/destinations`), trình tạo kế hoạch xếp vali theo số ngày lưu trú (`/jetsetter/packing-list`), trang Jetsetter (`/jetsetter`) hiển thị nhiệt độ/độ ẩm/sức gió thời gian thực, cấp mã định danh `JET-XXXXXXX`, và dịch vụ quản gia gửi vali thẳng tới khách sạn 5 sao.
+
 ## 7. Tính năng tiếp theo (Roadmap)
 - Cổng Ký Thỏa Thuận Chuyển Nhượng Sở Hữu Trực Tuyến Độc Bản (Digital Provenance Deed of Transfer & Heritage Heirship).
-- Bản Đồ Thời Tiết Toàn Cầu & Đề Xuất Phối Đồ Thông Minh (Global Weather & Jetsetter Wardrobe Packing Engine).
+- Phòng Thử Mẫu Vải Trực Tiếp Tại Gia (Atelier At-Home Fabric Swatch Box Delivery).

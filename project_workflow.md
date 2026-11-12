@@ -132,6 +132,8 @@
 
 - **Bản Đồ Mùi Hương & Định Vị Khứu Giác Cá Nhân Hóa (Digital Olfactory Scent Profiler & Fragrance Pairing)**: Cung cấp API danh mục 4 họ hương Haute Parfumerie (`/scent-profiler/catalog`), thuật toán định vị nốt hương theo xúc giác vải và khí chất (`/scent-profiler/diagnose`), studio khứu giác (`/scent-profiler`), cấp hộ chiếu hương thơm `SCENT-XXXXXXX`, và quy trình đặt bộ mẫu thử 3 ống 5ml (Discovery Set) trong hộp sơn mài mini kèm voucher hoàn tiền 100%.
 
+- **Phòng Thử Kính Mát & Trang Sức Thực Tế Ảo (Virtual Eyewear & Haute Joaillerie AR Mirror)**: Cung cấp API phụ kiện điêu khắc (`/virtual-mirror/catalog`, `/virtual-mirror/snapshot`), studio gương AR (`/virtual-mirror`) cho phép bật camera trực tiếp hoặc dùng mẫu chân dung studio Atelier, tự động áp kính titanium/đồi mồi và vòng cổ kim cương/khuyên tai đá Obsidian lên phom mặt, chụp ảnh chân dung kèm lưu trữ mã định danh `SNAP-XXXXXXX`.
+
 ## 7. Tính năng tiếp theo (Roadmap)
-- Phòng Thử Kính Mát & Phụ Kiện Kim Khí Thực Tế Ảo (Virtual Eyewear & Haute Joaillerie AR Mirror).
-- Cổng Ký Thỏa Thuận Chuyển Nhượng Sở Hữu Trực Tuyến Độc Bản (Digital Provenance Deed of Transfer).
+- Cổng Ký Thỏa Thuận Chuyển Nhượng Sở Hữu Trực Tuyến Độc Bản (Digital Provenance Deed of Transfer & Heritage Heirship).
+- Bản Đồ Thời Tiết Toàn Cầu & Đề Xuất Phối Đồ Thông Minh (Global Weather & Jetsetter Wardrobe Packing Engine).

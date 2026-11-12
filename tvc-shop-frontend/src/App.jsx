@@ -45,6 +45,7 @@ import ScentProfiler from './pages/ScentProfiler';
 import VirtualMirror from './pages/VirtualMirror';
 import JetsetterWardrobe from './pages/JetsetterWardrobe';
 import OwnershipTransfer from './pages/OwnershipTransfer';
+import SwatchBox from './pages/SwatchBox';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
 import LuckyWheelButton from './components/common/LuckyWheelButton';
@@ -107,6 +108,7 @@ function App() {
           <Route path="/virtual-mirror" element={<VirtualMirror />} />
           <Route path="/jetsetter" element={<JetsetterWardrobe />} />
           <Route path="/ownership-transfer" element={<OwnershipTransfer />} />
+          <Route path="/swatch-box" element={<SwatchBox />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

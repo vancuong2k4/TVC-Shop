@@ -89,6 +89,7 @@ const Navbar = () => {
           <Link to="/virtual-mirror" className="hover:text-cyan-400 transition-colors flex items-center gap-1">Gương AR <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span></Link>
           <Link to="/jetsetter" className="hover:text-amber-400 transition-colors flex items-center gap-1">Vali Jetsetter <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span></Link>
           <Link to="/ownership-transfer" className="hover:text-amber-300 transition-colors flex items-center gap-1">Chuyển Nhượng Di Sản <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span></Link>
+          <Link to="/swatch-box" className="hover:text-amber-200 transition-colors flex items-center gap-1">Hộp Vải Tại Gia <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span></Link>
           <Link to="/blog" className="hover:text-gray-500 transition-colors">Tạp chí</Link>
         </div>
 

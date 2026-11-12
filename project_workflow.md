@@ -138,6 +138,8 @@
 
 - **Cổng Ký Thỏa Thuận Chuyển Nhượng Sở Hữu Trực Tuyến Độc Bản (Digital Provenance Deed of Transfer & Heritage Heirship)**: Cung cấp API tài sản di sản có thể chuyển giao (`/ownership-transfer/assets`), nghi thức công chứng chuyển nhượng quyền sở hữu sang chủ nhân mới (`/ownership-transfer/execute`), trang Chuyển nhượng (`/ownership-transfer`), tích hợp ký điện tử bất biến, khắc lời đề từ truyền đời và cấp mã văn tự mới `DEED-VN-XXXX` liên kết mã băm chuỗi khối.
 
+- **Hộp Thử Mẫu Vải Trực Tiếp Tại Gia (Atelier At-Home Fabric Swatch Box Delivery)**: Cung cấp API danh mục hộp mẫu vải di sản (`/swatch-box/catalog`), đơn đặt giao hộp sơn mài mini tận nhà (`/swatch-box/order`), trang Hộp mẫu vải (`/swatch-box`), gồm 6 mẫu vải thật 15x15cm (Cashmere Loro Piana, tơ tằm Mulberry Como, lanh Normandie), kính lúp 10x, găng tay lụa trắng và voucher hoàn tiền cọc 300.000₫.
+
 ## 7. Tính năng tiếp theo (Roadmap)
-- Phòng Thử Mẫu Vải Trực Tiếp Tại Gia (Atelier At-Home Fabric Swatch Box Delivery).
 - Hệ Thống Dự Báo Xu Hướng Runway & Bản Đồ May Đo Toàn Cầu (Haute Couture Trend Forecaster & Tailoring Cartography).
+- Phòng Tiếp Đón Khách Hàng VIP Trực Tuyến 3D (3D Virtual Atelier Flagship Walkthrough).

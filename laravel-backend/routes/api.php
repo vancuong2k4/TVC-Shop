@@ -145,6 +145,10 @@ Route::post('/virtual-mirror/snapshot', [\App\Http\Controllers\Api\VirtualMirror
 Route::get('/jetsetter/destinations', [\App\Http\Controllers\Api\JetsetterWeatherController::class, 'getDestinations']);
 Route::post('/jetsetter/packing-list', [\App\Http\Controllers\Api\JetsetterWeatherController::class, 'generatePackingList']);
 
+// Digital Provenance Deed of Ownership Transfer Routes
+Route::get('/ownership-transfer/assets', [\App\Http\Controllers\Api\OwnershipTransferController::class, 'getTransferableAssets']);
+Route::post('/ownership-transfer/execute', [\App\Http\Controllers\Api\OwnershipTransferController::class, 'executeTransfer']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

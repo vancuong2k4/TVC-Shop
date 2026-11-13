@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, ShoppingBag, Package, Users, LogOut, Tag, FileText, Image as ImageIcon, Star, Crown } from 'lucide-react';
+import { LayoutDashboard, ShoppingBag, Package, Users, LogOut, Tag, FileText, Image as ImageIcon, Star, Crown, RefreshCw } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 const AdminLayout = ({ children }) => {
@@ -21,6 +21,7 @@ const AdminLayout = ({ children }) => {
     { name: 'Quản Lý Banner', path: '/admin/banners', icon: <ImageIcon size={20} /> },
     { name: 'Đánh Giá & Phản Hồi', path: '/admin/reviews', icon: <Star size={20} /> },
     { name: 'VIP Concierge & Salon', path: '/admin/vip-concierge', icon: <Crown size={20} /> },
+    { name: 'Thu Mua & Archive', path: '/admin/archival-appraisals', icon: <RefreshCw size={20} /> },
     { name: 'Tạp Chí (Blog)', path: '/admin/blogs', icon: <FileText size={20} /> },
     { name: 'Khách Hàng', path: '/admin/users', icon: <Users size={20} /> },
   ];

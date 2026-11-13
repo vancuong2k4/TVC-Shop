@@ -142,6 +142,7 @@
 
 - **Dự Báo Xu Hướng Runway & Bản Đồ May Đo Toàn Cầu (Haute Couture Trend Forecaster & Tailoring Cartography)**: Cung cấp API dự báo thẩm mỹ các mùa diễn 2026-2027 và tọa độ 5 xưởng may đo di sản quốc tế (`/runway-forecast/data`), đăng ký giữ suất phác thảo trước sàn diễn (`/runway-forecast/briefing`), trang Dự báo Runway (`/runway-forecast`), tích hợp chỉ số vĩ mô Quiet Luxury (+42.5%), dự báo 4 bảng màu thống trị, và xếp hàng ưu tiên Tier 1 Early Access `FCAST-XXXXXXX`.
 - **Cổng Quản Lý Khách Hàng VIP & Lịch Hẹn Private Salon (Admin VIP Client Concierge & Salon Portal)**: Phân hệ Admin chuyên biệt (`/admin/vip-concierge`) kết nối API `/admin/vip-concierge`, theo dõi tổng chi tiêu trọn đời của 84 hội viên thượng lưu (Diamond/Gold/Silver), điều phối nghệ nhân may đo, cập nhật trạng thái lịch hẹn 1-1 và phát hành thư mời đặc quyền kỹ thuật số (Front Row Runway, Secret Vault Release, Private Tea Tasting).
+- **Cổng Quản Lý Thẩm Định Thu Mua Tuần Hoàn & Đúc Hầm Kín (Admin Circular Buyback & Vault Minting Portal)**: Phân hệ Admin chuyên biệt (`/admin/archival-appraisals`) kết nối API `/admin/archival-appraisals`, theo dõi dòng vốn thu mua (380tr VNĐ), cập nhật phán quyết giám định vật lý của nghệ nhân (hấp khử khuẩn, đính lại khuy, dưỡng da mộc), và chức năng 1-chạm đúc trang phục phục chế hoàn hảo trực tiếp vào Hầm Lưu Trữ Kín (`VLT-ARCH-XXXXXX`).
 
 ## 7. Tính năng tiếp theo (Roadmap)
 - Phòng Tiếp Đón Khách Hàng VIP Trực Tuyến 3D (3D Virtual Atelier Flagship Walkthrough).

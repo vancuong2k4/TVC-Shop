@@ -251,5 +251,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/admin/vip-concierge', [\App\Http\Controllers\Api\AdminVipConciergeController::class, 'getConciergeDashboard']);
         Route::put('/admin/vip-concierge/appointments/{id}', [\App\Http\Controllers\Api\AdminVipConciergeController::class, 'updateAppointmentStatus']);
         Route::post('/admin/vip-concierge/invitations', [\App\Http\Controllers\Api\AdminVipConciergeController::class, 'sendVipInvitation']);
+
+        // Circular Buyback Appraisal & Archival Resell Management Routes
+        Route::get('/admin/archival-appraisals', [\App\Http\Controllers\Api\AdminArchivalAppraisalController::class, 'getAppraisalDossiers']);
+        Route::put('/admin/archival-appraisals/{ticketCode}', [\App\Http\Controllers\Api\AdminArchivalAppraisalController::class, 'updateAppraisalVerdict']);
+        Route::post('/admin/archival-appraisals/{ticketCode}/mint-vault', [\App\Http\Controllers\Api\AdminArchivalAppraisalController::class, 'mintToSecretVault']);
     });
 });

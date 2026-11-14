@@ -144,6 +144,8 @@
 - **Cổng Quản Lý Khách Hàng VIP & Lịch Hẹn Private Salon (Admin VIP Client Concierge & Salon Portal)**: Phân hệ Admin chuyên biệt (`/admin/vip-concierge`) kết nối API `/admin/vip-concierge`, theo dõi tổng chi tiêu trọn đời của 84 hội viên thượng lưu (Diamond/Gold/Silver), điều phối nghệ nhân may đo, cập nhật trạng thái lịch hẹn 1-1 và phát hành thư mời đặc quyền kỹ thuật số (Front Row Runway, Secret Vault Release, Private Tea Tasting).
 - **Cổng Quản Lý Thẩm Định Thu Mua Tuần Hoàn & Đúc Hầm Kín (Admin Circular Buyback & Vault Minting Portal)**: Phân hệ Admin chuyên biệt (`/admin/archival-appraisals`) kết nối API `/admin/archival-appraisals`, theo dõi dòng vốn thu mua (380tr VNĐ), cập nhật phán quyết giám định vật lý của nghệ nhân (hấp khử khuẩn, đính lại khuy, dưỡng da mộc), và chức năng 1-chạm đúc trang phục phục chế hoàn hảo trực tiếp vào Hầm Lưu Trữ Kín (`VLT-ARCH-XXXXXX`).
 
+- **Không Gian Trải Nghiệm 3D Flagship & Đặt Lịch Tour 1-1 (3D Virtual Flagship Walkthrough & Concierge Tour)**: Cung cấp API không gian toàn cảnh 3D và điểm tương tác Hotspot (`/virtual-flagship/spaces`), đặt lịch tour ảo 1-1 cùng Trưởng Quản Gia (`/virtual-flagship/walkthrough`), trang 3D Flagship (`/virtual-flagship`), cho phép du ngoạn 3 căn phòng di sản (Sảnh Vòm Nero Marquina, Phòng Thử VIP Suite, Hầm Lưu Trữ Kín chống đạn), âm thanh thính phòng sống động và dẫn truyền trực tiếp vào các tính năng sâu.
+
 ## 7. Tính năng tiếp theo (Roadmap)
-- Phòng Tiếp Đón Khách Hàng VIP Trực Tuyến 3D (3D Virtual Atelier Flagship Walkthrough).
 - Dịch Vụ Khắc Chữ Ký Nghệ Nhân & Thêu Chữ Thập Vàng 24K Cá Nhân Hóa (Bespoke 24K Gold Embroidery & Artisan Seal Sign-off).
+- Trình Mô Phỏng Khấu Hao & Đầu Tư Giá Trị May Đo Thượng Hạng (Luxury Garment Cost-Per-Wear & Investment Calculator).

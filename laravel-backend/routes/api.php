@@ -157,6 +157,10 @@ Route::post('/swatch-box/order', [\App\Http\Controllers\Api\SwatchBoxController:
 Route::get('/runway-forecast/data', [\App\Http\Controllers\Api\RunwayForecastController::class, 'getForecastData']);
 Route::post('/runway-forecast/briefing', [\App\Http\Controllers\Api\RunwayForecastController::class, 'requestRunwayBriefing']);
 
+// 3D Virtual Atelier Flagship Walkthrough Routes
+Route::get('/virtual-flagship/spaces', [\App\Http\Controllers\Api\VirtualFlagshipController::class, 'getFlagshipSpaces']);
+Route::post('/virtual-flagship/walkthrough', [\App\Http\Controllers\Api\VirtualFlagshipController::class, 'requestWalkthrough']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

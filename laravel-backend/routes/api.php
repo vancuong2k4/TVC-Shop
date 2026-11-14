@@ -268,5 +268,9 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/admin/archival-appraisals', [\App\Http\Controllers\Api\AdminArchivalAppraisalController::class, 'getAppraisalDossiers']);
         Route::put('/admin/archival-appraisals/{ticketCode}', [\App\Http\Controllers\Api\AdminArchivalAppraisalController::class, 'updateAppraisalVerdict']);
         Route::post('/admin/archival-appraisals/{ticketCode}/mint-vault', [\App\Http\Controllers\Api\AdminArchivalAppraisalController::class, 'mintToSecretVault']);
+
+        // Admin Bespoke Production & Artisan Assignment Kanban Routes
+        Route::get('/admin/bespoke-kanban', [\App\Http\Controllers\Api\AdminBespokeKanbanController::class, 'getKanbanBoard']);
+        Route::put('/admin/bespoke-kanban/commissions/{id}', [\App\Http\Controllers\Api\AdminBespokeKanbanController::class, 'updateCommissionStage']);
     });
 });

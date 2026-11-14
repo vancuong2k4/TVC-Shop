@@ -145,7 +145,8 @@
 - **Cổng Quản Lý Thẩm Định Thu Mua Tuần Hoàn & Đúc Hầm Kín (Admin Circular Buyback & Vault Minting Portal)**: Phân hệ Admin chuyên biệt (`/admin/archival-appraisals`) kết nối API `/admin/archival-appraisals`, theo dõi dòng vốn thu mua (380tr VNĐ), cập nhật phán quyết giám định vật lý của nghệ nhân (hấp khử khuẩn, đính lại khuy, dưỡng da mộc), và chức năng 1-chạm đúc trang phục phục chế hoàn hảo trực tiếp vào Hầm Lưu Trữ Kín (`VLT-ARCH-XXXXXX`).
 
 - **Không Gian Trải Nghiệm 3D Flagship & Đặt Lịch Tour 1-1 (3D Virtual Flagship Walkthrough & Concierge Tour)**: Cung cấp API không gian toàn cảnh 3D và điểm tương tác Hotspot (`/virtual-flagship/spaces`), đặt lịch tour ảo 1-1 cùng Trưởng Quản Gia (`/virtual-flagship/walkthrough`), trang 3D Flagship (`/virtual-flagship`), cho phép du ngoạn 3 căn phòng di sản (Sảnh Vòm Nero Marquina, Phòng Thử VIP Suite, Hầm Lưu Trữ Kín chống đạn), âm thanh thính phòng sống động và dẫn truyền trực tiếp vào các tính năng sâu.
+- **Dịch Vụ Khắc Chữ Ký Nghệ Nhân & Thêu Chỉ Vàng 24K Cá Nhân Hóa (Bespoke 24K Gold Embroidery & Artisan Seal Sign-off)**: Cung cấp API danh mục sợi kim loại quý hiếm (`/bespoke-embroidery/catalog`, `/bespoke-embroidery/order`), trang studio thêu (`/gold-embroidery`), trình mô phỏng sợi dệt quang học thời gian thực, 4 phong cách phông chữ couture, 4 vị trí giải phẫu trang phục (lót túi ngực, măng sét, ve áo melton, gấu áo), dấu triện hoàng gia và cấp hồ sơ ủy thác nghệ nhân trưởng `BESPOKE-EMB-XXXXXX`.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Dịch Vụ Khắc Chữ Ký Nghệ Nhân & Thêu Chữ Thập Vàng 24K Cá Nhân Hóa (Bespoke 24K Gold Embroidery & Artisan Seal Sign-off).
 - Trình Mô Phỏng Khấu Hao & Đầu Tư Giá Trị May Đo Thượng Hạng (Luxury Garment Cost-Per-Wear & Investment Calculator).
+- Bảng Điều Khiển Tiến Độ Sản Xuất May Đo Bespoke Phân Hệ Admin (Admin Bespoke Production & Artisan Assignment Kanban).

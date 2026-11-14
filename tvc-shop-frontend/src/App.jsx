@@ -48,6 +48,7 @@ import OwnershipTransfer from './pages/OwnershipTransfer';
 import SwatchBox from './pages/SwatchBox';
 import RunwayForecast from './pages/RunwayForecast';
 import VirtualFlagship from './pages/VirtualFlagship';
+import GoldEmbroidery from './pages/GoldEmbroidery';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
 import LuckyWheelButton from './components/common/LuckyWheelButton';
@@ -115,6 +116,7 @@ function App() {
           <Route path="/swatch-box" element={<SwatchBox />} />
           <Route path="/runway-forecast" element={<RunwayForecast />} />
           <Route path="/virtual-flagship" element={<VirtualFlagship />} />
+          <Route path="/gold-embroidery" element={<GoldEmbroidery />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

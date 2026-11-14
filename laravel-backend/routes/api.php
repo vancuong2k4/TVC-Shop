@@ -161,6 +161,10 @@ Route::post('/runway-forecast/briefing', [\App\Http\Controllers\Api\RunwayForeca
 Route::get('/virtual-flagship/spaces', [\App\Http\Controllers\Api\VirtualFlagshipController::class, 'getFlagshipSpaces']);
 Route::post('/virtual-flagship/walkthrough', [\App\Http\Controllers\Api\VirtualFlagshipController::class, 'requestWalkthrough']);
 
+// Bespoke 24K Gold Embroidery & Artisan Monogramming Routes
+Route::get('/bespoke-embroidery/catalog', [\App\Http\Controllers\Api\GoldEmbroideryController::class, 'getCatalog']);
+Route::post('/bespoke-embroidery/order', [\App\Http\Controllers\Api\GoldEmbroideryController::class, 'submitOrder']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

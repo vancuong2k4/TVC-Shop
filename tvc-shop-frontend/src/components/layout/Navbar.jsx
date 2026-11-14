@@ -93,6 +93,7 @@ const Navbar = () => {
           <Link to="/runway-forecast" className="hover:text-cyan-300 transition-colors flex items-center gap-1">Dự Báo Runway <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span></Link>
           <Link to="/virtual-flagship" className="hover:text-amber-400 transition-colors flex items-center gap-1">Flagship 3D <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span></Link>
           <Link to="/gold-embroidery" className="hover:text-amber-300 transition-colors flex items-center gap-1">Thêu Chỉ Vàng 24K <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span></Link>
+          <Link to="/investment-calculator" className="hover:text-emerald-400 transition-colors flex items-center gap-1">Tính Khấu Hao <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span></Link>
           <Link to="/blog" className="hover:text-gray-500 transition-colors">Tạp chí</Link>
         </div>
 

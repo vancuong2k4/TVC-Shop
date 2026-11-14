@@ -165,6 +165,10 @@ Route::post('/virtual-flagship/walkthrough', [\App\Http\Controllers\Api\VirtualF
 Route::get('/bespoke-embroidery/catalog', [\App\Http\Controllers\Api\GoldEmbroideryController::class, 'getCatalog']);
 Route::post('/bespoke-embroidery/order', [\App\Http\Controllers\Api\GoldEmbroideryController::class, 'submitOrder']);
 
+// Luxury Garment Cost-Per-Wear & Investment Calculator Routes
+Route::get('/investment-calc/benchmarks', [\App\Http\Controllers\Api\CostPerWearController::class, 'getBenchmarks']);
+Route::post('/investment-calc/simulate', [\App\Http\Controllers\Api\CostPerWearController::class, 'simulate']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

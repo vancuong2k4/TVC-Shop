@@ -146,7 +146,8 @@
 
 - **Không Gian Trải Nghiệm 3D Flagship & Đặt Lịch Tour 1-1 (3D Virtual Flagship Walkthrough & Concierge Tour)**: Cung cấp API không gian toàn cảnh 3D và điểm tương tác Hotspot (`/virtual-flagship/spaces`), đặt lịch tour ảo 1-1 cùng Trưởng Quản Gia (`/virtual-flagship/walkthrough`), trang 3D Flagship (`/virtual-flagship`), cho phép du ngoạn 3 căn phòng di sản (Sảnh Vòm Nero Marquina, Phòng Thử VIP Suite, Hầm Lưu Trữ Kín chống đạn), âm thanh thính phòng sống động và dẫn truyền trực tiếp vào các tính năng sâu.
 - **Dịch Vụ Khắc Chữ Ký Nghệ Nhân & Thêu Chỉ Vàng 24K Cá Nhân Hóa (Bespoke 24K Gold Embroidery & Artisan Seal Sign-off)**: Cung cấp API danh mục sợi kim loại quý hiếm (`/bespoke-embroidery/catalog`, `/bespoke-embroidery/order`), trang studio thêu (`/gold-embroidery`), trình mô phỏng sợi dệt quang học thời gian thực, 4 phong cách phông chữ couture, 4 vị trí giải phẫu trang phục (lót túi ngực, măng sét, ve áo melton, gấu áo), dấu triện hoàng gia và cấp hồ sơ ủy thác nghệ nhân trưởng `BESPOKE-EMB-XXXXXX`.
+- **Trình Mô Phỏng Khấu Hao & Đầu Tư Giá Trị May Đo Thượng Hạng (Luxury Garment Cost-Per-Wear & Investment Calculator)**: Cung cấp API tiêu chuẩn khấu hao (`/investment-calc/benchmarks`, `/investment-calc/simulate`), trang tính khấu hao (`/investment-calculator`), 4 sản phẩm nguyên mẫu (Cashmere Coat, Wool Trench Blazer, Silk Crepe Shirt, Tuscan Leather Bag), biểu đồ khấu hao đa năm, bảng so sánh lãng phí thời trang nhanh và xuất kế hoạch luân chuyển trang phục `WearScheduleModal`.
 
 ## 7. Tính năng tiếp theo (Roadmap)
-- Trình Mô Phỏng Khấu Hao & Đầu Tư Giá Trị May Đo Thượng Hạng (Luxury Garment Cost-Per-Wear & Investment Calculator).
 - Bảng Điều Khiển Tiến Độ Sản Xuất May Đo Bespoke Phân Hệ Admin (Admin Bespoke Production & Artisan Assignment Kanban).
+- Sổ Tay Trực Quan Hóa Tác Vụ Giặt Hấp Thượng Hạng & Bàn Giao Quản Gia (Atelier Valet & Haute Laundry Care Handbook).

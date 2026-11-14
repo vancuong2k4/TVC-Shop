@@ -66,6 +66,7 @@ import AdminBanners from './pages/admin/AdminBanners';
 import AdminReviews from './pages/admin/AdminReviews';
 import AdminVipConcierge from './pages/admin/AdminVipConcierge';
 import AdminArchivalAppraisals from './pages/admin/AdminArchivalAppraisals';
+import AdminBespokeKanban from './pages/admin/AdminBespokeKanban';
 
 import AdminUsers from './pages/admin/AdminUsers';
 
@@ -134,6 +135,7 @@ function App() {
           <Route path="/admin/reviews" element={<AdminRoute><AdminLayout><AdminReviews /></AdminLayout></AdminRoute>} />
           <Route path="/admin/vip-concierge" element={<AdminRoute><AdminLayout><AdminVipConcierge /></AdminLayout></AdminRoute>} />
           <Route path="/admin/archival-appraisals" element={<AdminRoute><AdminLayout><AdminArchivalAppraisals /></AdminLayout></AdminRoute>} />
+          <Route path="/admin/bespoke-kanban" element={<AdminRoute><AdminLayout><AdminBespokeKanban /></AdminLayout></AdminRoute>} />
 
           <Route path="/auth/google/callback" element={<GoogleCallback />} />
         </Routes>

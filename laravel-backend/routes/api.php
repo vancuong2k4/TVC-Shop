@@ -169,6 +169,10 @@ Route::post('/bespoke-embroidery/order', [\App\Http\Controllers\Api\GoldEmbroide
 Route::get('/investment-calc/benchmarks', [\App\Http\Controllers\Api\CostPerWearController::class, 'getBenchmarks']);
 Route::post('/investment-calc/simulate', [\App\Http\Controllers\Api\CostPerWearController::class, 'simulate']);
 
+// Atelier Valet & Haute Laundry Care Handbook Routes
+Route::get('/valet-handbook/protocols', [\App\Http\Controllers\Api\ValetHandbookController::class, 'getCareHandbook']);
+Route::post('/valet-handbook/dispatch', [\App\Http\Controllers\Api\ValetHandbookController::class, 'requestValetService']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

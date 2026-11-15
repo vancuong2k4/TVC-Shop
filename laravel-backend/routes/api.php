@@ -173,6 +173,10 @@ Route::post('/investment-calc/simulate', [\App\Http\Controllers\Api\CostPerWearC
 Route::get('/valet-handbook/protocols', [\App\Http\Controllers\Api\ValetHandbookController::class, 'getCareHandbook']);
 Route::post('/valet-handbook/dispatch', [\App\Http\Controllers\Api\ValetHandbookController::class, 'requestValetService']);
 
+// Atelier Microclimate & IoT Humidity Wardrobe Tracker Routes
+Route::get('/wardrobe-tracker/telemetry', [\App\Http\Controllers\Api\WardrobeTrackerController::class, 'getWardrobeTelemetry']);
+Route::post('/wardrobe-tracker/calibrate', [\App\Http\Controllers\Api\WardrobeTrackerController::class, 'calibrateWardrobe']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

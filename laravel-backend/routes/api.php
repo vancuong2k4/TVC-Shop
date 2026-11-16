@@ -193,6 +193,10 @@ Route::post('/pattern-export/generate', [\App\Http\Controllers\Api\PatternExport
 Route::get('/sealed-auction/catalog', [\App\Http\Controllers\Api\SealedAuctionController::class, 'getAuctionCatalog']);
 Route::post('/sealed-auction/bid', [\App\Http\Controllers\Api\SealedAuctionController::class, 'submitSealedBid']);
 
+// Private Aviation Concierge & Runway Transit Routes
+Route::get('/aviation-concierge/hubs', [\App\Http\Controllers\Api\AviationConciergeController::class, 'getAviationHubs']);
+Route::post('/aviation-concierge/transit', [\App\Http\Controllers\Api\AviationConciergeController::class, 'requestAviationTransit']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

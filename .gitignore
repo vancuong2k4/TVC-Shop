@@ -1,2 +1,38 @@
+# Dependencies & Builds
+node_modules/
+dist/
+build/
+.output/
 
+# Environment Variables & Secrets
+.env
+.env.backup
+.env.production
+.env.local
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Agentic AI & Workflow Internal Frameworks (Hidden from Remote Repository)
+.agents/
 .history/
+.gemini/
+.claude/
+.cursor/
+.windsurf/
+.copilot/
+project_workflow.md
+*.agent
+*.prompt
+*.prompt.md

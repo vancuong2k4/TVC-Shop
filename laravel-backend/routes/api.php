@@ -177,6 +177,10 @@ Route::post('/valet-handbook/dispatch', [\App\Http\Controllers\Api\ValetHandbook
 Route::get('/wardrobe-tracker/telemetry', [\App\Http\Controllers\Api\WardrobeTrackerController::class, 'getWardrobeTelemetry']);
 Route::post('/wardrobe-tracker/calibrate', [\App\Http\Controllers\Api\WardrobeTrackerController::class, 'calibrateWardrobe']);
 
+// Haute Horlogerie Hardware Engraving & Serial Stamping Routes
+Route::get('/hardware-engraving/catalog', [\App\Http\Controllers\Api\HardwareEngravingController::class, 'getHardwareCatalog']);
+Route::post('/hardware-engraving/commission', [\App\Http\Controllers\Api\HardwareEngravingController::class, 'submitEngraving']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

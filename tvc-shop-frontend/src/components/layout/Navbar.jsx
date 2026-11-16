@@ -100,6 +100,7 @@ const Navbar = () => {
           <Link to="/crystal-lighting" className="hover:text-amber-300 transition-colors flex items-center gap-1">Mô Phỏng Pha Lê <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span></Link>
           <Link to="/pattern-export" className="hover:text-cyan-400 transition-colors flex items-center gap-1">Rập May Đo 3D CAD <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span></Link>
           <Link to="/sealed-auction" className="hover:text-amber-400 transition-colors flex items-center gap-1">Đấu Giá Kín VIP <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span></Link>
+          <Link to="/aviation-concierge" className="hover:text-cyan-400 transition-colors flex items-center gap-1">Chuyên Cơ VIP <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span></Link>
           <Link to="/blog" className="hover:text-gray-500 transition-colors">Tạp chí</Link>
         </div>
 

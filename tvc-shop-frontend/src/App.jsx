@@ -56,6 +56,7 @@ import HardwareEngraving from './pages/HardwareEngraving';
 import CrystalLighting from './pages/CrystalLighting';
 import PatternExport from './pages/PatternExport';
 import SealedAuction from './pages/SealedAuction';
+import AviationConcierge from './pages/AviationConcierge';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
 import LuckyWheelButton from './components/common/LuckyWheelButton';
@@ -132,6 +133,7 @@ function App() {
           <Route path="/crystal-lighting" element={<CrystalLighting />} />
           <Route path="/pattern-export" element={<PatternExport />} />
           <Route path="/sealed-auction" element={<SealedAuction />} />
+          <Route path="/aviation-concierge" element={<AviationConcierge />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

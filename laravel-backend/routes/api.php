@@ -185,6 +185,10 @@ Route::post('/hardware-engraving/commission', [\App\Http\Controllers\Api\Hardwar
 Route::get('/crystal-lighting/config', [\App\Http\Controllers\Api\CrystalLightingController::class, 'getCrystalStudioConfig']);
 Route::post('/crystal-lighting/book', [\App\Http\Controllers\Api\CrystalLightingController::class, 'bookLightingFitting']);
 
+// Bespoke Architectural Pattern Export Engine Routes
+Route::get('/pattern-export/schema', [\App\Http\Controllers\Api\PatternExportController::class, 'getDraftingSchema']);
+Route::post('/pattern-export/generate', [\App\Http\Controllers\Api\PatternExportController::class, 'generateCustomPattern']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

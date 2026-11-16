@@ -53,6 +53,7 @@ import InvestmentCalculator from './pages/InvestmentCalculator';
 import ValetHandbook from './pages/ValetHandbook';
 import WardrobeTracker from './pages/WardrobeTracker';
 import HardwareEngraving from './pages/HardwareEngraving';
+import CrystalLighting from './pages/CrystalLighting';
 import ChatbotWidget from './components/chatbot/ChatbotWidget';
 import SocialProofPopup from './components/common/SocialProofPopup';
 import LuckyWheelButton from './components/common/LuckyWheelButton';
@@ -126,6 +127,7 @@ function App() {
           <Route path="/valet-handbook" element={<ValetHandbook />} />
           <Route path="/wardrobe-tracker" element={<WardrobeTracker />} />
           <Route path="/hardware-engraving" element={<HardwareEngraving />} />
+          <Route path="/crystal-lighting" element={<CrystalLighting />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />

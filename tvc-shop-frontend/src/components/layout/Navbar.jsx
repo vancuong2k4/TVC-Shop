@@ -97,6 +97,7 @@ const Navbar = () => {
           <Link to="/valet-handbook" className="hover:text-amber-300 transition-colors flex items-center gap-1">Sổ Tay Quản Gia <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span></Link>
           <Link to="/wardrobe-tracker" className="hover:text-cyan-400 transition-colors flex items-center gap-1">IoT Tủ Đồ Di Sản <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span></Link>
           <Link to="/hardware-engraving" className="hover:text-cyan-300 transition-colors flex items-center gap-1">Khắc Kim Khí Laser <span className="w-1.5 h-1.5 rounded-full bg-cyan-300 animate-pulse"></span></Link>
+          <Link to="/crystal-lighting" className="hover:text-amber-300 transition-colors flex items-center gap-1">Mô Phỏng Pha Lê <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span></Link>
           <Link to="/blog" className="hover:text-gray-500 transition-colors">Tạp chí</Link>
         </div>
 

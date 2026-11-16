@@ -189,6 +189,10 @@ Route::post('/crystal-lighting/book', [\App\Http\Controllers\Api\CrystalLighting
 Route::get('/pattern-export/schema', [\App\Http\Controllers\Api\PatternExportController::class, 'getDraftingSchema']);
 Route::post('/pattern-export/generate', [\App\Http\Controllers\Api\PatternExportController::class, 'generateCustomPattern']);
 
+// Archival Sealed-Bid Luxury Auction Room Routes
+Route::get('/sealed-auction/catalog', [\App\Http\Controllers\Api\SealedAuctionController::class, 'getAuctionCatalog']);
+Route::post('/sealed-auction/bid', [\App\Http\Controllers\Api\SealedAuctionController::class, 'submitSealedBid']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 

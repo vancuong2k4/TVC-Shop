@@ -181,6 +181,10 @@ Route::post('/wardrobe-tracker/calibrate', [\App\Http\Controllers\Api\WardrobeTr
 Route::get('/hardware-engraving/catalog', [\App\Http\Controllers\Api\HardwareEngravingController::class, 'getHardwareCatalog']);
 Route::post('/hardware-engraving/commission', [\App\Http\Controllers\Api\HardwareEngravingController::class, 'submitEngraving']);
 
+// Haute Couture Crystal Lighting Simulator Routes
+Route::get('/crystal-lighting/config', [\App\Http\Controllers\Api\CrystalLightingController::class, 'getCrystalStudioConfig']);
+Route::post('/crystal-lighting/book', [\App\Http\Controllers\Api\CrystalLightingController::class, 'bookLightingFitting']);
+
 // Payment Callbacks
 Route::get('/payment/vnpay/callback', [PaymentController::class, 'vnpayCallback']);
 
